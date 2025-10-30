@@ -1,1 +1,1 @@
-# Team52-Nova52
+# Nova52 Team Project
