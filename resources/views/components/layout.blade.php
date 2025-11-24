@@ -23,8 +23,8 @@
             <button class="btn btn-ghost">Wish List</button>
         </div>
         <div class="navbar-end">
-            <button class="btn btn-ghost">Cart</button>
-            <button class="btn btn-ghost"><img src="{{ URL::to('/') }}/profile-picture.svg" alt="Picture for account" class="size-[1.2em]"></button>
+            <button class="btn btn-ghost"><img src="{{ URL::to('/') }}/cart.svg" alt="Picture of a shopping cart" class="size-10"></button>
+            <button class="btn btn-ghost"><img src="{{ URL::to('/') }}/profile-picture.svg" alt="Picture for account" class="size-10"></button>
         </div>
     </nav>
     <main class="flex-1 container mx-auto px-4 py-8">
