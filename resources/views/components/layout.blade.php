@@ -10,8 +10,16 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="flex">
-    <main>
+<body class="flex flex-col ">
+    <nav class="navbar bg-black text-white">
+        <div class="navbar-start">
+            <a class="btn btn-ghost text-xl" href="/">Nova-52</a>
+        </div>
+        <div class="navbar-center">
+            <button class="btn btn-ghost">Products</button>
+        </div>
+    </nav>
+    <main class="flex-1 container mx-auto px-4 py-8">
         {{$slot}}
     </main>
 </body>
