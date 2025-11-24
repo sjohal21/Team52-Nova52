@@ -22,6 +22,10 @@
             <button class="btn btn-ghost">Contact</button>
             <button class="btn btn-ghost">Wish List</button>
         </div>
+        <div class="navbar-end">
+            <button class="btn btn-ghost">Cart</button>
+            <button class="btn btn-ghost">Account</button>
+        </div>
     </nav>
     <main class="flex-1 container mx-auto px-4 py-8">
         {{$slot}}
