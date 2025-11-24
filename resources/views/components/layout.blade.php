@@ -16,7 +16,11 @@
             <a class="btn btn-ghost text-xl" href="/">Nova-52</a>
         </div>
         <div class="navbar-center">
+            <button class="btn btn-ghost">Home</button>
             <button class="btn btn-ghost">Products</button>
+            <button class="btn btn-ghost">About Us</button>
+            <button class="btn btn-ghost">Contact</button>
+            <button class="btn btn-ghost">Wish List</button>
         </div>
     </nav>
     <main class="flex-1 container mx-auto px-4 py-8">
