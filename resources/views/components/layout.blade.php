@@ -51,5 +51,12 @@
             <a class="link link-hover">Privacy policy</a>
             <a class="link link-hover">Terms & Conditions</a>
         </nav>
+        <nav>
+            <h4 class="font-bold">Follow us</h4>
+            <div class="grid grid-flow-col gap-4">
+                <a class="link link-hover">Social1</a>
+                <a class="link link-hover">Social2</a>
+            </div>
+        </nav>
     </footer>
 </body>
