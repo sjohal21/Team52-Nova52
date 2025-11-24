@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('basketitems', function (Blueprint $table) {
             $table->id();
+            $table->integer('basket_id');
+            $table->foreign('basket_id')->references('id')->on('baskets');
+            $table->integer('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('amount');
             $table->timestamps();
         });
     }
