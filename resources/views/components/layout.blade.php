@@ -15,7 +15,7 @@
             <a class="btn btn-ghost">Home</a>
             <a class="btn btn-ghost">Products</a>
             <a class="btn btn-ghost">About Us</a>
-            <a class="btn btn-ghost">Contact</a>
+            <a class="btn btn-ghost" href="{{URL::to('/contact')}}">Contact</a>
             <a class="btn btn-ghost">Wish List</a>
         </div>
         <div class="navbar-end">
@@ -36,7 +36,7 @@
             <a class="link link-hover">Home</a>
             <a class="link link-hover">Products</a>
             <a class="link link-hover">About us</a>
-            <a class="link link-hover">Contact</a>
+            <a class="link link-hover" href="{{URL::to('/contact')}}">Contact</a>
             <a class="link link-hover">Wish list</a>
             <a class="link link-hover">Admin log in</a>
         </nav>
