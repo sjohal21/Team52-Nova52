@@ -6,4 +6,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/register', [RegisterController::class, 'create']);
+//Sign Up Routes
+Route::get('/register', [RegisterController::class,'show'])->name('register');
+Route::get('/register', [RegisterController::class,'register'])->name('register.submit');
