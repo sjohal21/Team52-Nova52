@@ -8,8 +8,8 @@ Route::get('/', function () {
 
 //Sign Up Routes
 Route::get('/register', [RegisterController::class,'show'])
-->middleware('guest'); //makes sure only unauthenticated users go to this page
+->middleware('guest') //makes sure only unauthenticated users go to this page
 ->name('register');
 Route::get('/register', [RegisterController::class,'register'])
-->middleware('guest');
+->middleware('guest')
 ->name('register.submit');

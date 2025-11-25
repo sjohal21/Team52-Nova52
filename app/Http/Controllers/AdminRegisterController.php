@@ -1,16 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+use Illuminate\Http\Request;
+
+class AdminRegisterController extends Controller
 {
-    public function show() {
-        return view('auth.register');
+     public function show() {
+        return view('auth.admin-register');
     }
 
     public function register(Request $request) {
@@ -31,13 +28,13 @@ class RegisterController extends Controller
         'password' => Hash::make($request->password), //Hashes the password so its safely stored
         'phone_number' => $request->password,
         'address' => $request->address,
-        'role' => 'customer'  //sets the current user to a customer by default
+        'role' => 'admin'  //sets the current user to an admin by default
         ]);
          
         //Logs in the new user automatically 
-        Auth::login($user);
+        Auth::login($user)
 
-        //redirects user to the home page 
-        return redirect('/')->with('success','Welcome to Nova52');
+        //redirects user to the admininstrator dashboard 
+        return redirect('/')->with('success','Welcome to Nova52 Administrator');
     }
 }
