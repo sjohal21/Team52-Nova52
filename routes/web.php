@@ -6,4 +6,4 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route:: view('/register', 'auth.register');
+Route::get('/register', [RegisterController::class, 'create']);
