@@ -15,5 +15,16 @@ Route::get('/register', [RegisterController::class,'show'])
 Route::get('/register', [RegisterController::class,'register'])
 ->middleware('guest')
 ->name('register.submit');
-//LogIn Routes
+//LogIn/Out Routes
+//==============================================================================================
+Route::get('/login', [LoginController::class,'show'])
+->middleware('guest')
+->name('login');
 
+Route::post('/login', [LoginController::class,'login'])
+->middleware('guest');
+->name('login.submit');
+
+Route::post('/logout', [LoginController::class,'logout'])
+->middleware('auth')
+->name('logout');
