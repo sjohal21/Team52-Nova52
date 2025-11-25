@@ -15,7 +15,7 @@ class RegisterController extends Controller
 
     public function register(Request $request) {
 
-        //Handles the actual validation of the incoming form data
+        //Validates incoming form data
         $request->validate([
          'name' => 'required|string|max:255', 
          'email' => 'required|email|unique:users', //unique:users checks that the email isnt already in the database
@@ -24,7 +24,7 @@ class RegisterController extends Controller
          'address' => 'nullable|string',  //nullable allows the value to be empty when registering
         ]);
 
-        //Handles the creation of the user into our database
+        //Creates user and enters into database
         $user = user::create([
         'name' => $request->name,
         'email' => $request->email,
