@@ -29,3 +29,19 @@ Route::post('/logout', [LoginController::class,'logout'])
 ->middleware('auth')
 ->name('logout');
 //==============================================================================================
+//Admin Routes
+
+//Only users that are logged in will be able to access these routes
+Route::middleware(['auth','admin'])->group(function() {
+    Route::get('/admin/dashboard',[AdminDashboardController::class,'show'])
+    ->name('admin.dashboard');
+
+    Route::get('/admin/users',[AdminDashboardController::class,'manageUsers'])
+    ->name('admin.users');
+
+    Route::post('/admin/promote',[AdminDashboardController::class,'promoteUser'])
+    ->name('admin.promote');
+
+    Route::post('/admin/demote',[AdminDashboardController::class,'demoteUser'])
+    ->name('admin.demote');
+});
