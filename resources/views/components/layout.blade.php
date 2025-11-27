@@ -14,7 +14,7 @@
         <div class="navbar-center">
             <a class="btn btn-ghost">Home</a>
             <a class="btn btn-ghost">Products</a>
-            <a class="btn btn-ghost">About Us</a>
+            <a class="btn btn-ghost" href="{{URL::to('/about')}}">About Us</a>
             <a class="btn btn-ghost" href="{{URL::to('/contact')}}">Contact</a>
             <a class="btn btn-ghost">Wish List</a>
         </div>
