@@ -6,13 +6,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="flex flex-col ">
+<body>
     <nav class="navbar bg-black text-white">
         <div class="navbar-start">
             <a class="btn btn-ghost text-xl" href="/">Nova-52</a>
         </div>
         <div class="navbar-center">
-            <a class="btn btn-ghost">Home</a>
+            <a class="btn btn-ghost" href="{{URL::to('/')}}">Home</a>
             <a class="btn btn-ghost">Products</a>
             <a class="btn btn-ghost" href="{{URL::to('/about')}}">About Us</a>
             <a class="btn btn-ghost" href="{{URL::to('/contact')}}">Contact</a>
@@ -23,7 +23,7 @@
             <a class="btn btn-ghost"><img src="{{ URL::to('/') }}/profile-picture.svg" alt="Picture for account" class="size-10"></a>
         </div>
     </nav>
-    <main class="flex-1 container mx-auto px-4 py-8">
+    <main class="">
         {{$slot}}
     </main>
     <footer class="footer sm:footer-horizontal bg-black text-white p-10">
