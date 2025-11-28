@@ -5,6 +5,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,7 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about',[AboutUsController::class,'index']);
 Route::post('/contact',[ContactController::class,'contact']);
 Route::get('/basket',[BasketController::class,'index']);
+Route::get('/products',[ProductsController::class,'index']);
 
 //Register Routes
 //==============================================================================================
