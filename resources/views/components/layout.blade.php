@@ -19,7 +19,7 @@
             <a class="btn btn-ghost">Wish List</a>
         </div>
         <div class="navbar-end">
-            <a class="btn btn-ghost"><img src="{{ URL::to('/') }}/cart.svg" alt="Picture of a shopping cart" class="size-10"></a>
+            <a class="btn btn-ghost" href="{{URL::to('/basket')}}"><img src="{{ URL::to('/') }}/cart.svg" alt="Picture of a shopping cart" class="size-10"></a>
             <a class="btn btn-ghost"><img src="{{ URL::to('/') }}/profile-picture.svg" alt="Picture for account" class="size-10"></a>
         </div>
     </nav>
@@ -33,9 +33,9 @@
         </aside>
         <nav>
             <h4 class="font-bold">Quick links</h4>
-            <a class="link link-hover">Home</a>
+            <a class="link link-hover" href="{{URL::to('/')}}">Home</a>
             <a class="link link-hover">Products</a>
-            <a class="link link-hover">About us</a>
+            <a class="link link-hover" href="{{URL::to('/about')}}">About us</a>
             <a class="link link-hover" href="{{URL::to('/contact')}}">Contact</a>
             <a class="link link-hover">Wish list</a>
             <a class="link link-hover">Admin log in</a>
