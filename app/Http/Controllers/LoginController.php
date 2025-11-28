@@ -17,12 +17,12 @@ class LoginController extends Controller
     'email' => 'required|email',
     'password' => 'required',
       ]);
-    
+
       //Attempt to log in
       if(Auth::attempt($credentials,$request->boolean('remember'))) {
-    
+
         //gives user a new session ID to prevent hackers using an old one to access their account
-     request->session()->regenerate();
+     $request->session()->regenerate();
 
      $user = Auth::user();
      if($user->role === 'admin') {
@@ -39,16 +39,16 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request) {
-     
+
     //removes users authentication for the session
       Auth::logout();
-    
+
       //removes the session data so it cant be reused
       $request->session()->invalidate();
-     
-      //generates new CSRF token so old cant be reused
-      $request->session->regenerateToken();
 
-      return redirect('/')->with('success','Successfully Logged Out')
+      //generates new CSRF token so old cant be reused
+      $request->session()->regenerateToken();
+
+      return redirect('/')->with('success','Successfully Logged Out');
     }
 }
