@@ -30,6 +30,7 @@
         <aside>
             <h1 class="text-3xl font-bold">Nova52</h1>
             <p class="text-2xl font-light">Your trusted source for modern technology</p>
+            <p class="font-light">©2025 Nova52, all rights reserved.</p>
         </aside>
         <nav>
             <h4 class="font-bold">Quick links</h4>
