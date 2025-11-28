@@ -10,4 +10,8 @@ class ContactController extends Controller
     {
         return view('Contact');
     }
+    public function contact()
+    {
+        // Placeholder contact function
+    }
 }
