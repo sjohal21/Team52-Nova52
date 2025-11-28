@@ -22,7 +22,7 @@ Route::get('/login', [LoginController::class,'show'])
 ->name('login');
 
 Route::post('/login', [LoginController::class,'login'])
-->middleware('guest');
+->middleware('guest')
 ->name('login.submit');
 
 Route::post('/logout', [LoginController::class,'logout'])
