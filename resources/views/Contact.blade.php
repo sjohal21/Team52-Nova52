@@ -47,6 +47,18 @@
                 <div class="card-body items-center text-center">
                     <h2 class="card-title font-bold text-2xl">Send us a message</h2>
                     <p class="text-xl">Have a question or need support? Fill out the form below and we will get back to you as soon as possible.</p>
+                    <form method="post">
+                        <div class="grid grid-cols-2 h-auto gap-5">
+                            <input class="input rounded-box" type="text" placeholder="First name" id="firstname" name="firstname">
+                            <input class="input rounded-box" type="text" placeholder="Surname" id="surname">
+                            <input class="input rounded-box" type="email" placeholder="Email address" id="emailadd" name="emailadd">
+                            <input class="input rounded-box" type="text" placeholder="Subject" id="subject" name="subject">
+                        </div>
+                        <div class="justify-center p-5">
+                            <textarea class="textarea h-auto"></textarea>
+                            <button class="btn p-5 btn-neutral m-5">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
