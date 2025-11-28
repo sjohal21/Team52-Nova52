@@ -1,3 +1,8 @@
-<div>
-    <!-- It is never too late to be what you might have been. - George Eliot -->
-</div>
+<x-layout>
+    <x-slot:title>
+        Products
+    </x-slot:title>
+    <div>
+        
+    </div>
+</x-layout>
