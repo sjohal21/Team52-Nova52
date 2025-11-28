@@ -29,7 +29,7 @@
     <footer class="footer sm:footer-horizontal bg-black text-white p-10">
         <aside>
             <h1 class="text-3xl font-bold">Nova52</h1>
-            <p class="text-2xl font-light">(tagline)</p>
+            <p class="text-2xl font-light">Your trusted source for modern technology</p>
         </aside>
         <nav>
             <h4 class="font-bold">Quick links</h4>
