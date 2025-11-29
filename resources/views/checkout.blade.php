@@ -9,26 +9,61 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-2xl font-bold text-center">Delivery Information</h1>
-                    <form>
+
+                    <form id="DeliveryForm">
                         <div class = "flex flex-row gap-4">
-                            <input type="text" placeholder="Full Name" class="input input-bordered w-full max-w-xs mb-4"/>
-                            <input type="text" placeholder="Surname" class="input input-bordered w-full max-w-xs mb-4"/>
+                            <input type="text" name="First_Name" placeholder="First Name" class="input input-bordered w-full max-w-xs mb-4" required/>
+                            @error('First_Name')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
+
+                            <input type="text" name="Surname" placeholder="Surname" class="input input-bordered w-full max-w-xs mb-4" required/>
+                            @error('Surname')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
-                        <input type="email" placeholder="Email Address" class="input input-bordered w-full mb-4"/>
-                        <input type="tel" placeholder="Phone Number" class="input input-bordered w-full mb-4"/>
-                        <input type="text" placeholder="Address Line 1" class="input input-bordered w-full mb-4"/>
-                        <input type="text" placeholder="Address Line 2" class="input input-bordered w-full mb-4"/>
+
+                        <input type="email" name="Email_Address" placeholder="Email Address" class="input input-bordered w-full mb-4" required/>
+                        @error('Email_Address')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+
+                        <input type="tel" name="Phone_Number" placeholder="Phone Number" class="input input-bordered w-full mb-4" required/>
+                        @error('Phone_Number')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                        
+                        <input type="text" name="Address_Line_1" placeholder="Address Line 1" class="input input-bordered w-full mb-4" required/>
+                        @error('Address_Line_1')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                        
+                        <input type="text" name="Address_Line_2" placeholder="Address Line 2" class="input input-bordered w-full mb-4"/>
+                        @error('Address_Line_2')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+
                         <div class = "flex flex-row gap-4">
-                            <input type="text" placeholder="City" class="input input-bordered w-full max-w-xs mb-4"/>
-                            <input type="text" placeholder="postcode" class="input input-bordered w-full max-w-xs mb-4"/>
+                            <input type="text" name="City" placeholder="City" class="input input-bordered w-full max-w-xs mb-4" required/>
+                              @error('City')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                              @enderror
+
+                            <input type="text" name="Postcode" placeholder="Postcode" class="input input-bordered w-full max-w-xs mb-4" required/>
+                                @error('Postcode')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                @enderror
                         </div>
-                        <select class="select select-bordered w-full mb-4">
+                        <select name="Select_Country" class="select select-bordered w-full mb-4" required>
                             <option disabled selected>Country</option>
-                            <option>United Kingdom</option>
-                            <option>United States</option>
-                            <option>Canada</option>
-                            <option>Australia</option>
+                            <option value = "UK">United Kingdom</option>
+                            <option value = "US">United States</option>
+                            <option value = "Canada">Canada</option>
+                            <option value = "AUS">Australia</option>
                         </select>
+                        @error('Select_Country')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </form>
                 </div>
             </div>
@@ -58,20 +93,44 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <div id = PayemntMethod class ="bg-base-300 p-6 rounded-xl shadow mt-15">
+    <div id = PaymentMethod class ="bg-base-300 pb-1 rounded-xl shadow mt-15">
          <div class="card">
                 <div class="card-body">
-                    <h1 class = "text-2xl font-bold text-center">Payment Method</h1>
-                    <form>
+                    <h1 class = "text-2xl font-bold text-center mb-4">Payment Method</h1>
+
+                    <form id="PaymentForm" action="{{ route('placeorder') }}" method="POST">
+                        @CSRF
                         <div class ="flex gap-4">
-                            <input type="text" placeholder="Name as seen on the card" class=" flex-3 input input-bordered mb-4"/>
-                            <input type="number" placeholder="CVV" class="  input input-bordered mb-4"/>
+                            <input type="text" name="Card_Name" placeholder="Name as seen on the card" class=" flex-3 input input-bordered mb-4" required/>
+                            @error('Card_Name')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
+
+                            <input type="number" name="CVV" placeholder="CVV" class="  input input-bordered mb-4" required/>
+                            @error('CVV')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
+
+                        </div>
+                        <input type="number" name="Card_Number" placeholder="Card Number" class="w-full input input-bordered mb-4" required/>
+                        @error('Card_Number')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+
+                        <input type="text" name="Expiry_Date" placeholder="Expiry Date (MM/YY)" class="input input-bordered mb-4 w-115" required/>
+                        @error('Expiry_Date')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>         
+                        @enderror
+
+                        <div class="flex justify-center mt-8">
+                              <button type="button" onclick="submitPayment()" class=" bg-black text-white px-8 py-2.5 rounded-xl shadow-md hover:bg-gray-900" on>Place Order</button>
+                        </div>
                     </form>
                 </div>
             </div>
     </div>
+
 </x-layout>
