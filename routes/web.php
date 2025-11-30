@@ -42,3 +42,21 @@ Route::post('/logout', [LoginController::class,'logout'])
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 
 Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])->name('placeorder');
+
+//==============================================================================================
+//Admin Routes
+
+//Only users that are logged in will be able to access these routes
+Route::middleware(['auth','admin'])->group(function() {
+    Route::get('/admin/dashboard',[AdminDashboardController::class,'show'])
+    ->name('admin.dashboard');
+
+    Route::get('/admin/users',[AdminDashboardController::class,'manageUsers'])
+    ->name('admin.users');
+
+    Route::post('/admin/promote',[AdminDashboardController::class,'promoteUser'])
+    ->name('admin.promote');
+
+    Route::post('/admin/demote',[AdminDashboardController::class,'demoteUser'])
+    ->name('admin.demote');
+});
