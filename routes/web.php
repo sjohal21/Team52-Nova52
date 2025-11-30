@@ -38,3 +38,7 @@ Route::post('/login', [LoginController::class,'login'])
 Route::post('/logout', [LoginController::class,'logout'])
 ->middleware('auth')
 ->name('logout');
+
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
+
+Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])->name('placeorder');
