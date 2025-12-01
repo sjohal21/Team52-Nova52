@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('baskets', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table ->integer('products_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('products_id')->references('id')->on('products');
             $table->timestamps();
