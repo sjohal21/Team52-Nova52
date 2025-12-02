@@ -39,9 +39,15 @@ Route::post('/logout', [LoginController::class,'logout'])
 ->middleware('auth')
 ->name('logout');
 
+//Order Routes
+//==============================================================================================
+
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 
 Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])->name('placeorder');
+
+Route::get('/order_confirmation', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])->name('order.success');
+// dont forget {order}
 
 //==============================================================================================
 //Admin Routes
@@ -60,5 +66,4 @@ Route::middleware(['auth','admin'])->group(function() {
     Route::post('/admin/demote',[AdminDashboardController::class,'demoteUser'])
     ->name('admin.demote');
 });
-Route::get('/order_confirmation', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])->name('order.success');
-// dont forget {order}
+
