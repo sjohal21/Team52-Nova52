@@ -76,6 +76,9 @@ Route::middleware(['auth','admin'])->group(function() {
 //=========================================================
 //Product Routes
 //=========================================================
+//Show products page
 Route::get('/products',[ProductController::class,'index'])->name('products.index');
+//Show one product
 Route::get('/products/{id}',[ProductController::class,'show'])->name('products.show');
+//Search for products
 Route::get('/search',[ProductController::class,'search'])->name('products.search');
