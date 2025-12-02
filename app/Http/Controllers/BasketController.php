@@ -154,4 +154,9 @@ class BasketController extends Controller
             'message' => 'Basket cleared'
         ]);
     }
+
+    public function index()
+    {
+        return view('Basket');
+    }
 }
