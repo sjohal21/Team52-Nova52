@@ -79,9 +79,13 @@
 </div>
 <div>
             <div class="text-3x1 mb-2">🧩</div>
+            <p class="font-semibold">Simplicity</p>
+            <p>Easy to use interface</p>
+</div>
+
+            <div class="text-3x1 mb-2">🔒</div>
             <p class="font-semibold">Security</p>
             <p>Secure data protection</p>
-</div>
 </div>
 </section>
 
