@@ -2,6 +2,10 @@
     <x-slot:title>
         Home
     </x-slot:title>
+    @php
+        $lightclass = "dark:hidden block";
+        $darkclass = "hidden dark:block";
+    @endphp
     <div class="flex flex-col bg-base-200">
         <div class="text-center p-5">
             <h1 class="text-4xl font-bold">Discover the Future of Technology</h1>
@@ -12,40 +16,45 @@
         <h2 class="text-3xl text-center font-bold p-3">Explore Our Categories</h2>
         <div class="grid p-3 grid-flow-col gap-2">
             <div class="card w-auto bg-base-200">
-                <figure>
-
+                <figure class="p-2">
+                    <img src="{{URL::to("/")}}/icons/laptop.svg" alt="Picture of laptop" class="h-32 w-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/laptopwhite.svg" alt="Picture of laptop" class="h-32 w-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Laptops</h2>
                 </div>
             </div>
             <div class="card w-auto bg-base-200">
-                <figure>
-
+                <figure class="p-2">
+                    <img src="{{URL::to("/")}}/icons/cell-phone.svg" alt="Picture of smartphone" class="h-32 w-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/cell-phone-white.svg" alt="Picture of smartphone" class="h-32 w-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Smartphones</h2>
                 </div>
             </div>
             <div class="card w-auto bg-base-200">
-                <figure>
-
+                <figure class="p-2">
+                    <img src="{{URL::to("/")}}/icons/tablet.svg" alt="Picture of tablet" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/tablet.svg" alt="Picture of tablet" class="w-32 h-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Tablets</h2>
                 </div>
             </div>
             <div class="card w-auto bg-base-200">
-                <figure>
-
+                <figure class="p-2">
+                    <img src="{{URL::to("/")}}/icons/computer.svg" alt="Picture of desktop computer" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/computer-white.svg" alt="Picture of desktop computer" class="w-32 h-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Desktops</h2>
                 </div>
             </div>
             <div class="card w-auto bg-base-200">
-                <figure>
-
+                <figure class="p-2">
+                    <img src="{{URL::to("/")}}/icons/headphone.svg" alt="Picture of over ear headphones" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/headphonewhite.svg" alt="Picture of over ear headphones" class="w-32 h-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Audio</h2>
@@ -57,7 +66,7 @@
         <div class="grid grid-flow-col grid-rows-1 gap-3">
             <div class="card w-auto">
                 <figure>
-
+                
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Free delivery over £50</h2>
