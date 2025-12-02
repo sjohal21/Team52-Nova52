@@ -1,15 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;;
 use App\Http\Controllers\BasketController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\AuthController;
+
+Route::get('/basket', [BasketController::class, 'view']);
+Route::post('/basket/add', [BasketController::class, 'add']);
+Route::put('/basket/{id}', [BasketController::class, 'update']);
+Route::delete('/basket/{id}', [BasketController::class, 'remove']);
+Route::delete('/basket', [BasketController::class, 'clear']);
 
 Route::get('/', function () {
-    return view('/');
+    return view('home');
 });
 

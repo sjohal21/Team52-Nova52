@@ -25,8 +25,8 @@ class Basket extends Model
     public function totalPrice()
     {
         return $this->items->sum(function ($item) {
-            return $item->quantity->price * $item->quantity;
-        })
+            return $item->quantity*$item->product->price;
+        });
     }
     
     public function totalItems()
