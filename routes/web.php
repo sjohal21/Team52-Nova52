@@ -16,6 +16,6 @@ Route::get('/', function () {
 //=========================================================
 //Product Routes
 //=========================================================
-Route::get('/products',[ProductController::class,'index'])->name('products.index')
-Route::get('/products/{id}',[ProductController::class,'show'])->name('products.show')
-Route::get('/search',[ProductController::class,'search'])->name('products.search')
+Route::get('/products',[ProductController::class,'index'])->name('products.index');
+Route::get('/products/{id}',[ProductController::class,'show'])->name('products.show');
+Route::get('/search',[ProductController::class,'search'])->name('products.search');
