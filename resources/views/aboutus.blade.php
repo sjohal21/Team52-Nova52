@@ -34,7 +34,7 @@
         <h2 class="text-2x1 md:text-3x1 font-bold mb-6">
             What we offer
         </h2>
-        <p clas="text-sm md:text-base leading-relaxed">
+        <p class="text-sm md:text-base leading-relaxed">
             At Nova52, we offer a wide range of products designed to support work, study,
             creativity and everyday life. our catalogue includes laptops, smartphones, tablets,
             earphones, headphones and desktop computers. They are all chosen for reliability,
