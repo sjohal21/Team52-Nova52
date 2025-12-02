@@ -5,20 +5,20 @@
     <section class="bg-base-200 rounded-2x1 py-16 px-6 text-center mb-12">
     <h1 class="text-4x1 md:text-5x1x font-bold mb-4">
             Discover the Future of technology
-    </h1>    
+    </h1>
     <p class="text-base md:text-lg mb-8 max-w-2x1 mx-auto">
         Explore our range of innovative products designed to enhance your lifestyle. From high-performance laptops to sleek smartphones, experience technology like never before.
     </p>
     <button class="btn btn-neutral rounded-full btn-wide">
-        Shop Now 
+        Shop Now
     </button>
     </section>
 
         <!-- Catergories grid  -->
-    
+
 <section class="mb-16">
     <h2 class="text-2x1 md:text-3x1 font-bold text-center mb-10">
-        Explore Our Catergories
+        Explore Our Categories
 </h2>
   <div class="grid gap-6 md:grid-cols-3 mb-6">
 
@@ -37,7 +37,7 @@
     <span class="font-semibold">Tablets</span>
 </div>
 </div>
-    
+
 <div class="grid gap-6 md:grid-cols-2">
             <div class="card bg-base-200 rounded-3xl shadow-sm items-center py-10">
                 <div class="text-6x1 mb-4">🖥️</div>
