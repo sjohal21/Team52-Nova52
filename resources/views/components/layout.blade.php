@@ -51,8 +51,10 @@
         <nav>
             <h4 class="font-bold">Follow us</h4>
             <div class="grid grid-flow-col gap-4">
-                <a class="link link-hover">Social1</a>
-                <a class="link link-hover">Social2</a>
+                <a class="link link-hover"><img src="{{URL::to("/")}}/icons/facebookwhite.svg" alt="Facebook logo" class="w-10 h-10"></a>
+                <a class="link link-hover"><img src="{{URL::to("/")}}/icons/twitterwhite.svg" alt="Twitter/X logo" class="w-10 h-10"></a>
+                <a class="link link-hover"><img src="{{URL::to("/")}}/icons/instagramwhite.svg" alt="Instagram logo" class="w-10 h-10"></a>
+                <a class="link link-hover"><img src="{{URL::to("/")}}/icons/linkedinwhite.svg" alt="LinkedIn logo" class="w-10 h-10"></a>
             </div>
         </nav>
     </footer>

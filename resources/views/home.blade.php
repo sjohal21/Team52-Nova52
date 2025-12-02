@@ -66,7 +66,8 @@
         <div class="grid grid-flow-col grid-rows-1 gap-3">
             <div class="card w-auto">
                 <figure>
-                
+                    <img src="{{URL::to("/")}}/icons/free-shipping.svg" alt="Picture of a delivery lorry with the word free on it" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/free-shipping-white.svg" alt="Picture of a delivery lorry with the word free on it" class="w-32 h-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Free delivery over £50</h2>
@@ -74,7 +75,8 @@
             </div>
             <div class="card w-auto">
                 <figure>
-
+                    <img src="{{URL::to("/")}}/icons/cyber-security.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/cyber-security-white.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-32 h-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Secure Checkout</h2>
@@ -82,7 +84,8 @@
             </div>
             <div class="card w-auto">
                 <figure>
-
+                    <img src="{{URL::to("/")}}/icons/shield.svg" alt="Picture of a shield with a tick in the middle" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/shieldwhite.svg" alt="Picture of a shield with a tick in the middle" class="w-32 h-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">1-Year Warranty</h2>
@@ -90,7 +93,8 @@
             </div>
             <div class="card w-auto">
                 <figure>
-
+                    <img src="{{URL::to("/")}}/icons/student.svg" alt="Picture of a person with a graduation cap" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/studentwhite.svg" alt="Picture of a person with a graduation cap" class="w-32 h-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Student-Friendly Pricing</h2>
