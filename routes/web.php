@@ -60,3 +60,5 @@ Route::middleware(['auth','admin'])->group(function() {
     Route::post('/admin/demote',[AdminDashboardController::class,'demoteUser'])
     ->name('admin.demote');
 });
+Route::get('/order_confirmation', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])->name('order.success');
+// dont forget {order}

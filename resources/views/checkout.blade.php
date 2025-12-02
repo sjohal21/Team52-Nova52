@@ -76,7 +76,7 @@
                     <div class="divider"></div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>Subtotal:</span>
-                        <span>£200</span>
+                        <span>placeholer</span>
                     </div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>Delivery Fee</span>
