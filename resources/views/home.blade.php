@@ -2,6 +2,10 @@
     <x-slot:title>
         Home
     </x-slot:title>
+    @php
+        $lightclass = "dark:hidden block";
+        $darkclass = "hidden dark:block";
+    @endphp
     <section class="bg-base-200 rounded-2x1 py-16 px-6 text-center mb-12">
     <h1 class="text-4x1 md:text-5x1x font-bold mb-4">
             Discover the Future of technology
@@ -14,7 +18,7 @@
     </button>
     </section>
 
-        <!-- Catergories grid  -->
+        <!-- Categories grid  -->
 
 <section class="mb-16">
     <h2 class="text-2x1 md:text-3x1 font-bold text-center mb-10">
@@ -23,30 +27,55 @@
   <div class="grid gap-6 md:grid-cols-3 mb-6">
 
             <div class="card bg-base-200 rounded-3xl shadow-sm items-center py-10">
-                <div class="text-6x1 mb-4">💻</div>
-                <span class="font-semibold">Laptops</span>
+                <figure class="p-2">
+                    <img src="{{URL::to("/")}}/icons/laptop.svg" alt="Picture of laptop" class="h-32 w-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/laptopwhite.svg" alt="Picture of laptop" class="h-32 w-32 {{$darkclass}}">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title text-center">Laptops</h2>
+                </div>
             </div>
 
     <div class="card bg-base-200 rounded-3x1 shadow-sm items-center py-10">
-        <div class="text-6x1 mb-4">📱</div>
-        <span class="font-semibold">Smartphones</span>
+        <figure class="p-2">
+            <img src="{{URL::to("/")}}/icons/cell-phone.svg" alt="Picture of smartphone" class="h-32 w-32 {{$lightclass}}">
+            <img src="{{URL::to("/")}}/icons/cell-phone-white.svg" alt="Picture of smartphone" class="h-32 w-32 {{$darkclass}}">
+        </figure>
+        <div class="card-body">
+            <h2 class="card-title text-center">Smartphones</h2>
+        </div>
   </div>
 
   <div class="card bg-base-200 rounded-3x1 shadow-sm items-center py-10">
-    <div class="text-6x1 mb-4">📱</div>
-    <span class="font-semibold">Tablets</span>
-</div>
+      <figure class="p-2">
+          <img src="{{URL::to("/")}}/icons/tablet.svg" alt="Picture of tablet" class="w-32 h-32 {{$lightclass}}">
+          <img src="{{URL::to("/")}}/icons/tabletwhite.svg" alt="Picture of tablet" class="w-32 h-32 {{$darkclass}}">
+      </figure>
+      <div class="card-body">
+          <h2 class="card-title text-center">Tablets</h2>
+      </div>
+  </div>
 </div>
 
 <div class="grid gap-6 md:grid-cols-2">
             <div class="card bg-base-200 rounded-3xl shadow-sm items-center py-10">
-                <div class="text-6x1 mb-4">🖥️</div>
-                <span class="font-semibold">Desktops</span>
+                <figure class="p-2">
+                    <img src="{{URL::to("/")}}/icons/computer.svg" alt="Picture of desktop computer" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/computer-white.svg" alt="Picture of desktop computer" class="w-32 h-32 {{$darkclass}}">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title text-center">Desktops</h2>
+                </div>
             </div>
 
             <div class="card bg-base-200 rounded-3xl shadow-sm items-center py-10">
-                <div class="text-6x1 mb-4">🎧</div>
-                <span class="font-semibold">Audio</span>
+                <figure class="p-2">
+                    <img src="{{URL::to("/")}}/icons/headphone.svg" alt="Picture of over ear headphones" class="w-32 h-32 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/icons/headphonewhite.svg" alt="Picture of over ear headphones" class="w-32 h-32 {{$darkclass}}">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title text-center">Audio</h2>
+                </div>
             </div>
         </div>
 </section>
@@ -55,23 +84,43 @@
 
 <section class="bg-base-200 rounded-x1 py-10 px-6 mb-16">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-sm">
-        <div>
-            <div class="text-2x1 mb-2">🚚</div>
-            <p class="font-semibold">Free Delivery Over £50</p>
-</div>
-<div>
+        <div class="card">
+            `<figure>
+                <img src="{{URL::to("/")}}/icons/free-shipping.svg" alt="Picture of a delivery lorry with the word free on it" class="w-32 h-32 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/free-shipping-white.svg" alt="Picture of a delivery lorry with the word free on it" class="w-32 h-32 {{$darkclass}}">
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title text-center">Free delivery over £50</h2>
+            </div>`
+        </div>
 
-    <div class="text-2x1 mb-2">🔒</div>
-    <p class="font-semibold">Secure Checkout</p>
-</div>
-<div>
-    <div class="text-2x1 mb-2">🛡️</div>
-    <p class="font-semibold">1-Year Warranty</p>
-</div>
-<div>
-    <div class="text-2x1 mb-2">🎓</div>
-    <p class="font-semibold">Student-Friendly Pricing</p>
-</div>
+        <div class="card">
+            <figure>
+                <img src="{{URL::to("/")}}/icons/cyber-security.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-32 h-32 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/cyber-security-white.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-32 h-32 {{$darkclass}}">
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title text-center">Secure Checkout</h2>
+            </div>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="{{URL::to("/")}}/icons/shield.svg" alt="Picture of a shield with a tick in the middle" class="w-32 h-32 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/shieldwhite.svg" alt="Picture of a shield with a tick in the middle" class="w-32 h-32 {{$darkclass}}">
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title text-center">1-Year Warranty</h2>
+            </div>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="{{URL::to("/")}}/icons/student.svg" alt="Picture of a person with a graduation cap" class="w-32 h-32 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/studentwhite.svg" alt="Picture of a person with a graduation cap" class="w-32 h-32 {{$darkclass}}">
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title text-center">Student-Friendly Pricing</h2>
+            </div>
+        </div>
 </div>
 </section>
 
