@@ -36,7 +36,7 @@
             <div class="card w-auto bg-base-200">
                 <figure class="p-2">
                     <img src="{{URL::to("/")}}/icons/tablet.svg" alt="Picture of tablet" class="w-32 h-32 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/icons/tablet.svg" alt="Picture of tablet" class="w-32 h-32 {{$darkclass}}">
+                    <img src="{{URL::to("/")}}/icons/tabletwhite.svg" alt="Picture of tablet" class="w-32 h-32 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Tablets</h2>
