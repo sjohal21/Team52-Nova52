@@ -20,7 +20,7 @@
         </div>
         <div class="navbar-end">
             <a class="btn btn-ghost" href="{{URL::to('/basket')}}"><img src="{{ URL::to('/') }}/icons/cart.svg" alt="Picture of a shopping cart" class="size-10"></a>
-            <a class="btn btn-ghost"><img src="{{ URL::to('/') }}/icons/profile-picture.svg" alt="Picture for account" class="size-10"></a>
+            <a class="btn btn-ghost" href="{{URL::to('/register')}}"><img src="{{ URL::to('/') }}/icons/profile-picture.svg" alt="Picture for account" class="size-10"></a>
         </div>
     </nav>
     <main class="">

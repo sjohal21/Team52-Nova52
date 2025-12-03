@@ -8,7 +8,11 @@
      @endphp
     <!--About Us-->
     <section class="bg-base-200 rounded-2x1 py-12 px-6 text-center mb-12">
+<<<<<<< HEAD
         <h1 class="text-2x1 md:text-4x1 font-bold mb-2">
+=======
+        <h1 class="text-3x1 md:text-4x1 font-bold mb-2">
+>>>>>>> 6070bd9611aec0a87a7390f02cea06c1377309c8
             About Nova52
         </h1>
         <p class="text-sm md:text-base">
@@ -22,12 +26,19 @@
     <h2 class="text-2x1 md:text-3x1 font-bold mb-4">
         Our Mission
     </h2>
+<<<<<<< HEAD
     <p class="text-sm md:text-base text-center">
         At Nova52, our mission is to make high quality technology accessible to everyone.
         We want to provide a simple, reliable and smooth shopping experience with our wide
         range of devices. </p>
         
         <p> Our goal is the same no matter if you are a student, a professional
+=======
+    <p class="text-sm md:text-base leading relaxed">
+        At Nova52, our mission is to make high quality technology accessible to everyone.
+        We want to provide a simple, reliable and smooth shopping experience with our wide
+        range of devices. Our goal is the same no matter if you are a student, a professional
+>>>>>>> 6070bd9611aec0a87a7390f02cea06c1377309c8
         or a casual user, we want to deliver value, trust and convenience.
 
     </p>
@@ -51,6 +62,7 @@
 <!-- images grid-->
  <div class="grid gap-6 md:grid-cols-3">
     <div class="rounded-3x1 overflow-hidden">
+<<<<<<< HEAD
         <img src="{{URL::to("/")}}/images/laptop-img.png" alt="Laptop">
 </div>
 
@@ -59,6 +71,16 @@
 </div>
     <div class="rounded-3x1 overflow-hidden">
         <img src="{{URL::to("/")}}/images/phone-img.png" alt="Phone">
+=======
+        <!--.-->
+</div>
+
+    <div class="rounded-3x1 overflow-hidden">
+        <!--..-->
+</div>
+    <div class="rounded-3x1 overflow-hidden">
+        <!--.-->
+>>>>>>> 6070bd9611aec0a87a7390f02cea06c1377309c8
 </div>
 </div>
 </section>
@@ -71,6 +93,7 @@
         </h2>
 </div>
 
+<<<<<<< HEAD
     <div class="grid gap-8 md:grid-cols-4 text-center text-sm">
 
     <!-- Quality -->
@@ -104,6 +127,33 @@
         <p>Easy to use interface</p>
     </div>
 
+=======
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-center text-sm">
+        <div>
+            <div class="text-3x1 mb-2">
+                <img src="{{URL::to("/")}}/icons/star.svg" alt="Star" class="{{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/starwhite.svg" alt="Star" class="{{$darkclass}}">
+            </div>
+            <p class="font-semibold">Quality</p>
+            <p>Reliable, trusted tech</p>
+        </div>
+    <div>
+            <div class="text-3x1 mb-2">
+                <img src="{{URL::to("/")}}/icons/globe.svg" alt="Globe" class="{{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/globewhite.svg" alt="Globe" class="{{$darkclass}}">
+            </div>
+            <p class="font-semibold">Accessibility</p>
+            <p>Fair pricing for all users</p>
+    </div>
+<div>
+            <div class="mb-2">
+                <img src="{{URL::to("/")}}/icons/lock.svg" alt="Lock" class="{{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/lockwhite.svg" alt="Lock" class="{{$darkclass}}">
+            </div>
+            <p class="font-semibold">Security</p>
+            <p>Secure data protection</p>
+</div>
+>>>>>>> 6070bd9611aec0a87a7390f02cea06c1377309c8
 </div>
 </section>
 
