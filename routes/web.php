@@ -73,12 +73,16 @@ Route::middleware(['auth','admin'])->group(function() {
     ->name('admin.demote');
 });
 
-//=========================================================
 //Product Routes
-//=========================================================
-//Show products page
-Route::get('/products',[ProductController::class,'index'])->name('products.index');
-//Show one product
-Route::get('/products/{id}',[ProductController::class,'show'])->name('products.show');
-//Search for products
-Route::get('/search',[ProductController::class,'search'])->name('products.search');
+//===============================================
+
+//display all products 
+Route::get('/products',[ProductController::class, 'index'])->name('products.index')
+
+//display one product
+Route::get('/products/{product}',[ProductController::class,'showOne'])->name('products.show')
+
+//display searched products
+Route::get('/search',[ProductController::class,'search'])->name('products.search')
+
+//===============================================
