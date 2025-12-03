@@ -23,6 +23,7 @@ class RegisterController extends Controller
          'phone_number' =>'required|string|',
          'address' => 'nullable|string',  //nullable allows the value to be empty when registering
         ]);
+        // TODO: add functionality for if data entered is not valid
 
         //Creates user and enters into database
         $user = User::create([
