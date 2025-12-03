@@ -13,12 +13,14 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        // Basket Total
+        $user = auth()->user();
+        $basket = $user->basket; 
+        $baskettotal = $basket->total();
         // Basket Vat
         // Basket delivery fee only when over 50
         // Calculated total
         
-        return view('checkout'); 
+        return view('checkout' , compact('baskettotal')); 
     }
 
     public function checkout(Request $request){
@@ -47,7 +49,7 @@ class CheckoutController extends Controller
          $user = auth()->user();
          $basket = $user->basket;
          $basketItems = $basket->items;
-
+    
          $total = $basketItems->sum(function($item){ // temp as basket model logic should have total
             return $item->product->price * $item->quantity;
          });
