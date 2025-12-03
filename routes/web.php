@@ -28,7 +28,7 @@ Route::get('/products',[ProductsController::class,'index']);
 Route::get('/register', [RegisterController::class,'show'])
 ->middleware('guest') //makes sure only unauthenticated users go to this page
 ->name('register');
-Route::get('/register', [RegisterController::class,'register'])
+Route::post('/register', [RegisterController::class,'register'])
 ->middleware('guest')
 ->name('register.submit');
 //LogIn/Out Routes
@@ -76,7 +76,7 @@ Route::middleware(['auth','admin'])->group(function() {
 //Product Routes
 //===============================================
 
-//display all products 
+//display all products
 Route::get('/products',[ProductController::class, 'index'])->name('products.index');
 
 //display one product
