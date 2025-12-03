@@ -23,14 +23,19 @@ class LoginController extends Controller
 
         //gives user a new session ID to prevent hackers using an old one to access their account
      $request->session()->regenerate();
-
+     
+     //check if the user is authenticated
      $user = Auth::user();
+
+     //checks if the current users role is admin
      if($user->role === 'admin') {
+     //if they are an admin redirect them to the administator dashboard
      return redirect()->with('success','Welcome to Nova52 Administrator');
      }else {
-     return redirect('/')->with('success','Welcome to Nova52');
+      //if theyre not an admin (a customer) redirects them to the normal customer homepage
+     return redirect('/home')->with('success','Welcome to Nova52');
      }
-
+    //Returns anyone without logged credentials bag to the login page but keeps email entered
      return back()
      ->withErrors(['email','Login Unsuccessful!, the provided details do not match our records'])
      ->onlyInput('email');
@@ -48,7 +53,7 @@ class LoginController extends Controller
 
       //generates new CSRF token so old cant be reused
       $request->session()->regenerateToken();
-
-      return redirect('/')->with('success','Successfully Logged Out');
+      //returns the user to the hompage
+      return redirect('/home')->with('success','Successfully Logged Out');
     }
 }
