@@ -2,7 +2,10 @@
     <x-slot:title>
         About Us
     </x-slot:title>
-
+     @php
+         $lightclass = "dark:hidden block";
+         $darkclass = "hidden dark:block";
+     @endphp
     <!--About Us-->
     <section class="bg-base-200 rounded-2x1 py-12 px-6 text-center mb-12">
         <h1 class="text-3x1 md:text-4x1 font-bold mb-2">
@@ -63,22 +66,31 @@
     <div class="text-center mb-8">
         <h2 class="text-2x1 md:text-3x1 font-bold">
             Our values
-</h2>
+        </h2>
 </div>
 
     <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-center text-sm">
         <div>
-            <div class="text-3x1 mb-2">⭐️</div>
+            <div class="text-3x1 mb-2">
+                <img src="{{URL::to("/")}}/icons/star.svg" alt="Star" class="{{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/starwhite.svg" alt="Star" class="{{$darkclass}}">
+            </div>
             <p class="font-semibold">Quality</p>
             <p>Reliable, trusted tech</p>
-</div>
-<div>
-            <div class="text-3x1 mb-2">↩️</div>
+        </div>
+    <div>
+            <div class="text-3x1 mb-2">
+                <img src="{{URL::to("/")}}/icons/globe.svg" alt="Globe" class="{{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/globewhite.svg" alt="Globe" class="{{$darkclass}}">
+            </div>
             <p class="font-semibold">Accessibility</p>
             <p>Fair pricing for all users</p>
-</div>
+    </div>
 <div>
-            <div class="text-3x1 mb-2">🧩</div>
+            <div class="mb-2">
+                <img src="{{URL::to("/")}}/icons/lock.svg" alt="Lock" class="{{$lightclass}}">
+                <img src="{{URL::to("/")}}/icons/lockwhite.svg" alt="Lock" class="{{$darkclass}}">
+            </div>
             <p class="font-semibold">Security</p>
             <p>Secure data protection</p>
 </div>
