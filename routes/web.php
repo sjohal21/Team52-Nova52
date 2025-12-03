@@ -77,11 +77,7 @@ Route::middleware(['auth','admin'])->group(function() {
 //Product Routes
 //===============================================
 
-<<<<<<< HEAD
-//display all products 
-=======
 //display all products
->>>>>>> 6070bd9611aec0a87a7390f02cea06c1377309c8
 Route::get('/products',[ProductController::class, 'index'])->name('products.index');
 
 //display one product
@@ -89,9 +85,3 @@ Route::get('/products/{product}',[ProductController::class,'showOne'])->name('pr
 
 //display searched products
 Route::get('/search',[ProductController::class,'search'])->name('products.search');
-
-<<<<<<< HEAD
-//===============================================
-=======
-//===============================================
->>>>>>> 6070bd9611aec0a87a7390f02cea06c1377309c8

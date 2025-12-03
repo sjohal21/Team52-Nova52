@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-<<<<<<< HEAD
-=======
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
->>>>>>> databaseSetup
 use Illuminate\Database\Eloquent\Model;
 
 class BasketItem extends Model
 {
-<<<<<<< HEAD
     protected $fillable = [
         'basket_id',
         'product_id',
@@ -34,11 +31,6 @@ class BasketItem extends Model
     {
         return $this->quantity * $this->product->price;
     }
-}
-=======
-    protected $fillable = ['basket_id', 'product_id', 'amount'];
-    
+
     /** @use HasFactory<\Database\Factories\BasketItemFactory> */
-    use HasFactory;
 }
->>>>>>> databaseSetup
