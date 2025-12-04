@@ -9,6 +9,7 @@ class ProductController extends Controller
     public function index() {
     //Gets all of the products from the database
         $products = Products::all();
+
         return view('products.index',compact('products'));
     }
 
@@ -23,7 +24,7 @@ class ProductController extends Controller
         $searchedItem = $request->input('search');
 
         //Search for similar product to the product that is entered
-        $products = Product::where('name','like',"$%{$searchedItem}%")->get();
+        $products = Product::where('name','like',"%{$searchedItem}%")->get();
 
         //if there are no products that match show a message
         if($products->isEmpty()) {
