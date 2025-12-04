@@ -4,7 +4,7 @@
     </x-slot:title>
     <div class="max-w-xl bg-base-100 text-base-content">
         @foreach($items as $item)
-            <p class="p-10">{{$item['name']}}</p>
+            <p class="p-10">{{$item->product->name}}</p>
         @endforeach
         <p class="p-10">Total {{$total}}</p>
         <p class="p-10">There are {{$count}} items</p>

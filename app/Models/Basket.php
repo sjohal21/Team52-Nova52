@@ -32,7 +32,7 @@ class Basket extends Model
 
     public function totalItems()
     {
-        return $this->items->sum('quantity');
+        return $this->items->sum('amount');
     }
 }
 

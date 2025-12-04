@@ -12,7 +12,7 @@ class BasketController extends Controller
     // View basket
     public function index()
     {
-        $basketId = session('basket_id');
+        $basketId = session('basket_id',1);
 
         if (!$basketId) {
             return view('basket',['items' => [], 'total' => 0, 'count' => 0]);
@@ -23,8 +23,9 @@ class BasketController extends Controller
         if (!$basket) {
             return view('basket',['items' => [], 'total' => 0, 'count' => 0]);
         }
-
-        return view('basket',['items' => $basket->items, 'total' => $basket->totalPrice(), 'count' => $basket->totalItems()]);
+        // Create variable where it contains all items associated with the basket using BasketItems
+        $basketItems = BasketItem::where('basket_id',$basketId)->with('product')->get();
+        return view('basket',['items' => $basketItems, 'total' => $basket->totalPrice(), 'count' => $basket->totalItems()]);
     }
 
     // Add item to basket
