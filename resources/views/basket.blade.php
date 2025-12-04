@@ -2,13 +2,34 @@
     <x-slot:title>
         Basket
     </x-slot:title>
-    <div class="max-w-xl bg-base-100 text-base-content">
-        @foreach($items as $item)
-            <p class="p-10">Product name:{{$item->product->name}}</p>
-            <p class="p-10">Quantity: {{$item->amount}}</p>
-        @endforeach
-        <p class="p-10">Total {{$total}}</p>
-        <p class="p-10">{{$count}} items</p>
-        <a href="{{URL::to('/checkout')}}" class="underline">Check out</a>
-    </div>
+        <div class = "flex flex-row p-8 rounded-xl mt-10 w-11/12 mx-auto gap-40">
+            <div id = "product display" class = "flex-1 bg-base-300 p-6 rounded-xl shadow">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-2xl font-bold text-center">Your Order</h1>
+                        <div class="divider"></div>
+                        <div class="flex justify-between mb-10 font-bold text-lg">
+                            @foreach($items as $item)
+                                <span>{{$item->product->name}}</span>
+                                <span>Quantity: {{$item->amount}}</span>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id = "OrderSummary" class="flex-1 bg-base-300 p-6 rounded-xl shadow">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-2xl font-bold text-center">Basket Summary</h1>
+                        <div class="divider"></div>
+                        <div class="flex justify-between mb-10 font-bold text-lg">
+                            <span>Total:</span>
+                            <span>{{$total}}</span>
+                        </div>
+                        <a class="btn" href="{{URL::to("/checkout")}}">Check out</a>
+                    </div>
+                    </div>
+                </div>
+        </div>
+
 </x-layout>

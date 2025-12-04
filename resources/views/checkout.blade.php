@@ -12,8 +12,10 @@
                     <h1 class="text-2xl font-bold text-center">Your Order</h1>
                     <div class="divider"></div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
-                        <span>Placeholder</span>
-                        <span>Quantity</span>
+                        @foreach($basketItems as $item)
+                            <span>{{$item->product->name}}</span>
+                            <span>Quantity: {{$item->amount}}</span>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -26,7 +28,7 @@
                     <div class="divider"></div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>Subtotal:</span>
-                        <span>Placeholder</span>
+                        <span>{{$subtotal}}</span>
                     </div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>Delivery Fee</span>
@@ -34,12 +36,12 @@
                     </div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>VAT(20%)</span>
-                        <span>Placeholder</span>
+                        <span>{{$vat}}</span>
                     </div>
                     <div class="divider"></div>
                     <div class="flex justify-between font-bold text-lg">
                         <span>Total</span>
-                        <span>Placeholder</span>
+                        <span>{{$total}}</span>
                     </div>
                 </div>
             </div>

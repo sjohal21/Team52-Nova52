@@ -13,14 +13,15 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        //$user = auth()->user();
-        //$basket = $user->basket; 
-        //$subtotal = $basket->totalPrice();
-        //$vat = ($subtotal / 1.2) * 20; // 20% VAT
+        $user = auth()->user();
+        $basket = $user->basket;
+        $basketItems = $basket->items;
+        $subtotal = $basket->totalPrice();
+        $vat = round(($subtotal * 0.20),2,PHP_ROUND_HALF_UP); // 20% VAT
         $deliveryFee = 4.99;   // Standard delivery fee rate
-        //$total = $subtotal + $deliveryFee; 
-        
-        return view('checkout' , compact('deliveryFee')); 
+        $total = round($subtotal + $deliveryFee + $vat);
+
+        return view('checkout' , compact('deliveryFee','subtotal','vat','total','basketItems'));
     }
 
     public function checkout(Request $request){
@@ -43,16 +44,16 @@ class CheckoutController extends Controller
             ]
 
         );
-        
+
         //  *********** Get basket items/total ***********
-        
+
          $user = auth()->user();
          $basket = $user->basket;
          $basketItems = $basket->items;
          $subtotal = $basket->totalPrice();
          $vat = ($subtotal / 1.2) * 20; // 20% VAT
          $deliveryFee = 4.99;   // Standard delivery fee rate
-         $total = $subtotal + $deliveryFee; 
+         $total = $subtotal + $deliveryFee;
 
         //  *********** Create Order ***********
             $order = new \App\Models\Order(); //Initialize order Model/Object
@@ -68,7 +69,7 @@ class CheckoutController extends Controller
             $order->Select_Country = $request->input('Select_Country');
             $order->total_price = $total;
             $order->save(); // Save to database
-    
+
             // Create order items from basket items (Copies)
             foreach($basketItems as $basketItem){
                 $orderItem = new \App\Models\Orderitems(); //Initialize orderItems Model/Object
@@ -78,10 +79,10 @@ class CheckoutController extends Controller
                 $orderItem->price = $basketItem->product->price;
                 $orderItem->save(); // Save to database
             }
-    
+
             //  *********** After Successful Order ***********
-            $basket->items()->delete(); 
-            
+            $basket->items()->delete();
+
             //  Redirects to a new page
             return redirect()->route('order.success' , $order->id)->with('success', 'Order placed successfully!');
     }
