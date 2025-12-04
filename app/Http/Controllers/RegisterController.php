@@ -30,7 +30,7 @@ class RegisterController extends Controller
         'name' => $request->name,
         'email' => $request->email,
         'password' => Hash::make($request->password), //Hashes the password so its safely stored
-        'phone_number' => $request->password,
+        'phone_number' => $request->phone_number,
         'address' => $request->address,
         'role' => 'customer'  //sets the current user to a customer by default
         ]);
