@@ -15,7 +15,7 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         //
-        Category::create(attributes: [
+        Category::create([
             'name' => 'Laptop',
         ]);
 
