@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class BasketItem extends Model
@@ -31,7 +29,4 @@ class BasketItem extends Model
     {
         return $this->quantity * $this->product->price;
     }
-
-    
-    /** @use HasFactory<\Database\Factories\BasketItemFactory> */
 }
