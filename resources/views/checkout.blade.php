@@ -26,11 +26,11 @@
                     <div class="divider"></div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>Subtotal:</span>
-                        <span>{{ $baskettoal }}</span>
+                        <span>Placeholder</span>
                     </div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>Delivery Fee</span>
-                        <span>Placeholder</span>
+                        <span>{{$deliveryFee}}</span>
                     </div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>VAT(20%)</span>
