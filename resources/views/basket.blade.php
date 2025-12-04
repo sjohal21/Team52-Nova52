@@ -8,5 +8,6 @@
         @endforeach
         <p class="p-10">Total {{$total}}</p>
         <p class="p-10">There are {{$count}} items</p>
+
     </div>
 </x-layout>
