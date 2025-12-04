@@ -8,8 +8,7 @@ class Basket extends Model
 {
     protected $fillable = [
         'user_id',
-        'product_id',
-        'amount',
+        'products_id'
     ];
 
     public function user()
