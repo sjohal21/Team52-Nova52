@@ -85,3 +85,18 @@ Route::get('/products/{product}',[ProductController::class,'showOne'])->name('pr
 
 //display searched products
 Route::get('/search',[ProductController::class,'search'])->name('products.search');
+
+//===============================================
+//Basket Routes
+
+//Adds product to basket
+Route::post('/basket/add', [BasketController::class, 'add']);
+
+//Updates product quantity in basket
+Route::put('/basket/{id}', [BasketController::class, 'update']);
+
+//Removes product from basket
+Route::delete('/basket/{id}', [BasketController::class, 'remove']);
+
+//Clears the entire basket
+Route::delete('/basket', [BasketController::class, 'clear']);
