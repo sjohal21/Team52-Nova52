@@ -10,33 +10,21 @@ use Illuminate\Http\Request;
 class BasketController extends Controller
 {
     // View basket
-    public function view(Request $request)
+    public function index()
     {
         $basketId = session('basket_id');
 
         if (!$basketId) {
-            return response()->json([
-                'items' => [],
-                'total' => 0,
-                'count' => 0
-            ]);
+            return view('basket',['items' => [], 'total' => 0, 'count' => 0]);
         }
 
         $basket = Basket::with('items.product')->find($basketId);
 
         if (!$basket) {
-            return response()->json([
-                'items' => [],
-                'total' => 0,
-                'count' => 0
-            ]);
+            return view('basket',['items' => [], 'total' => 0, 'count' => 0]);
         }
 
-        return response()->json([
-            'items' => $basket->items,
-            'total' => $basket->totalPrice(),
-            'count' => $basket->totalItems()
-        ]);
+        return view('basket',['items' => $basket->items, 'total' => $basket->totalPrice(), 'count' => $basket->totalItems()]);
     }
 
     // Add item to basket
@@ -62,9 +50,7 @@ class BasketController extends Controller
 
         // Check stock availability
         if ($product->stock_level < $validated['quantity']) {
-            return response()->json([
-                'error' => 'Not enough stock available. Only ' . $product->stock_level . ' items in stock.'
-            ], 400);
+            return redirect('/basket')->with('error','Not enough stock available. Only ' . $product->stock_level . ' items in stock.');
         }
 
         // Check if item already in basket
@@ -78,9 +64,7 @@ class BasketController extends Controller
 
             // Check if new total exceeds stock
             if ($product->stock_level < $newQuantity) {
-                return response()->json([
-                    'error' => 'Not enough stock available. Only ' . $product->stock_level . ' items in stock.'
-                ], 400);
+                return redirect('basket')->with('error','Not enough stock available. Only ' . $product->stock_level . ' items in stock.');
             }
 
             $basketItem->quantity = $newQuantity;
@@ -94,10 +78,7 @@ class BasketController extends Controller
             ]);
         }
 
-        return response()->json([
-            'message' => 'Product added to basket',
-            'basket' => $basket->load('items.product')
-        ], 201);
+        return redirect('/basket')->with('success', 'Product added to basket successfully!');
     }
 
     // Update item quantity
@@ -111,18 +92,13 @@ class BasketController extends Controller
 
         // Check stock availability
         if ($basketItem->product->stock_level < $validated['quantity']) {
-            return response()->json([
-                'error' => 'Not enough stock available. Only ' . $basketItem->product->stock_level . ' items in stock.'
-            ], 400);
+            return redirect('/basket')->with('error','Not enough stock available. Only ' . $basketItem->product->stock_level . ' items in stock.');
         }
 
         $basketItem->quantity = $validated['quantity'];
         $basketItem->save();
 
-        return response()->json([
-            'message' => 'Basket updated',
-            'item' => $basketItem->load('product')
-        ]);
+        return redirect('basket')->with('message','Basket updated');
     }
 
     // Remove item from basket
@@ -131,9 +107,7 @@ class BasketController extends Controller
         $basketItem = BasketItem::findOrFail($id);
         $basketItem->delete();
 
-        return response()->json([
-            'message' => 'Item removed from basket'
-        ]);
+        return redirect('/basket')->with('success', 'Product removed from basket successfully!');
     }
 
     // Clear entire basket
@@ -150,13 +124,6 @@ class BasketController extends Controller
             }
         }
 
-        return response()->json([
-            'message' => 'Basket cleared'
-        ]);
-    }
-
-    public function index()
-    {
-        return view('Basket');
+        return redirect('/basket')->with('success', 'Basket removed');
     }
 }

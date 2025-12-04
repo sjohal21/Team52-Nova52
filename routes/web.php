@@ -20,7 +20,15 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about',[AboutUsController::class,'index']);
 Route::post('/contact',[ContactController::class,'contact']);
+
+// Basket routes
+//
+// Get basket view
 Route::get('/basket',[BasketController::class,'index']);
+// Add item to basket
+Route::post('/basket',[BasketController::class,'add']);
+
+
 Route::get('/products',[ProductsController::class,'index']);
 
 //Register Routes
