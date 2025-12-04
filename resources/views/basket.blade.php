@@ -2,8 +2,8 @@
     <x-slot:title>
         Basket
     </x-slot:title>
-        <div class = "flex flex-row p-8 rounded-xl mt-10 w-11/12 mx-auto gap-40">
-            <div id = "product display" class = "flex-1 bg-base-300 p-6 rounded-xl shadow">
+        <div class="flex flex-row p-8 rounded-xl mt-10 w-11/12 mx-auto gap-40">
+            <div class = "flex-1 bg-base-300 p-6 rounded-xl shadow">
                 <div class="card">
                     <div class="card-body">
                         <h1 class="text-2xl font-bold text-center">Your Order</h1>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <div id = "OrderSummary" class="flex-1 bg-base-300 p-6 rounded-xl shadow">
+            <div class="flex-1 bg-base-300 p-6 rounded-xl shadow">
                 <div class="card">
                     <div class="card-body">
                         <h1 class="text-2xl font-bold text-center">Basket Summary</h1>
@@ -31,5 +31,4 @@
                     </div>
                 </div>
         </div>
-
 </x-layout>
