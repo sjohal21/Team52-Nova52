@@ -55,7 +55,7 @@ Route::post('/login', [LoginController::class,'login'])
 ->middleware('guest')
 ->name('login.submit');
 
-Route::post('/logout', [LoginController::class,'logout'])
+Route::get('/logout', [LoginController::class,'logout'])
 ->middleware('auth')
 ->name('logout');
 
