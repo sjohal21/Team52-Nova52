@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/git-diff-check@v1
+    - name: git diff --check
+      uses: joel-coffman/action-git-diff-check@0.1.1
     - uses: shivammathur/setup-php@2.36.0
       with:
         php-version: '8.4'
