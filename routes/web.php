@@ -26,8 +26,13 @@ Route::post('/contact',[ContactController::class,'contact']);
 // Get basket view
 Route::get('/basket',[BasketController::class,'index']);
 // Add item to basket
-Route::post('/basket',[BasketController::class,'add']);
-
+Route::post('/basket',[BasketController::class,'add']); // Parameters: product_id, quantity
+// Update basket item by ID
+Route::post('/basket/update',[BasketController::class,'update']); // Parameters - quantity, product_id
+// Remove item from basket by ID
+Route::post('/basket/remove',[BasketController::class,'remove']); // Parameters: product_id
+// Clear basket
+Route::post('/basket/clear',[BasketController::class,'clear']);
 
 Route::get('/products',[ProductsController::class,'index']);
 

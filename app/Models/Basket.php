@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Basket extends Model
 {
     protected $fillable = [
-        'user_id',
-        'product_id',
-        'amount',
+        'user_id'
         // removed product_id as Basket has many BasketItems
     ];
 

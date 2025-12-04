@@ -83,13 +83,14 @@ class BasketController extends Controller
     }
 
     // Update item quantity
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $validated = $request->validate([
             'quantity' => 'required|integer|min:1',
+            'product_id' => 'required|exists:products,id',
         ]);
 
-        $basketItem = BasketItem::findOrFail($id);
+        $basketItem = BasketItem::findOrFail($validated['product_id']);
 
         // Check stock availability
         if ($basketItem->product->stock_level < $validated['quantity']) {
@@ -99,13 +100,16 @@ class BasketController extends Controller
         $basketItem->quantity = $validated['quantity'];
         $basketItem->save();
 
-        return redirect('basket')->with('message','Basket updated');
+        return redirect('/basket')->with('message','Basket updated');
     }
 
     // Remove item from basket
-    public function remove($id)
+    public function remove(Request $request)
     {
-        $basketItem = BasketItem::findOrFail($id);
+        $validated = $request->validate([
+            'product_id' => 'required|exists:products,id',
+        ]);
+        $basketItem = BasketItem::findOrFail($validated['product_id']);
         $basketItem->delete();
 
         return redirect('/basket')->with('success', 'Product removed from basket successfully!');
@@ -115,7 +119,6 @@ class BasketController extends Controller
     public function clear(Request $request)
     {
         $basketId = session('basket_id');
-
         if ($basketId) {
             $basket = Basket::find($basketId);
             if ($basket) {
