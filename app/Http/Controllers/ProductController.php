@@ -24,11 +24,11 @@ class ProductController extends Controller
         $searchedItem = request->input('search');
 
         //Search for similar product to the product that is entered
-        $products = Product::where('name','like',"$%{$searchedItem}%")->get();
+        $products = Product::where('name','like',"%{$searchedItem}%")->get();
         
         //if there are no products that match show a message
         if($products->isEmpty()) {
-            return->redirect()->back()->with()->('message','No products that match your search found!!');
+            return redirect()->back()->with('message','No products that match your search found!!');
         }
 
         return view('products.index',compact('products'));
