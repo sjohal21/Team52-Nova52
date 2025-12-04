@@ -14,6 +14,12 @@ class CheckoutController extends Controller
     public function index()
     {
         $user = auth()->user();
+
+        // If the user is not to login 
+        if(!$user){
+            return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
+        }    
+
         $basket = $user->basket;
         $basketItems = $basket->items;
         $subtotal = $basket->totalPrice();
