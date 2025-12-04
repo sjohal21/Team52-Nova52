@@ -17,6 +17,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="flex-1 bg-base-300 p-6 rounded-xl shadow">
                 <div class="card">
                     <div class="card-body">
@@ -27,6 +28,12 @@
                             <span>{{$total}}</span>
                         </div>
                         <a class="btn" href="{{URL::to("/checkout")}}">Check out</a>
+                        <!-- If nothing being added to basket then basket has not been created -->
+                         @if(session('error'))
+                             <p class="alert alert-error p-4 mb-4">
+                                 {{ session('error') }}
+                            </p>
+                        @endif
                     </div>
                     </div>
                 </div>

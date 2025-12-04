@@ -6,7 +6,7 @@
         <div class="flex justify-center bg-base-200 p-5">
             <a class="text-2xl font-bold underline" href="{{URL::to("/login")}}">Want to login instead?</a>
             <div class="">
-                <form method="post">
+                <form action="{{route('register.submit')}}" method="post">
                     <!-- Name, email, password, phone number, address (optional) -->
                     <input type="text" placeholder="Name" name="name" class="input block m-2" required>
                     <input type="email" placeholder="Email" name="email" class="input block m-2" required>

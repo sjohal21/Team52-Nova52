@@ -18,9 +18,15 @@ class CheckoutController extends Controller
         // If the user is not to login 
         if(!$user){
             return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
-        }    
+        }
 
         $basket = $user->basket;
+
+        // If basket is empty
+        if (!$basket) {
+            return redirect('/basket')->with('error', 'Your basket is empty.');
+        }
+
         $basketItems = $basket->items;
         $subtotal = $basket->totalPrice();
         $vat = round(($subtotal * 0.20),2,PHP_ROUND_HALF_UP); // 20% VAT
