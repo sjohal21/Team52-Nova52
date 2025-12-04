@@ -15,12 +15,13 @@ class CheckoutController extends Controller
     {
         $user = auth()->user();
 
-        // If the user is not to login 
+        // If the user is not to login
         if(!$user){
             return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
         }
 
-        $basket = $user->basket;
+        $basketId = session('basket_id',1);
+        $basket = Basket::with('items.product')->find($basketId);
 
         // If basket is empty
         if (!$basket) {
