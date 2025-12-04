@@ -13,7 +13,7 @@
                     <div class="divider"></div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>Placeholder</span>
-                        <span>Qauntity</span>
+                        <span>Quantity</span>
                     </div>
                 </div>
             </div>
@@ -73,12 +73,12 @@
                         @error('Phone_Number')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
-                        
+
                         <input type="text" name="Address_Line_1" placeholder="Address Line 1" class="input input-bordered w-full mb-4" required/>
                         @error('Address_Line_1')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
-                        
+
                         <input type="text" name="Address_Line_2" placeholder="Address Line 2" class="input input-bordered w-full mb-4"/>
                         @error('Address_Line_2')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -136,7 +136,7 @@
 
                             <input type="text" name="Expiry_Date" placeholder="Expiry Date (MM/YY)" class="input input-bordered mb-4 w-115" required/>
                             @error('Expiry_Date')
-                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>         
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
 
                             <div class="flex justify-center mt-8">
