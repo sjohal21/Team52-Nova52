@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: git diff --check
-      uses: joel-coffman/action-git-diff-check@0.1.1
+    - uses: actions/checkout@v2
+    - name: Merge Conflict finder
+      uses: olivernybroe/action-conflict-finder@v2.0
     - uses: shivammathur/setup-php@2.36.0
       with:
         php-version: '8.4'
