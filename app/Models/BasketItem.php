@@ -11,7 +11,7 @@ class BasketItem extends Model
     protected $fillable = [
         'basket_id',
         'product_id',
-        'quantity',
+        'amount',
     ];
 
     // A basket item belongs to a basket
