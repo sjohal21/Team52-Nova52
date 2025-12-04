@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function basket() //added function to relate user to basket to use in checkout controller
+    {
+        return $this->hasOne(Basket::class);
+    }
 }

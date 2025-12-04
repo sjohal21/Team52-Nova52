@@ -10,6 +10,7 @@ class Basket extends Model
         'user_id',
         'product_id',
         'amount',
+        // removed product_id as Basket has many BasketItems
     ];
 
     public function user()
@@ -25,7 +26,7 @@ class Basket extends Model
     public function totalPrice()
     {
         return $this->items->sum(function ($item) {
-            return $item->quantity*$item->product->price;
+            return $item->amount*$item->product->price; // changed quantity to amount
         });
     }
 

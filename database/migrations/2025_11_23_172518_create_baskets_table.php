@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('baskets', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table ->integer('products_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('products_id')->references('id')->on('products');
+            $table->foreignId('user_id')->references('id')->on('users'); // Cleaner then writing twice
+            // Product id should only be for basketitems table
             $table->timestamps();
         });
     }

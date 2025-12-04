@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('basketitems', function (Blueprint $table) {
+        Schema::create('basket_items', function (Blueprint $table) { // BasketItems is basket_items
             $table->id();
-            $table->integer('basket_id');
-            $table->foreign('basket_id')->references('id')->on('baskets');
-            $table->integer('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreignId('basket_id')->constrained('baskets')->onDelete('cascade'); //If u delete basket it deltes the basket items from database
+             $table->foreignId('product_id')->constrained('products')->onDelete('cascade'); // Because in thoery if you delete a product it should delete from basket items too
             $table->integer('amount');
             $table->timestamps();
         });

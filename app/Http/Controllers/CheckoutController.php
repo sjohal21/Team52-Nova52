@@ -13,12 +13,14 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        // Basket Total
-        // Basket Vat
-        // Basket delivery fee only when over 50
-        // Calculated total
+        //$user = auth()->user();
+        //$basket = $user->basket; 
+        //$subtotal = $basket->totalPrice();
+        //$vat = ($subtotal / 1.2) * 20; // 20% VAT
+        $deliveryFee = 4.99;   // Standard delivery fee rate
+        //$total = $subtotal + $deliveryFee; 
         
-        return view('checkout'); 
+        return view('checkout' , compact('deliveryFee')); 
     }
 
     public function checkout(Request $request){
@@ -47,10 +49,10 @@ class CheckoutController extends Controller
          $user = auth()->user();
          $basket = $user->basket;
          $basketItems = $basket->items;
-
-         $total = $basketItems->sum(function($item){ // temp as basket model logic should have total
-            return $item->product->price * $item->quantity;
-         });
+         $subtotal = $basket->totalPrice();
+         $vat = ($subtotal / 1.2) * 20; // 20% VAT
+         $deliveryFee = 4.99;   // Standard delivery fee rate
+         $total = $subtotal + $deliveryFee; 
 
         //  *********** Create Order ***********
             $order = new \App\Models\Order(); //Initialize order Model/Object
@@ -72,7 +74,7 @@ class CheckoutController extends Controller
                 $orderItem = new \App\Models\Orderitems(); //Initialize orderItems Model/Object
                 $orderItem->order_id = $order->id;
                 $orderItem->product_id = $basketItem->product_id;
-                $orderItem->amount = $basketItem->quantity;
+                $orderItem->amount = $basketItem->amount;
                 $orderItem->price = $basketItem->product->price;
                 $orderItem->save(); // Save to database
             }

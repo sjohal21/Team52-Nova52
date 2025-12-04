@@ -32,5 +32,6 @@ class BasketItem extends Model
         return $this->quantity * $this->product->price;
     }
 
+    
     /** @use HasFactory<\Database\Factories\BasketItemFactory> */
 }
