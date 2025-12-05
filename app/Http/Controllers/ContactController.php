@@ -24,7 +24,6 @@ class ContactController extends Controller
         ]);
 
         Contact::create($validated_inputs);
-
     }
 }
 
