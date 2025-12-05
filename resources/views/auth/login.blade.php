@@ -8,11 +8,10 @@
                     @csrf
                   
                    <!-- Sucess Messages if form entered correctly-->
-                    @if (session('success')) {
+                    @if (session('success')) 
                     <div class="text-green-200 mb-3 text-center">
                      {{ session('succcess') }}
                     </div>
-                    }
                     @endif
                     
                    <!--Email input with error messages if incorrectly entered -->
