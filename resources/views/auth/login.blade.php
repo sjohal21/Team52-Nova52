@@ -10,7 +10,7 @@
                    <!-- Sucess Messages if form entered correctly-->
                     @if (session('success')) 
                     <div class="text-green-200 mb-3 text-center">
-                     {{ session('succcess') }}
+                     {{ session('success') }}
                     </div>
                     @endif
                     
