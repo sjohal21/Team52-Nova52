@@ -36,7 +36,7 @@
         <nav>
             <h4 class="font-bold">Quick links</h4>
             <a class="link link-hover" href="{{URL::to('/')}}">Home</a>
-            <a class="link link-hover" href="{{URL::to('/products')}}">Products</a>
+            <a class="link link-hover" href="{{ route('products.index') }}">Products</a>
             <a class="link link-hover" href="{{URL::to('/about')}}">About us</a>
             <a class="link link-hover" href="{{URL::to('/contact')}}">Contact</a>
             <a class="link link-hover">Wish list</a>
