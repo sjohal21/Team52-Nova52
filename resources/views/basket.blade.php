@@ -12,6 +12,17 @@
                             @foreach($items as $item)
                                 <span>{{$item->product->name}}</span>
                                 <span>Quantity: {{$item->amount}}</span>
+                                <form method="post" action="{{URL::to("/basket/remove")}}">
+                                    <input type="hidden" name="product_id" value="{{$item->product->id}}">
+                                    <input type="submit" value="Remove Item">
+                                </form>
+                                <form method="post" action="{{URL::to("/basket/update")}}">
+                                    <input type="number" name="quantity" value="{{$item->amount}}">
+                                    <input type="hidden" name="product_id" value="{{$item->product->id}}">
+                                    <input type="submit" value="Update quantity">
+                                </form>
+
+                                <form method="post"
                             @endforeach
                         </div>
                     </div>

@@ -18,9 +18,9 @@
         <div class="relative rounded-x1 overflown-hidden shadow">
 
         <!--this is for the heart-->
-        <buttton class="absolute top-3 right-3 text-xl opacity-80 hover:opacity-100">
+        <button class="absolute top-3 right-3 text-xl opacity-80 hover:opacity-100">
             [icon]
-</button>
+        </button>
 
 <img src="{{$product->photo_url}}"
 alt="{{$product->name}}"
@@ -73,13 +73,13 @@ class="w-full h-80 object-cover rounded-x1">
     <span class="font-semibold">Quantity:</span>
     <select class="select select-bordered select-sm w-20 rounded">
         @for ($i=1; $i <=10; $i++)
-        <option>{[$i]}</option>
+        <option>{{$i}}</option>
         @endfor
 </select>
 </div>
 
 <!--this is is for the basket (button)-->
-<button class="btn btn-neutral w-full md:w-64 rounded-full text-white mt-42>
+<button class="btn btn-neutral w-full md:w-64 rounded-full text-white mt-42">
 Add To Basket
 </button>
 </div>
