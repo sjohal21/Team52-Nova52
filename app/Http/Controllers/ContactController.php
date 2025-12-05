@@ -15,14 +15,20 @@ class ContactController extends Controller
     public function contact(Request $request)
     {
         // Placeholder contact function
-        $request->validate( [
+        $validated_inputs =$request->validate( [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|Email',
+            'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required',
         ]);
 
+        Contact::create($validated_inputs);
+
+    }
+}
+
+/*
         Contact::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -30,11 +36,4 @@ class ContactController extends Controller
             'subject' => $request->subject,
             'message' => $request->message,
         ]);
-
-        
-    }
-}
-
-/*
-
 */
