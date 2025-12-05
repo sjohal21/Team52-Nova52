@@ -55,13 +55,6 @@ class="w-full h-80 object-cover rounded-xl">
     @endif
 </p>
 
-<!--this is for the specs of each product-->
-<ul class="text-sm list-none space-y-1">
-    <li>[icon] Feature 1</li>
-    <li>[icon] Feature 2</li>
-    <li>[icon] Feature 3</li>
-</ul>
-
 <!--this is for letting the customer know how much product they have selected-->
 <div class="flex items-center gap-3">
     <span class="font-semibold">Quantity:</span>
