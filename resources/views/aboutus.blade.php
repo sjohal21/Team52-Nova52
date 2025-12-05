@@ -8,7 +8,7 @@
      @endphp
     <!--About Us-->
     <section class="bg-base-200 rounded-2x1 py-12 px-6 text-center mb-12">
-        <h1 class="text-3x1 md:text-4x1 font-bold mb-2">
+        <h1 class="text-3xl md:text-4x1 font-bold mb-2">
             About Nova52
         </h1>
         <p class="text-sm md:text-base">
