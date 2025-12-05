@@ -24,7 +24,7 @@ class CheckoutController extends Controller
         $basketId = session('basket_id');
         $basket = Basket::with('items.product')->find($basketId);
         // If basket is empty
-        if (!$basket || $basket->items->empty()) { // Beacuse of session it creates a temporary basket id even if basket is empty so need to add an OR boolean
+        if (!$basket || $basket->items->isEmpty()) { // Beacuse of session it creates a temporary basket id even if basket is empty so need to add an OR boolean
             return redirect('/basket')->with('error', 'Your basket is empty.');
         }
 

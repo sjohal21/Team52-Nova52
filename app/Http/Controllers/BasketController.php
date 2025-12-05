@@ -13,7 +13,7 @@ class BasketController extends Controller
     // View basket
     public function index()
     {
-        $basketId = session('basket_id',1);
+        $basketId = session('basket_id');
 
         if (!$basketId) {
             return view('basket',['items' => [], 'total' => 0, 'count' => 0]);
