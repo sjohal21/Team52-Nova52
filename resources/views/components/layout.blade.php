@@ -13,7 +13,7 @@
         </div>
         <div class="navbar-center">
             <a class="btn btn-ghost" href="{{URL::to('/')}}">Home</a>
-            <a class="btn btn-ghost" href="{{ route('products.index)) }}">Products</a>
+            <a class="btn btn-ghost" href="{{ route('products.index) }}">Products</a>
             <a class="btn btn-ghost" href="{{URL::to('/about')}}">About Us</a>
             <a class="btn btn-ghost" href="{{URL::to('/contact')}}">Contact</a>
             <a class="btn btn-ghost">Wish List</a>
