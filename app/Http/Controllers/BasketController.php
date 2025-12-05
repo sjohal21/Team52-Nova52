@@ -67,7 +67,7 @@ class BasketController extends Controller
                 return redirect('/basket')->with('error','Not enough stock available. Only ' . $product->stock_level . ' items in stock.');
             }
 
-            $basketItem->quantity = $newQuantity;
+            $basketItem->amount = $newQuantity;
             $basketItem->save();
         } else {
             // Create new basket item
