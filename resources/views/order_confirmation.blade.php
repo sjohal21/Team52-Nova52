@@ -4,7 +4,7 @@
     </x-slot:title>
     
 <!-- Thank You For Your Order -->
-    <div class="relative left-1/2 right-1/2 w-screen -translate-x-1/2 bg-base-300 rounded-xl shadow py-16 text-center -mt-8">
+    <div class="w-full bg-base-300 py-20 text-center">
         <h1 class="text-4xl font-bold">Thank you for your Order!</h1>
         <p class="text-lg mt-2">Your order has been placed</p>
     </div>
@@ -18,7 +18,7 @@
             <!-- Order ID -->
             <p class="text-center text-lg font-semibold">Your Order Number:</p>
             <p class="text-center text-2xl font-bold mt-2">
-                {{ $order->id ?? '123456' }} <!-- Placeholder -->
+                {{$order->id}} <!-- Placeholder -->
             </p>
 
             <p class="text-center text-sm  mt-4 font-bold">

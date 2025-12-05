@@ -62,11 +62,11 @@ Route::get('/logout', [LoginController::class,'logout'])
 //Order Routes
 //==============================================================================================
 
-Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->middleware('auth')->name('checkout'); //Only logged in users can access checkout
 
-Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])->name('placeorder');
+Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])->middleware('auth')->name('placeorder'); //Only logged in users can place order
 
-Route::get('/order_confirmation', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])->name('order.success');
+Route::get('/order_confirmation/{order}', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])->middleware('auth')->name('order.success'); // Only logged in users can access order confirmation
 // dont forget {order}
 
 //==============================================================================================
