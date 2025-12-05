@@ -27,7 +27,7 @@ class LoginController extends Controller
 
      $user = Auth::user();
      if($user->role === 'admin') {
-     return redirect()->with('success','Welcome to Nova52 Administrator');
+     return redirect('/')->with('success','Welcome to Nova52 Administrator');
      }
      else {
      return redirect('/')->with('success','Welcome to Nova52');
@@ -35,7 +35,7 @@ class LoginController extends Controller
 
       }
       return back()
-      ->withErrors(['email','Login Unsuccessful!, the provided details do not match our records'])
+      ->withErrors(['email' => 'Login Unsuccessful!, the provided details do not match our records'])
       ->onlyInput('email');
 
     }
