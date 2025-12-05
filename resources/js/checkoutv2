@@ -1,0 +1,32 @@
+ window.submitPaymentv2 = function() {
+
+    //instead of looping and causing problems this should just manual change each field every submit
+    document.getElementById('hidden_First_Name').value =
+        document.querySelector('input[name="First_Name"]').value;
+
+    document.getElementById('hidden_Surname').value =
+        document.querySelector('input[name="Surname"]').value;
+
+    document.getElementById('hidden_Email_Address').value =
+        document.querySelector('input[name="Email_Address"]').value;
+
+    document.getElementById('hidden_Phone_Number').value =
+        document.querySelector('input[name="Phone_Number"]').value;
+
+    document.getElementById('hidden_Address_Line_1').value =
+        document.querySelector('input[name="Address_Line_1"]').value;
+
+    document.getElementById('hidden_Address_Line_2').value =
+        document.querySelector('input[name="Address_Line_2"]').value;
+
+    document.getElementById('hidden_City').value =
+        document.querySelector('input[name="City"]').value;
+
+    document.getElementById('hidden_Postcode').value =
+        document.querySelector('input[name="Postcode"]').value;
+
+    document.getElementById('hidden_Select_Country').value =
+        document.querySelector('select[name="Select_Country"]').value;
+
+    document.getElementById('PaymentForm').requestSubmit();
+}

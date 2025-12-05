@@ -15,15 +15,16 @@ class CheckoutController extends Controller
     {
         $user = auth()->user();
 
-        // If the user is not to login 
+        // If the user is not to login
         if(!$user){
             return redirect()->route('login')->with('error', 'Please login to proceed to checkout.');
         }
 
-        $basket = $user->basket;
+        $basketId = session('basket_id');
+        $basket = Basket::with('items.product')->find($basketId);
 
         // If basket is empty
-        if (!$basket) {
+        if (!$basket || $basket->items->empty()) { // Beacuse of session it creates a temporary basket id even if basket is empty so need to add an OR boolean
             return redirect('/basket')->with('error', 'Your basket is empty.');
         }
 
@@ -45,7 +46,8 @@ class CheckoutController extends Controller
                 'Surname' => 'required|string|max:255',
                 'Email_Address' => 'required|email|max:255',
                 'Phone_Number' => 'required|string|max:20',
-                'Address_Line 1' => 'required|string|max:255',
+                'Address_Line_1' => 'required|string|max:255',
+                'Address_Line_2' => 'nullable|string|max:255', // inlcuding might fix the bug
                 'City' => 'required|string|max:100',
                 'Postcode' => 'required|string|max:20',
                 'Select_Country' => 'required|string|max:100',
@@ -57,15 +59,24 @@ class CheckoutController extends Controller
 
         );
 
+        /*return "Validation Passed!"; // test*/
+
+
         //  *********** Get basket items/total ***********
 
-         $user = auth()->user();
-         $basket = $user->basket;
-         $basketItems = $basket->items;
-         $subtotal = $basket->totalPrice();
-         $vat = ($subtotal / 1.2) * 20; // 20% VAT
-         $deliveryFee = 4.99;   // Standard delivery fee rate
-         $total = $subtotal + $deliveryFee;
+        
+        $user = auth()->user(); 
+
+        // $basket = $user->basket;   when we delete basket after order it breaks the post request
+
+        $basketId = session('basket_id');// no ,1
+        $basket = Basket::with('items.product')->find($basketId);
+
+        $basketItems = $basket->items;
+        $subtotal = $basket->totalPrice();
+        $vat = ($subtotal / 1.2) * 20; // 20% VAT
+        $deliveryFee = 4.99;   // Standard delivery fee rate
+        $total = $subtotal + $deliveryFee;
 
         //  *********** Create Order ***********
             $order = new \App\Models\Order(); //Initialize order Model/Object
@@ -94,15 +105,16 @@ class CheckoutController extends Controller
 
             //  *********** After Successful Order ***********
             $basket->items()->delete();
+            session()->forget('basket_id');
 
             //  Redirects to a new page
             return redirect()->route('order.success' , $order->id)->with('success', 'Order placed successfully!');
     }
 
      //  *********** Confirmation page ***********
-     public function OrderConfirmation(Order $order)
+     public function OrderConfirmation(Order $order) //Order object is the $order->id from the route
             {
-                return view('order_confirmation'); // add , comapct('order') when full backen is integrated
+                return view('order_confirmation' , compact('order')); // add , comapct('order') when full backen is integrated
             }
 
 }
