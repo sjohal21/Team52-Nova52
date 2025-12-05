@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar bg-black text-white">
         <div class="navbar-start">
-            <a class="btn btn-ghost text-xl" href="/">Nova-52</a>
+            <a class="btn btn-ghost text-xl" href="/">Nova52</a>
         </div>
         <div class="navbar-center">
             <a class="btn btn-ghost" href="{{URL::to('/')}}">Home</a>
