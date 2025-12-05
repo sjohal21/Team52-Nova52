@@ -91,18 +91,18 @@ class BasketController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'quantity' => 'required|integer|min:1',
+            'amount' => 'required|integer|min:1',
             'product_id' => 'required|exists:products,id',
         ]);
 
         $basketItem = BasketItem::findOrFail($validated['product_id']);
 
         // Check stock availability
-        if ($basketItem->product->stock_level < $validated['quantity']) {
+        if ($basketItem->product->stock_level < $validated['amount']) {
             return redirect('/basket')->with('error','Not enough stock available. Only ' . $basketItem->product->stock_level . ' items in stock.');
         }
 
-        $basketItem->quantity = $validated['quantity'];
+        $basketItem->amount = $validated['amount'];
         $basketItem->save();
 
         return redirect('/basket')->with('message','Basket updated');
