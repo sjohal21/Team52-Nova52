@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
  //  *********** Import Required Classes ***********
-use Illuminate\Http\Request;
+ use App\Models\BasketItem;
+ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Orderitems;
 use App\Models\User;
@@ -22,7 +23,6 @@ class CheckoutController extends Controller
 
         $basketId = session('basket_id');
         $basket = Basket::with('items.product')->find($basketId);
-
         // If basket is empty
         if (!$basket || $basket->items->empty()) { // Beacuse of session it creates a temporary basket id even if basket is empty so need to add an OR boolean
             return redirect('/basket')->with('error', 'Your basket is empty.');
@@ -64,8 +64,8 @@ class CheckoutController extends Controller
 
         //  *********** Get basket items/total ***********
 
-        
-        $user = auth()->user(); 
+
+        $user = auth()->user();
 
         // $basket = $user->basket;   when we delete basket after order it breaks the post request
 

@@ -32,23 +32,17 @@ class BasketController extends Controller
     public function add(Request $request)
     {
 
-        error_log("Adding item...");
-        error_log($request->product_id);
-        error_log($request->amount);
         $validated = $request->validate([
             'product_id' => 'required',
             'amount' => 'required',
         ]);
-        error_log("Validated!");
         // Get or create basket
         $basketId = session('basket_id');
         if (!$basketId) {
                 $basket = Basket::create(['user_id' => Auth::id()]);
                 session(['basket_id' => $basket->id]);
-                error_log("Created basket.");
         } else {
             $basket = Basket::findOrFail($basketId);
-            error_log("Updating basket...");
         }
 
         // Check if product exists

@@ -12,23 +12,28 @@
                             @foreach($items as $item)
                                 <span>{{$item->product->name}}</span>
                                 <span>Quantity: {{$item->amount}}</span>
-                                <form method="post" action="{{URL::to("/basket/remove")}}">
-                                    <input type="hidden" name="product_id" value="{{$item->product->id}}">
-                                    <input type="submit" value="Remove Item">
-                                    @csrf
-                                </form>
-                                <form method="post" action="{{URL::to("/basket/update")}}">
-                                    <input type="number" name="amount" value="{{$item->amount}}">
-                                    <input type="hidden" name="product_id" value="{{$item->product->id}}">
-                                    <input type="submit" value="Update quantity">
-                                    @csrf
-                                </form>
-                                <form method="post"
+                            <div class="card">
+                                <div class="card-body">
+                                    <form method="post" action="{{URL::to("/basket/remove")}}">
+                                        <input type="hidden" name="product_id" value="{{$item->product->id}}">
+                                        <input type="submit" value="Remove Item" class="btn">
+                                        @csrf
+                                    </form>
+                                    <form method="post" action="{{URL::to("/basket/update")}}">
+                                        <input type="number" name="amount" value="{{$item->amount}}">
+                                        <input type="hidden" name="product_id" value="{{$item->product->id}}">
+                                        <input type="submit" value="Update quantity" class="btn">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </div>
+
                             @endforeach
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
             <div class="flex-1 bg-base-300 p-6 rounded-xl shadow">
                 <div class="card">
