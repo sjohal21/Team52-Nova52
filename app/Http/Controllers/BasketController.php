@@ -6,6 +6,7 @@ use App\Models\Basket;
 use App\Models\BasketItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BasketController extends Controller
 {
@@ -17,7 +18,6 @@ class BasketController extends Controller
         if (!$basketId) {
             return view('basket',['items' => [], 'total' => 0, 'count' => 0]);
         }
-
         $basket = Basket::with('items.product')->find($basketId);
 
         if (!$basket) {
@@ -31,26 +31,31 @@ class BasketController extends Controller
     // Add item to basket
     public function add(Request $request)
     {
-        $validated = $request->validate([
-            'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1',
-        ]);
 
+        error_log("Adding item...");
+        error_log($request->product_id);
+        error_log($request->amount);
+        $validated = $request->validate([
+            'product_id' => 'required',
+            'amount' => 'required',
+        ]);
+        error_log("Validated!");
         // Get or create basket
         $basketId = session('basket_id');
-
         if (!$basketId) {
-            $basket = Basket::create([]);
-            session(['basket_id' => $basket->id]);
+                $basket = Basket::create(['user_id' => Auth::id()]);
+                session(['basket_id' => $basket->id]);
+                error_log("Created basket.");
         } else {
             $basket = Basket::findOrFail($basketId);
+            error_log("Updating basket...");
         }
 
         // Check if product exists
         $product = Product::findOrFail($validated['product_id']);
 
         // Check stock availability
-        if ($product->stock_level < $validated['quantity']) {
+        if ($product->stock_level < $validated['amount']) {
             return redirect('/basket')->with('error','Not enough stock available. Only ' . $product->stock_level . ' items in stock.');
         }
 
@@ -61,11 +66,11 @@ class BasketController extends Controller
 
         if ($basketItem) {
             // Update quantity
-            $newQuantity = $basketItem->quantity + $validated['quantity'];
+            $newQuantity = $basketItem->amount + $validated['amount'];
 
             // Check if new total exceeds stock
             if ($product->stock_level < $newQuantity) {
-                return redirect('basket')->with('error','Not enough stock available. Only ' . $product->stock_level . ' items in stock.');
+                return redirect('/basket')->with('error','Not enough stock available. Only ' . $product->stock_level . ' items in stock.');
             }
 
             $basketItem->quantity = $newQuantity;
@@ -75,11 +80,11 @@ class BasketController extends Controller
             BasketItem::create([
                 'basket_id' => $basket->id,
                 'product_id' => $validated['product_id'],
-                'quantity' => $validated['quantity'],
+                'amount' => $validated['amount'],
             ]);
+            return redirect('/basket')->with('success', 'Product added to basket successfully!');
         }
 
-        return redirect('/basket')->with('success', 'Product added to basket successfully!');
     }
 
     // Update item quantity

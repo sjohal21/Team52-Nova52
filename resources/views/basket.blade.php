@@ -15,13 +15,14 @@
                                 <form method="post" action="{{URL::to("/basket/remove")}}">
                                     <input type="hidden" name="product_id" value="{{$item->product->id}}">
                                     <input type="submit" value="Remove Item">
+                                    @csrf
                                 </form>
                                 <form method="post" action="{{URL::to("/basket/update")}}">
-                                    <input type="number" name="quantity" value="{{$item->amount}}">
+                                    <input type="number" name="amount" value="{{$item->amount}}">
                                     <input type="hidden" name="product_id" value="{{$item->product->id}}">
                                     <input type="submit" value="Update quantity">
+                                    @csrf
                                 </form>
-
                                 <form method="post"
                             @endforeach
                         </div>

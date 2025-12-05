@@ -26,7 +26,7 @@ Route::post('/contact',[ContactController::class,'contact']);
 // Get basket view
 Route::get('/basket',[BasketController::class,'index']);
 // Add item to basket
-Route::post('/basket',[BasketController::class,'add']); // Parameters: product_id, quantity
+Route::post('/basket/add',[BasketController::class,'add'])->middleware('auth'); // Parameters: product_id, quantity
 // Update basket item by ID
 Route::post('/basket/update',[BasketController::class,'update']); // Parameters - quantity, product_id
 // Remove item from basket by ID

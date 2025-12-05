@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>
         {{$product->name}}
-</x-slot:title>
+    </x-slot:title>
 <!-- this shows the names for the products-->
  <section class="bg-base-200 py-10 text center">
     <h1 class="text-3x1 md:text-4x1 font-bold">
@@ -68,20 +68,24 @@ class="w-full h-80 object-cover rounded-x1">
     <li>[icon] Feature 3</li>
 </ul>
 
-<!--this is for letting the customer know how much product they have selected-->
-<div class="flex items-center gap-3">
-    <span class="font-semibold">Quantity:</span>
-    <select class="select select-bordered select-sm w-20 rounded">
-        @for ($i=1; $i <=10; $i++)
-        <option>{{$i}}</option>
-        @endfor
-</select>
-</div>
 
 <!--this is is for the basket (button)-->
-<button class="btn btn-neutral w-full md:w-64 rounded-full text-white mt-42">
-Add To Basket
-</button>
+<form method="post" action="{{URL::to('/basket/add')}}">
+    <input type="hidden" value="{{$product->id}}" name="product_id">
+    <!--this is for letting the customer know how much product they have selected-->
+    <span class="font-semibold">Quantity:</span>
+    <select class="select select-bordered select-sm w-20 rounded" name="amount">
+        @for ($i=1; $i <=10; $i++)
+            <option>{{$i}}</option>
+        @endfor
+    </select>
+    <input class="btn btn-neutral w-full md:w-64 rounded-full text-white mt-42" type="submit" value="Add to basket">
+    @csrf
+
+</form>
+    @if (session('error'))
+        <p>{{session('error')}}</p>
+    @endif
 </div>
 </div>
 
