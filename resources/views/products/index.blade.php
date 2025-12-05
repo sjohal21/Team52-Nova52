@@ -6,11 +6,12 @@
 <!-- the beginning part of the webpage/ content for the heading-->
  <section class="py-12 px-6 text-center">
 
-     <h1 class="text-3xl md:text-4xl font-bold mb-2">
-         Our Products
+  <h1 class="text-3xl md:text-4xl font-bold mb-2 text-black dark:text-white">
+    Our Products
 </h1>
-<p class="text-sm md:text-base text-neutral">
-    Explore the latest tech across all of our categories
+
+<p class="text-sm md:text-base text-black dark:text-white">
+    Explore the latest tech across all of our catergories
 </p>
 
 <!-- Search Bar-->
