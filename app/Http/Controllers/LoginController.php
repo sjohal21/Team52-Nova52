@@ -33,10 +33,10 @@ class LoginController extends Controller
      return redirect('/')->with('success','Welcome to Nova52');
      }
 
-     return back()
-     ->withErrors(['email','Login Unsuccessful!, the provided details do not match our records'])
-     ->onlyInput('email');
       }
+      return back()
+      ->withErrors(['email','Login Unsuccessful!, the provided details do not match our records'])
+      ->onlyInput('email');
 
     }
 
