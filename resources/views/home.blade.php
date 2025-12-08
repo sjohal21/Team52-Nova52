@@ -19,8 +19,8 @@
 
         <div class="card w-auto bg-base-200">
             <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/icons/laptop.svg" alt="Picture of laptop" class="h-16 w-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/icons/laptopwhite.svg" alt="Picture of laptop" class="h-16 w-16 {{$darkclass}}">
+                <img src="{{URL::to("/")}}/pageicons/laptop.svg" alt="Picture of laptop" class="h-16 w-16 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/pageicons/laptopwhite.svg" alt="Picture of laptop" class="h-16 w-16 {{$darkclass}}">
             </figure>
             <div class="card-body text-center">
                 <h2 class="card-title">Laptops</h2>
@@ -29,8 +29,8 @@
 
         <div class="card w-auto bg-base-200">
             <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/icons/cell-phone.svg" alt="Picture of smartphone" class="h-16 w-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/icons/cell-phone-white.svg" alt="Picture of smartphone" class="h-16 w-16 {{$darkclass}}">
+                <img src="{{URL::to("/")}}/pageicons/cell-phone.svg" alt="Picture of smartphone" class="h-16 w-16 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/pageicons/cell-phone-white.svg" alt="Picture of smartphone" class="h-16 w-16 {{$darkclass}}">
             </figure>
             <div class="card-body text-center">
                 <h2 class="card-title">Smartphones</h2>
@@ -39,8 +39,8 @@
 
         <div class="card w-auto bg-base-200">
             <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/icons/tablet.svg" alt="Picture of tablet" class="w-16 h-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/icons/tabletwhite.svg" alt="Picture of tablet" class="w-16 h-16 {{$darkclass}}">
+                <img src="{{URL::to("/")}}/pageicons/tablet.svg" alt="Picture of tablet" class="w-16 h-16 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/pageicons/tabletwhite.svg" alt="Picture of tablet" class="w-16 h-16 {{$darkclass}}">
             </figure>
             <div class="card-body text-center">
                 <h2 class="card-title">Tablets</h2>
@@ -49,8 +49,8 @@
 
         <div class="card w-auto bg-base-200">
             <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/icons/computer.svg" alt="Picture of desktop computer" class="w-16 h-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/icons/computer-white.svg" alt="Picture of desktop computer" class="w-16 h-16 {{$darkclass}}">
+                <img src="{{URL::to("/")}}/pageicons/computer.svg" alt="Picture of desktop computer" class="w-16 h-16 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/pageicons/computer-white.svg" alt="Picture of desktop computer" class="w-16 h-16 {{$darkclass}}">
             </figure>
             <div class="card-body text-center">
                 <h2 class="card-title">Desktops</h2>
@@ -59,8 +59,8 @@
 
         <div class="card w-auto bg-base-200">
             <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/icons/headphone.svg" alt="Picture of over ear headphones" class="w-16 h-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/icons/headphonewhite.svg" alt="Picture of over ear headphones" class="w-16 h-16 {{$darkclass}}">
+                <img src="{{URL::to("/")}}/pageicons/headphone.svg" alt="Picture of over ear headphones" class="w-16 h-16 {{$lightclass}}">
+                <img src="{{URL::to("/")}}/pageicons/headphonewhite.svg" alt="Picture of over ear headphones" class="w-16 h-16 {{$darkclass}}">
             </figure>
             <div class="card-body text-center">
                 <h2 class="card-title">Audio</h2>
@@ -73,8 +73,8 @@
         <div class="grid grid-flow-col grid-rows-1 gap-3">
             <div class="card w-auto">
                 <figure>
-                    <img src="{{URL::to("/")}}/icons/free-shipping.svg" alt="Picture of a delivery lorry with the word free on it" class="w-16 h-16 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/icons/free-shipping-white.svg" alt="Picture of a delivery lorry with the word free on it" class="w-16 h-q6 {{$darkclass}}">
+                    <img src="{{URL::to("/")}}/pageicons/free-shipping.svg" alt="Picture of a delivery lorry with the word free on it" class="w-16 h-16 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/pageicons/free-shipping-white.svg" alt="Picture of a delivery lorry with the word free on it" class="w-16 h-q6 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Free delivery over £50</h2>
@@ -82,8 +82,8 @@
             </div>
             <div class="card w-auto">
                 <figure>
-                    <img src="{{URL::to("/")}}/icons/cyber-security.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-16 h-16 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/icons/cyber-security-white.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-16 h-16 {{$darkclass}}">
+                    <img src="{{URL::to("/")}}/pageicons/cyber-security.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-16 h-16 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/pageicons/cyber-security-white.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-16 h-16 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Secure Checkout</h2>
@@ -91,8 +91,8 @@
             </div>
             <div class="card w-auto">
                 <figure>
-                    <img src="{{URL::to("/")}}/icons/shield.svg" alt="Picture of a shield with a tick in the middle" class="w-16 h-16 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/icons/shieldwhite.svg" alt="Picture of a shield with a tick in the middle" class="w-16 h-16 {{$darkclass}}">
+                    <img src="{{URL::to("/")}}/pageicons/shield.svg" alt="Picture of a shield with a tick in the middle" class="w-16 h-16 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/pageicons/shieldwhite.svg" alt="Picture of a shield with a tick in the middle" class="w-16 h-16 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">1-Year Warranty</h2>
@@ -100,8 +100,8 @@
             </div>
             <div class="card w-auto">
                 <figure>
-                    <img src="{{URL::to("/")}}/icons/student.svg" alt="Picture of a person with a graduation cap" class="w-16 h-16 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/icons/studentwhite.svg" alt="Picture of a person with a graduation cap" class="w-16 h-16 {{$darkclass}}">
+                    <img src="{{URL::to("/")}}/pageicons/student.svg" alt="Picture of a person with a graduation cap" class="w-16 h-16 {{$lightclass}}">
+                    <img src="{{URL::to("/")}}/pageicons/studentwhite.svg" alt="Picture of a person with a graduation cap" class="w-16 h-16 {{$darkclass}}">
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-center">Student-Friendly Pricing</h2>

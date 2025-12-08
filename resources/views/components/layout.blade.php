@@ -19,8 +19,8 @@
             <a class="btn btn-ghost">Wish List</a>
         </div>
         <div class="navbar-end">
-            <a class="btn btn-ghost" href="{{URL::to('/basket')}}"><img src="{{ URL::to('/') }}/icons/cart.svg" alt="Picture of a shopping cart" class="size-10"></a>
-            <a class="btn btn-ghost" href="{{URL::to('/register')}}"><img src="{{ URL::to('/') }}/icons/profile-picture.svg" alt="Picture for account" class="size-10"></a>
+            <a class="btn btn-ghost" href="{{URL::to('/basket')}}"><img src="{{ URL::to('/') }}/pageicons/cart.svg" alt="Picture of a shopping cart" class="size-10"></a>
+            <a class="btn btn-ghost" href="{{URL::to('/register')}}"><img src="{{ URL::to('/') }}/pageicons/profile-picture.svg" alt="Picture for account" class="size-10"></a>
             @auth<a class="btn btn-ghost" href="{{URL::to('/logout')}}">Log out</a>@endauth
         </div>
     </nav>
@@ -52,10 +52,10 @@
         <nav>
             <h4 class="font-bold">Follow us</h4>
             <div class="grid grid-flow-col gap-4">
-                <a class="link link-hover"><img src="{{URL::to("/")}}/icons/facebookwhite.svg" alt="Facebook logo" class="w-10 h-10"></a>
-                <a class="link link-hover"><img src="{{URL::to("/")}}/icons/twitterwhite.svg" alt="Twitter/X logo" class="w-10 h-10"></a>
-                <a class="link link-hover"><img src="{{URL::to("/")}}/icons/instagramwhite.svg" alt="Instagram logo" class="w-10 h-10"></a>
-                <a class="link link-hover"><img src="{{URL::to("/")}}/icons/linkedinwhite.svg" alt="LinkedIn logo" class="w-10 h-10"></a>
+                <a class="link link-hover"><img src="{{URL::to("/")}}/pageicons/facebookwhite.svg" alt="Facebook logo" class="w-10 h-10"></a>
+                <a class="link link-hover"><img src="{{URL::to("/")}}/pageicons/twitterwhite.svg" alt="Twitter/X logo" class="w-10 h-10"></a>
+                <a class="link link-hover"><img src="{{URL::to("/")}}/pageicons/instagramwhite.svg" alt="Instagram logo" class="w-10 h-10"></a>
+                <a class="link link-hover"><img src="{{URL::to("/")}}/pageicons/linkedinwhite.svg" alt="LinkedIn logo" class="w-10 h-10"></a>
             </div>
         </nav>
     </footer>
