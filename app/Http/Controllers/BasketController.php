@@ -23,9 +23,12 @@ class BasketController extends Controller
         if (!$basket) {
             return view('basket',['items' => [], 'total' => 0, 'count' => 0]);
         }
-        // Create variable where it contains all items associated with the basket using BasketItems
-        $basketItems = BasketItem::where('basket_id',$basketId)->with('product')->get();
-        return view('basket',['items' => $basketItems, 'total' => $basket->totalPrice(), 'count' => $basket->totalItems()]);
+        //puts variables we need into an array and return them
+        return view('basket', [
+         'items' => $basket->items,
+        'total'  => $basket->totalPrice(),
+        'count'  => $basket->totalItems(),
+     ]);
     }
 
     // Add item to basket
@@ -69,6 +72,9 @@ class BasketController extends Controller
 
             $basketItem->amount = $newQuantity;
             $basketItem->save();
+
+            return redirect('/basket')->with('success','Basket has been updated');
+
         } else {
             // Create new basket item
             BasketItem::create([
@@ -89,7 +95,15 @@ class BasketController extends Controller
             'product_id' => 'required|exists:products,id',
         ]);
 
-        $basketItem = BasketItem::findOrFail($validated['product_id']);
+        //remembers a basket id for the specific user 
+        $basketId = session('basket_id');
+
+        //makes sure the user is only able to edit their own basket
+        $basketItem = BasketItem::where('basket_id',$basketId)
+        //finds correct basket item using the product id
+        ->where('product_id',$validated['product_id'])
+        //if the item doesnt exist a 404 error gets thrown
+        ->firstOrFail();
 
         // Check stock availability
         if ($basketItem->product->stock_level < $validated['amount']) {
@@ -108,7 +122,13 @@ class BasketController extends Controller
         $validated = $request->validate([
             'product_id' => 'required|exists:products,id',
         ]);
-        $basketItem = BasketItem::findOrFail($validated['product_id']);
+
+        $basketId = session('basket_id');
+
+        $basketItem = BasketItem::where('basket_id',$basketId)
+        ->where('product_id',$validated['product_id'])
+        ->firstorFail();
+
         $basketItem->delete();
 
         return redirect('/basket')->with('success', 'Product removed from basket successfully!');
