@@ -115,9 +115,9 @@
     <p class="mb-6 text-sm md:text-base">
         Discover the latest tech at Nova52 today
 </p>
-<button class="btn btn-neutral rounded full">
+<a class="btn btn-neutral rounded full" href="{{URL::to('products')}}">
     View Products
-</button>
+</a>
 </section>
  <div class="max-w-xl bg-base-100 text-base-content">
         <div class="card">
