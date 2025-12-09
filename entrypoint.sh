@@ -8,10 +8,10 @@ done
 echo "Database is ready!"
 
 # Run migrations if they haven't been run yet
-if [ ! -f /var/www/html/migrations_completed ]; then
+if [ ! -f /webfiles/migrations_completed ]; then
     echo "Running migrations..."
     php artisan migrate --force --seed
-    touch /var/www/html/migrations_completed
+    touch /webfiles/migrations_completed
 fi
 
 # Run Laravel seeders (if needed)
