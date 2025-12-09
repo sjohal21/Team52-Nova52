@@ -52,7 +52,7 @@
 <div class="card-body text-center px-4">
     <h3 class="font-semibold text-sm">{{$product->name}}</h3>
 
-    <p class="text-xs text-neutral mb-3">
+    <p class="text-xs text-base-content mb-3">
         from £{{number_format($product->price,2)}}
 </p>
 <!--Product Details-->
