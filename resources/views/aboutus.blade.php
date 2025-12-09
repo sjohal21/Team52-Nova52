@@ -75,31 +75,31 @@
 
     <!-- Quality -->
     <div>
-        <img src="{{ URL::to('/') }}/icons/star.svg"  alt="Quality icon" class="w-16 h-16 mx-auto mb-2 {{ $lightclass }}">
-        <img src="{{ URL::to('/') }}/icons/starwhite.svg" alt="Quality icon" class="w-16 h-16 mx-auto mb-2 {{ $darkclass }}">
+        <img src="{{ URL::to('/') }}/pageicons/star.svg"  alt="Quality icon" class="w-16 h-16 mx-auto mb-2 {{ $lightclass }}">
+        <img src="{{ URL::to('/') }}/pageicons/starwhite.svg" alt="Quality icon" class="w-16 h-16 mx-auto mb-2 {{ $darkclass }}">
         <p class="font-semibold">Quality</p>
         <p>Reliable, trusted tech</p>
     </div>
 
     <div>
-        <img src="{{ URL::to('/') }}/icons/globe.svg" alt="Accessibility icon" class="w-16 h-16 mx-auto mb-2 {{ $lightclass }}">
-        <img src="{{ URL::to('/') }}/icons/globewhite.svg" alt="Accessibility icon"  class="w-16 h-16 mx-auto mb-2 {{ $darkclass }}">
+        <img src="{{ URL::to('/') }}/pageicons/globe.svg" alt="Accessibility icon" class="w-16 h-16 mx-auto mb-2 {{ $lightclass }}">
+        <img src="{{ URL::to('/') }}/pageicons/globewhite.svg" alt="Accessibility icon"  class="w-16 h-16 mx-auto mb-2 {{ $darkclass }}">
         <p class="font-semibold">Accessibility</p>
         <p>Fair pricing for all users</p>
     </div>
 
 
     <div>
-        <img src="{{ URL::to('/') }}/icons/lock.svg"   alt="Security icon"    class="w-16 h-16 mx-auto mb-2 {{ $lightclass }}">
-        <img src="{{ URL::to('/') }}/icons/lockwhite.svg"  alt="Security icon" class="w-16 h-16 mx-auto mb-2 {{ $darkclass }}">
+        <img src="{{ URL::to('/') }}/pageicons/lock.svg"   alt="Security icon"    class="w-16 h-16 mx-auto mb-2 {{ $lightclass }}">
+        <img src="{{ URL::to('/') }}/pageicons/lockwhite.svg"  alt="Security icon" class="w-16 h-16 mx-auto mb-2 {{ $darkclass }}">
         <p class="font-semibold">Security</p>
         <p>Secure data protection</p>
     </div>
 
 
     <div>
-        <img src="{{ URL::to('/') }}/icons/puzzle.svg" alt="Simplicity icon"  class="w-16 h-16 mx-auto mb-2 {{ $lightclass }}">
-        <img src="{{ URL::to('/') }}/icons/puzzlewhite.svg"  alt="Simplicity icon"  class="w-16 h-16 mx-auto mb-2 {{ $darkclass }}">
+        <img src="{{ URL::to('/') }}/pageicons/puzzle.svg" alt="Simplicity icon"  class="w-16 h-16 mx-auto mb-2 {{ $lightclass }}">
+        <img src="{{ URL::to('/') }}/pageicons/puzzlewhite.svg"  alt="Simplicity icon"  class="w-16 h-16 mx-auto mb-2 {{ $darkclass }}">
         <p class="font-semibold">Simplicity</p>
         <p>Easy to use interface</p>
     </div>
