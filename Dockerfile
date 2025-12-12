@@ -52,3 +52,6 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Set the entrypoint
 ENTRYPOINT ["entrypoint.sh"]
+
+# Add label to connect with GitHub repo
+LABEL org.opencontainers.image.source=https://github.com/sjohal21/Team52-Nova52
