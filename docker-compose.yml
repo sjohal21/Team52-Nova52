@@ -11,6 +11,8 @@ services:
       - db
     volumes:
       - ./webfiles:/webfiles
+      - ./webfiles/storage/public:/var/www/html/storage/app/public
+      - ./webfiles/storage/private:/var/www/html/storage/app/private
 
   db:
     image: mariadb:12
