@@ -1,6 +1,5 @@
 services:
   web:
-    image: docklaravel:latest
     build:
       target: web
       context: .
