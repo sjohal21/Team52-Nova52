@@ -1,8 +1,6 @@
 services:
   web:
-    build:
-      target: web
-      context: .
+    image: ghcr.io/sjohal21/team52-nova52:latest
     env_file:
       - .env
     ports:
