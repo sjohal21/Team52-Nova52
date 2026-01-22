@@ -6,7 +6,7 @@
  <section class="bg-base-200 py-10 text-center">
     <h1 class="text-3xl md:text-4xl font-bold">
         {{$product->name}}
-</h1>
+    </h1>
 </section>
 
 <!--this is for the box-->
@@ -33,32 +33,32 @@
 
             <!--this is for the price-->
             <p class="text-lg font-bold">
-                price: £{{number_format($product->price,2)}}
+                £{{number_format($product->price,2)}}
             </p>
 
             <!--this is for how much stock is left for each product-->
             <p class="text-sm">
                 @if ($product->stock_level !== null && $product->stock_level > 0)
-                <span class="text-green-600 font-medium">In Stock:{{$product->stock_level}}</span>
+                    <span class="text-green-600 font-medium">In stock: {{$product->stock_level}}</span>
                 @else
-                <span class="text-red-600 font-medium">Out of Stock</span>
+                    <span class="text-red-600 font-medium">Out of stock</span>
                 @endif
             </p>
 
             <!--this is is for the basket (button)-->
-            <form method="post" action="{{URL::to('/basket/add')}}">
+            <form method="post" action="{{URL::to('/basket/add')}}" class="flex flex-row">
                 <input type="hidden" value="{{$product->id}}" name="product_id">
                 <!--this is for letting the customer know how much product they have selected-->
                 <span class="font-semibold">Quantity:</span>
-                <select class="select select-bordered select-sm w-20 rounded" name="amount">
+                <select class="select select-bordered select-sm w-20 rounded ml-2" name="amount">
                     @for ($i=1; $i <=10; $i++)
                         <option>{{$i}}</option>
                     @endfor
                 </select>
-                <input class="btn btn-neutral w-full md:w-64 rounded-full text-white mt-12" type="submit" value="Add to basket">
+                <input class="btn btn-neutral w-auto md:w-64 rounded-full text-white mt-12" type="submit" value="Add to basket">
                 @csrf
-
             </form>
+
                 @if (session('error'))
                     <p>{{session('error')}}</p>
                 @endif
