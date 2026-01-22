@@ -8,10 +8,20 @@
 </head>
 <body>
     <nav class="navbar bg-black text-white">
+        <div class="dropdown lg:hidden">
+            <div tabindex="0" role="button" class="btn">...</div>
+            <ul class="dropdown-content bg-black text-white rounded" tabindex="-1">
+                <a class="btn btn-ghost" href="{{URL::to('/')}}">Home</a>
+                <a class="btn btn-ghost" href="{{URL::to('/products')}}">Products</a>
+                <a class="btn btn-ghost" href="{{URL::to('/about')}}">About Us</a>
+                <a class="btn btn-ghost" href="{{URL::to('/contact')}}">Contact</a>
+                <a class="btn btn-ghost">Wish List</a>
+            </ul>
+        </div>
         <div class="navbar-start">
             <a class="btn btn-ghost text-xl" href="/">Nova52</a>
         </div>
-        <div class="navbar-center">
+        <div class="navbar-center hidden lg:flex">
             <a class="btn btn-ghost" href="{{URL::to('/')}}">Home</a>
             <a class="btn btn-ghost" href="{{URL::to('/products')}}">Products</a>
             <a class="btn btn-ghost" href="{{URL::to('/about')}}">About Us</a>
