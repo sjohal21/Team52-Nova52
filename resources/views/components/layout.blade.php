@@ -9,8 +9,8 @@
 <body>
     <nav class="navbar bg-black text-white">
         <div class="dropdown lg:hidden">
-            <div tabindex="0" role="button" class="btn">...</div>
-            <ul class="dropdown-content bg-black text-white rounded" tabindex="-1">
+            <div tabindex="0" role="button" class="btn bg-black text-white btn-ghost">|||</div>
+            <ul class="dropdown-content bg-black text-white rounded w-30" tabindex="-1">
                 <a class="btn btn-ghost" href="{{URL::to('/')}}">Home</a>
                 <a class="btn btn-ghost" href="{{URL::to('/products')}}">Products</a>
                 <a class="btn btn-ghost" href="{{URL::to('/about')}}">About Us</a>
