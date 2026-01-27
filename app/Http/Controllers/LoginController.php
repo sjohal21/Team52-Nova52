@@ -26,7 +26,7 @@ class LoginController extends Controller
      $request->session()->regenerate();
 
      $user = Auth::user();
-     if($user->role === 'admin') {
+     if($user->role === 'Admin') {
      return redirect('/')->with('success','Welcome to Nova52 Administrator');
      }
      else {

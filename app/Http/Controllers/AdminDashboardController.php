@@ -8,7 +8,7 @@ use App\Models\User;
 
 class AdminDashboardController extends Controller
 {
-    
+
     public function show() {
         $users = User::all();
         return view('admin.dashboard',['users' => $users]);
@@ -25,8 +25,8 @@ class AdminDashboardController extends Controller
         //gets the user id
         $user = User::find($request->user_id);
 
-        if ($user && $user->role !== 'admin') {
-            $user->role = 'admin';
+        if ($user && $user->role !== 'Admin') {
+            $user->role = 'Admin';
             $user->save(); //writes the change into the database
         }
         return redirect('/admin/users')->with('success', 'User has been successfully promoted!');
@@ -36,7 +36,7 @@ class AdminDashboardController extends Controller
         //gets the user id
         $user = User::find($request->user_id);
 
-        if ($user && $user->role === 'admin') {
+        if ($user && $user->role === 'Admin') {
             $user->role = 'customer';
             $user->save(); //writes the change into the database
         }
