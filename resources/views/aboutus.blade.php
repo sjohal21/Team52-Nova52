@@ -18,7 +18,7 @@
 
     <!--Mission at Nova 52-->
 
-    <section class="mb-12 text-center max-w-3x1 mx-auto">
+    <section class="mb-12 text-center max-w-3x1 mx-auto p-3">
         <h2 class="text-2x1 md:text-3x1 font-bold mb-4">
             Our Mission
         </h2>
@@ -30,21 +30,22 @@
             or a casual user, we want to deliver value, trust and convenience.
         </p>
     </section>
+     <section class="mb-12 text-center max-w-3x1 mx-auto p-3">
+        <h2 class="text-2x1 md:text-3x1 font-bold mb-4">
+            What we offer
+        </h2>
+        <p class="text-sm md:text-base text-center">
+            At Nova52, we offer a wide range of products designed to support work, study,
+            creativity and everyday life. our catalogue includes laptops, smartphones, tablets,
+            earphones, headphones and desktop computers. They are all chosen for reliability,
+            performance and value. Our goal is to provide products that suit students, professionals
+            and everyday users alike.
+        </p>
+    </section>
 
     <!-- what we offer-->
-     <section class="mb-16 max-w-4x1 mx-auto">
-         <div class="text-center mb-6">
-             <h2 class="text-2x1 md:text-3x1 font-bold mb-6">
-                 What we offer
-             </h2>
-            <p class="text-sm md:text-base leading-relaxed">
-                At Nova52, we offer a wide range of products designed to support work, study,
-                creativity and everyday life. our catalogue includes laptops, smartphones, tablets,
-                earphones, headphones and desktop computers. They are all chosen for reliability,
-                performance and value. Our goal is to provide products that suit students, professionals
-                and everyday users alike.
-            </p>
-        </div>
+     <section class="mb-12 text-center max-w-3x1 mx-auto p-3">
+
 
          <!-- images grid-->
          <div class="grid gap-6 md:grid-cols-3">
