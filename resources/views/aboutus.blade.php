@@ -13,8 +13,8 @@
         </h1>
         <p class="text-sm md:text-base">
             Your trusted source for modern technology
-</p>
-</section>
+        </p>
+    </section>
 
 <!--Mission at Nova 52-->
 
@@ -25,11 +25,9 @@
     <p class="text-sm md:text-base text-center">
         At Nova52, our mission is to make high quality technology accessible to everyone.
         We want to provide a simple, reliable and smooth shopping experience with our wide
-        range of devices. </p>
-
-        <p> Our goal is the same no matter if you are a student, a professional
+        range of devices.
+        Our goal is the same no matter if you are a student, a professional
         or a casual user, we want to deliver value, trust and convenience.
-
     </p>
 </section>
 
@@ -114,7 +112,7 @@
     </h2>
     <p class="mb-6 text-sm md:text-base">
         Discover the latest tech at Nova52 today
-</p>
+    </p>
 <a class="btn btn-neutral rounded full" href="{{URL::to('products')}}">
     View Products
 </a>
