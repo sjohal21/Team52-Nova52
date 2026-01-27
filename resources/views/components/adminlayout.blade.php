@@ -31,7 +31,7 @@
                 {{$slot}}
             </main>
         </div>
-        <div class="drawer-side bg-black text-white flex">
+        <div class="drawer-side bg-black text-white flex w-md">
             <label for="leftsidebar" class="drawer-overlay btn btn-ghost justify-start">|||</label>
             <ul class="menu p-4 w-80">
                 <li><p>Placeholder 1</p></li>
