@@ -4,7 +4,16 @@
     <!-- Set title based on title variable set by pages using layout-->
     <title>{{isset($title) ? $title . ' - Nova52' : 'Nova52'}}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    <div class="invisible hidden">
+        <!-- Set up number of items in the basket -->
+        {{$basketId = session('basket_id')}}
+        {{$basket = App\Models\Basket::with('items.product')->find($basketId)}}
+        @if($basket != null)
+            {{$items = $basket->totalItems()}}
+        @else
+            {{$items = 0}}
+        @endif
+    </div>
 </head>
 <body>
     <nav class="navbar bg-black text-white">
@@ -30,6 +39,11 @@
         </div>
         <div class="navbar-end">
             <a class="btn btn-ghost" href="{{URL::to('/basket')}}"><img src="{{ URL::to('/') }}/pageicons/cart.svg" alt="Picture of a shopping cart" class="size-10"></a>
+            @if($items > 0)
+                <p class="text-sm p-3">{{$items}} item</p>
+            @elseif($items>1)
+                <p class="text-sm p-3">{{$items}} items</p>
+            @endif
             <div class="dropdown dropdown-end">
                 <div class="btn btn-ghost" role="button" tabindex="0">
                     <img src="{{ URL::to('/') }}/pageicons/profile-picture.svg" alt="Picture for account" class="size-10">
