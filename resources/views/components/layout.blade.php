@@ -39,9 +39,9 @@
         </div>
         <div class="navbar-end">
             <a class="btn btn-ghost" href="{{URL::to('/basket')}}"><img src="{{ URL::to('/') }}/pageicons/cart.svg" alt="Picture of a shopping cart" class="size-10"></a>
-            @if($items > 0)
+            @if($items == 1)
                 <p class="text-sm p-3">{{$items}} item</p>
-            @elseif($items>1)
+            @elseif($items > 1)
                 <p class="text-sm p-3">{{$items}} items</p>
             @endif
             <div class="dropdown dropdown-end">
