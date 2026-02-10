@@ -33,6 +33,7 @@ class AdminRegisterController extends Controller
         ->withInput($request->except('password','password_confirmation'));
     }
 
+    //creates the admin user in the database
     $admin = User::create([
     'name' => $data['name'],
     'employee_id' => $employee_Id,
@@ -41,12 +42,11 @@ class AdminRegisterController extends Controller
     'role' => 'admin',
     ]);
 
+    //automatically logs in the new admin
     Auth::login($admin)
+    //regenerates the session to prevent hackers from using old session
     $request->session()->regenerate();
-
+    //redirect to admin dashboard
     return redirect('/admin/dashboard')->with('success','Welcome to Nova52 Administrator');
-
-
  } 
-
 }
