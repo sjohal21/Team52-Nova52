@@ -2,7 +2,7 @@
     <x-slot:title>
         Basket
     </x-slot:title>
-        <div class="flex lg:flex-row flex-col p-8 rounded-xl mt-10 w-11/12 mx-auto gap-40">
+        <div class="flex lg:flex-col p-8 rounded-xl mt-10 w-11/12 mx-auto gap-40">
             <div class = "flex-1 bg-base-300 p-6 rounded-xl shadow">
                 <div class="card">
                     <div class="card-body">
