@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
     - name: Merge Conflict finder
       uses: olivernybroe/action-conflict-finder@v4.0
     - uses: shivammathur/setup-php@2.36.0
@@ -38,6 +38,8 @@ jobs:
         touch database/database.sqlite
     - name: Run npm build
       run: npm run build
+    - name: Run database migrations
+      run: php artisan migrate --seed
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
         DB_CONNECTION: sqlite
