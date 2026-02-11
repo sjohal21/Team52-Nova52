@@ -21,6 +21,9 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about',[AboutUsController::class,'index']);
 Route::post('/contact',[ContactController::class,'contact']);
 
+Route::view('faq', 'faq')->name('faq');
+
+
 // Basket routes
 //
 // Get basket view
