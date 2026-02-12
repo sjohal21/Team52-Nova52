@@ -17,7 +17,6 @@
 
     <div class="bg-base-200 rounded-2x1 p-6 border border-base-300 shadow-sm">
         <div class="flex items-center gap-3 mb-4">
-        <span class="text-2x1"> 🚚 </span>
         <h2 class="text-x2 font-bold text-base-content">Shipping</h2>
 </div>
 
@@ -37,7 +36,6 @@
 
 <div class="bg-base-200 rounded-2x1 p-6 border border-base-300 shadow-sm">
     <div class="flex items-center gap-3 mb-4">
-        <span class="text-2x1">↩️</spam>
         <h2 class="text-x1 font-bold text-base-content">Returns</h2>
 </div>
 
