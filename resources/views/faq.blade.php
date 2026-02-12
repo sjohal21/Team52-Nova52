@@ -19,10 +19,10 @@
     <div class="collapse collapse-arrow bg-base-200 rounded-2xl">
         <input type="checkbox" />
         <div class="collapse-title font-semibold">
-            How can i contact customer support?
+            How can I contact customer support?
         </div>
         <div class="collapse-content">
-            <p>You can reach us via the Contact page. Our support team aims to respond withon 24-48 hours.</p>
+            <p>You can reach us via the Contact page. Our support team aims to respond within 24-48 hours.</p>
         </div>
     </div>
 
@@ -39,7 +39,7 @@
     <div class="collapse collapse-arrow bg-base-200 rounded-2xl">
         <input type="checkbox" />
         <div class="collapse-title font-semibold">
-            Is checkout secure?
+            Is the checkout secure?
         </div>
         <div class="collapse-content">
             <p>Yes, we use secure checkout methods to protect customer data.</p>
