@@ -77,8 +77,7 @@
         <nav>
             <h4 class="font-bold">Support</h4>
             <a href="{{ route('faq') }}" class="link link-hover">FAQ
-            <a class="link link-hover">Shipping & returns</a>
-            <a class="link link-hover">Privacy policy</a>
+            <a href="{{ route('shipping.returns') }}" class="link link-hover">Shipping &amp; Returns</a>            <a class="link link-hover">Privacy policy</a>
             <a class="link link-hover">Terms & Conditions</a>
         </nav>
         <nav>
