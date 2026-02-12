@@ -51,7 +51,7 @@
     <h2 class="text-lg font-bold text-base-content mb-2">5. Your rights</h2>
     <p>
         You may request access to your personal information, ask for corrections, or request deletions where appropriate.
-        To make a request, pleace contact us.
+        To make a request, please contact us.
 </p>
 </div>
 
