@@ -22,7 +22,7 @@ Route::get('/about',[AboutUsController::class,'index']);
 Route::post('/contact',[ContactController::class,'contact']);
 
 Route::view('faq', 'faq')->name('faq');
-
+Route::view('/shipping-returns', 'shippingReturns')->name('shipping.returns');
 
 // Basket routes
 //
