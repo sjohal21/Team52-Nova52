@@ -24,6 +24,7 @@ Route::post('/contact',[ContactController::class,'contact']);
 Route::view('faq', 'faq')->name('faq');
 Route::view('/shipping-returns', 'shippingReturns')->name('shipping.returns');
 Route::view('/privacy-policy', 'privacyPolicy')->name('privacy.policy');
+
 // Basket routes
 //
 // Get basket view
