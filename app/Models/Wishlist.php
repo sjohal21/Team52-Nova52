@@ -13,6 +13,11 @@ class Wishlist extends Model
         return $this->hasMany(WishlistItem::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     /** @use HasFactory<\Database\Factories\WishlistFactory> */
     use HasFactory;
 }
