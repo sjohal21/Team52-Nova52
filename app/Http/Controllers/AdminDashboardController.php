@@ -17,23 +17,23 @@ class AdminDashboardController extends Controller
         $activityLimit = 6;
 
         //vnumber of the amount of products that are currently low on stock
-        $lowStockCount = Order::query() 
+        $lowStockCount = PlaceOrderController::query() 
         ->WhereNotNull('stock_level')
         ->WhereBetween('stock_level',[1,$lowStockCount])
         ->count();
 
         //number of the amount of orders that are currently processing
-        $processingOrdersCount = Order::query()
+        $processingOrdersCount = PlaceOrderController::query()
         ->where('status','pending')
         ->count();
 
         //number of the amount of products that are currently out of stock
-        $outOfStockCount = Order::query() 
+        $outOfStockCount = PlaceOrderController::query() 
         ->where('stock_level',0)
         ->count();
 
         //number of the amount of orders in progress
-        $orderInProgressCount = Order::query()
+        $orderInProgressCount = PlaceOrderController::query()
         ->where('status','!=','processing')
         ->count();
          
