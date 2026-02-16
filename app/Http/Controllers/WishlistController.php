@@ -6,7 +6,7 @@ use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class WishListController extends Controller
+class WishlistController extends Controller
 {
     public function index()
     {
@@ -14,8 +14,8 @@ class WishListController extends Controller
         if (!$user) {
             return redirect()->route('login');
         }
-        $wishlist = Wishlist::with('items.product')->where('user_id',Auth::id());
-        return view('wishlist',[
+        $wishlist = Wishlist::with('items.product')->where('user_id',Auth::id())->first();
+        return view('WishList',[
             'items'=>$wishlist->items
         ]);
     }
