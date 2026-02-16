@@ -1,9 +1,13 @@
 <?php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Sessions;
 
 
-class PlaceOrderController extends Controller {
+class PlaceOrderController extends Controller 
+{
 
     public function fetchInfo() {
         // Fetch products from basket
