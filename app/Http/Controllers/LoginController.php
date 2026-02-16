@@ -27,7 +27,7 @@ class LoginController extends Controller
 
      $user = Auth::user();
      if($user->role === 'Admin') {
-     return redirect('/')->with('success','Welcome to Nova52 Administrator');
+     return redirect('/admin/dashboard')->with('success','Welcome to Nova52 Administrator');
      }
      else {
      return redirect('/')->with('success','Welcome to Nova52');
