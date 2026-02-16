@@ -40,7 +40,7 @@ class AdminUserController extends Controller
 
         //prevents current user from demoting themselves
         if($user->id === auth()->id()) {
-            return bac()->withErrors(['user_id' => 'You cannot demote yourself']);
+            return back()->withErrors(['user_id' => 'You cannot demote yourself']);
         }
         
         //change admin user to customer
