@@ -22,11 +22,32 @@ class AdminUserController extends Controller
 
         //if the user doesnt exist an error is thrown
         $user = User::findOrFail($request->'user_id');
-
+        
+        //change customer to an admin
         if (user->role !== 'Admin') {
             user->role == 'Admin';
             user->save;
         }
         return redirect('/admin/users')->with('success','User has been successfully promoted!');
+    }
+
+    public function demote(Request $request) {
+        $request->validate([
+            ['user_id' => 'required,integer,exists:users,id'],
+        ]);
+        
+        $user = User::findorFail($request->'user_id');
+
+        //prevents current user from demoting themselves
+        if($user->id === auth()->id()) {
+            return bac()->withErrors(['user_id' => 'You cannot demote yourself']);
+        }
+        
+        //change admin user to customer
+        if (user->role == 'Admin') {
+            user->role == 'customer';
+            user->save();
+        }
+        return redirect('/admin/users')->with('success','User has been successfully demoted')
     }
 }
