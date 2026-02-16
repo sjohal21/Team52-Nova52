@@ -81,7 +81,7 @@ Route::middleware(['auth','admin'])->group(function() {
     Route::get('/admin/users',[AdminUserController::class,'show'])
     ->name('admin.users.show');
     //Promotion and Demotion
-    Route::post('/admin/users/promote',[AdminUserController::class,'promote']);
+    Route::post('/admin/users/promote',[AdminUserController::class,'promote'])
     ->name('admin.users.promote');
     Route::post('admin/users/demote',[AdminUserController::class,'demote'])
     ->name('admin.users.demote');

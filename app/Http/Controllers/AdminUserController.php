@@ -48,6 +48,6 @@ class AdminUserController extends Controller
             user->role == 'customer';
             user->save();
         }
-        return redirect('/admin/users')->with('success','User has been successfully demoted')
+        return redirect('/admin/users')->with('success','User has been successfully demoted');
     }
 }
