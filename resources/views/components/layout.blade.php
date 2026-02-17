@@ -84,7 +84,7 @@
 
 
             <a href="{{ route('privacy.policy') }}" class="link link-hover">Privacy Policy</a>
-            <a href="{{ route('terms.conditions') }}" class="link link-hover">Terms & Conditions </a>
+            <a href="{{ route('terms.conditions') }}" class="link link-hover">Terms & Conditions</a>
         </nav>
         <nav>
             <h4 class="font-bold">Follow us</h4>
