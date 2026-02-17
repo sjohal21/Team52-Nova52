@@ -14,7 +14,7 @@ class WishlistController extends Controller
         if (!$user) {
             return redirect()->route('login');
         }
-        $wishlist = Wishlist::with('items.product')->where('user_id',Auth::id())->first();
+        $wishlist = Wishlist::where('user_id',Auth::id())->first();
         return view('WishList',[
             'items'=>$wishlist->items
         ]);
