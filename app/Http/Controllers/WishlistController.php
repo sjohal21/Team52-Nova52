@@ -20,6 +20,17 @@ class WishlistController extends Controller
             'items'=>$wishlist->items
         ]);
     }
+
+    public function add(Request $request)
+    {
+        // TODO: add function to add an item to the wish list
+    }
+
+    public function remove(Request $request)
+    {
+        // TODO: add function to remove an item from the wish list
+    }
+
     public function totalItems()
     {
         // TODO: add total items in wish list function
