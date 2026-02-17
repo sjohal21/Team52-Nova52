@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Basket;
 use App\Models\Wishlist;
+use App\Models\WishlistItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,12 +25,36 @@ class WishlistController extends Controller
 
     public function add(Request $request)
     {
-        // TODO: add function to add an item to the wish list
+        // Takes in product ID and adds to wish list
+        $validated = $request->validate(['product_id'=>['required','exists:products,id']]);
+        if(Auth::id() != null)
+        {
+            $wishlist = Wishlist::where('user_id',Auth::id())->firstOrCreate();
+        }
+        else
+        {
+            return redirect('login');
+        }
+        // Find if product is already in the wish list, return an error if so
+        if($wishlist->items->contains($validated['product_id']))
+        {
+            return redirect('wishlist')->with("Product is already in your wishlist");
+        }
+        else
+        {
+            // Add the item to the wishlist
+            WishlistItem::create(['product_id'=> $validated['product_id'], 'wishlist_id'=> $wishlist->id]);
+            return redirect('wishlist')->with("Product added to wishlist");
+        }
     }
-
     public function remove(Request $request)
     {
         // TODO: add function to remove an item from the wish list
+    }
+
+    public function clear(Request $request)
+    {
+        // TODO: add function to clear the wishlist
     }
 
     public function totalItems()

@@ -4,8 +4,8 @@
     </x-slot:title>
     <div class="p-10">
         @foreach($items as $item)
-            <div class="flex-row w-96">
-                <div class="card bg-base-300">
+            <div class="flex-row">
+                <div class="card bg-base-300 p-5 m-5">
                     <p>Image</p>
                 </div>
                 <div class="card bg-base-200">
