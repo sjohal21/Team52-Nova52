@@ -6,7 +6,7 @@
                 <div class="card bg-base-200 m-5">
                     <div class="card-body">
                         <h2 class="card-title font-bold justify-center">Orders to process</h2>
-                        <p>(placeholder) orders to process</p>
+                        <p>{{$processingOrdersCount}} orders to process</p>
                         <a class="btn btn-ghost bg-black text-white rounded-md">Manage orders</a>
                     </div>
                 </div>
