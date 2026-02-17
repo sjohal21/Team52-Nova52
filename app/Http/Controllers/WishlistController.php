@@ -31,6 +31,10 @@ class WishlistController extends Controller
         {
             $wishlist = Wishlist::where('user_id',Auth::id())->firstOrCreate();
         }
+        else if($validated['product_id'] == null)
+        {
+            return redirect('home');
+        }
         else
         {
             return redirect('login');

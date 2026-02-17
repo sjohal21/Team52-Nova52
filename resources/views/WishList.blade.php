@@ -12,6 +12,11 @@
                     <div class="card-body">
                         <div class="card-title">{{$item->product->name}}</div>
                         <p>{{$item->product->description}}</p>
+                        <form method="post" action="{{URL::to('/wishlist/remove')}}">
+                            <input type="hidden" value="{{$item->id}}" name="product_id">
+                            <input class="btn" type="submit" class="btn m-2" value="Remove Item">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>
