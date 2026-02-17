@@ -10,16 +10,16 @@ class AdminDashboardController extends Controller
 {
 
   public function show() {
-   
+
         //value that we will use to decide whether an item is low on stock
         $lowStockBound = 6;
         //amount of entries for the recent activity
         $activityLimit = 6;
 
-        //vnumber of the amount of products that are currently low on stock
-        $lowStockCount = Order::query() 
+        //number of the amount of products that are currently low on stock
+        $lowStockCount = Order::query()
         ->WhereNotNull('stock_level')
-        ->WhereBetween('stock_level',[1,$lowStockCount])
+        ->WhereBetween('stock_level',[1,$lowStockBound])
         ->count();
 
         //number of the amount of orders that are currently processing
@@ -28,7 +28,7 @@ class AdminDashboardController extends Controller
         ->count();
 
         //number of the amount of products that are currently out of stock
-        $outOfStockCount = Order::query() 
+        $outOfStockCount = Order::query()
         ->where('stock_level',0)
         ->count();
 
@@ -36,7 +36,7 @@ class AdminDashboardController extends Controller
         $orderInProgressCount = Order::query()
         ->where('status','!=','processing')
         ->count();
-         
+
         //returning the view for the admin dashboard
         return view('admin.dashboard',[
         'lowStockBound' => $lowStockBound,
