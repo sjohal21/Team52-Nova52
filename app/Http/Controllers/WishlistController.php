@@ -14,7 +14,8 @@ class WishlistController extends Controller
         if (!$user) {
             return redirect()->route('login');
         }
-        $wishlist = Wishlist::where('user_id',Auth::id())->first();
+        // Gets wishlist, creates one for the user if none already exists
+        $wishlist = Wishlist::where('user_id',Auth::id())->firstOrCreate();
         return view('WishList',[
             'items'=>$wishlist->items
         ]);
