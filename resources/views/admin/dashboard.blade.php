@@ -13,21 +13,21 @@
                 <div class="card bg-base-200 m-5">
                     <div class="card-body">
                         <h2 class="card-title font-bold justify-center">Low stock items</h2>
-                        <p>(placeholder) low stock items</p>
+                        <p>{{$lowStockCount}} low stock items</p>
                         <a class="btn btn-ghost bg-black text-white rounded-md">View stock</a>
                     </div>
                 </div>
                 <div class="card bg-base-200 m-5">
                     <div class="card-body">
                         <h2 class="card-title font-bold justify-center">Orders in progress</h2>
-                        <p>(placeholder) orders in progress</p>
+                        <p>{{$processingOrdersCount}} orders in progress</p>
                         <a class="btn btn-ghost bg-black text-white rounded-md">Manage orders</a>
                     </div>
                 </div>
                 <div class="card bg-base-200 m-5">
                     <div class="card-body">
                         <h2 class="card-title font-bold justify-center">Out of stock items</h2>
-                        <p>(placeholder) items out of stock</p>
+                        <p>{{$outOfStockCount}} items out of stock</p>
                         <a class="btn btn-ghost bg-black text-white rounded-md">View stock</a>
                     </div>
                 </div>
