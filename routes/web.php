@@ -16,11 +16,10 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\AuthController;
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']) -> name('home.index');
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about',[AboutUsController::class,'index']);
 Route::post('/contact',[ContactController::class,'contact']);
-
 // Basket routes
 //
 // Get basket view
@@ -98,3 +97,7 @@ Route::get('/products/{product}',[ProductController::class,'showOne'])->name('pr
 
 //display searched products
 Route::get('/search',[ProductController::class,'search'])->name('products.search');
+
+
+// Pest Test Routes
+Route::get('/TestTest', function () {return "hi";});
