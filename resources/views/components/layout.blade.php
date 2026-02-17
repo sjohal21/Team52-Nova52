@@ -72,7 +72,7 @@
             <a class="link link-hover" href="{{URL::to('/about')}}">About us</a>
             <a class="link link-hover" href="{{URL::to('/contact')}}">Contact</a>
             <a class="link link-hover">Wish list</a>
-            <a class="link link-hover">Admin log in</a>
+            <a class="link link-hover" href="{{URL::to('/admin/dashboard')}}">Administration</a>
         </nav>
         <nav>
             <h4 class="font-bold">Support</h4>
