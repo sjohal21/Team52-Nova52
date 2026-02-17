@@ -50,7 +50,7 @@
                     <div class="divider"></div>
                     <div class="flex justify-between mb-10 font-bold text-lg">
                         <span>Total:</span>
-                        <span>{{$total}}</span>
+                        <span>£{{number_format($total, 2)}}</span>
                     </div>
                     @if($count > 0)
                         <a class="btn" href="{{URL::to("/checkout")}}">Check out</a>
