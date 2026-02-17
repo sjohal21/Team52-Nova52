@@ -16,10 +16,10 @@ class AdminDashboardController extends Controller
         //amount of entries for the recent activity
         $activityLimit = 6;
 
-        //vnumber of the amount of products that are currently low on stock
+        //number of the amount of products that are currently low on stock
         $lowStockCount = Order::query()
         ->WhereNotNull('stock_level')
-        ->WhereBetween('stock_level',[1,$lowStockCount])
+        ->WhereBetween('stock_level',[1,$lowStockBound])
         ->count();
 
         //number of the amount of orders that are currently processing
