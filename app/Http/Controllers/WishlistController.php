@@ -53,7 +53,6 @@ class WishlistController extends Controller
     }
     public function remove(Request $request)
     {
-        // TODO: add function to remove an item from the wish list
         $wishlist = Wishlist::where('user_id',Auth::id())->first();
         $validated = $request->validate(['product_id'=>['required','exists:products,id']]);
         if(Auth::id() != null && $validated['product_id'] != null)
@@ -69,9 +68,13 @@ class WishlistController extends Controller
 
     }
 
-    public function clear(Request $request)
+    public function clear()
     {
         // TODO: add function to clear the wishlist
+        $wishlist = Wishlist::where('user_id',Auth::id())->first();
+        $wishlist->delete();
+        Wishlist::create('user_id',Auth::id());
+        return redirect('wishlist')->with("Wishlist cleared");
     }
 
     public function totalItems()
