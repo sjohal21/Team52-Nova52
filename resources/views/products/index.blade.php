@@ -11,7 +11,7 @@
 </h1>
 
 <p class="text-sm md:text-base text-black dark:text-white">
-    Explore the latest tech across all of our catergories
+    Explore the latest tech across all of our categories
 </p>
 
 <!-- Search Bar-->
