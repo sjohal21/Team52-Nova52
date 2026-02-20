@@ -54,6 +54,19 @@ class WishlistController extends Controller
     public function remove(Request $request)
     {
         // TODO: add function to remove an item from the wish list
+        $wishlist = Wishlist::where('user_id',Auth::id())->first();
+        $validated = $request->validate(['product_id'=>['required','exists:products,id']]);
+        if(Auth::id() != null && $validated['product_id'] != null)
+        {
+            $item = WishlistItem::where('product_id',$validated['product_id'])->where('wishlist_id',$wishlist->id)->first();
+            $item->delete();
+            return redirect('wishlist')->with("Product removed from wishlist");
+        }
+        else
+        {
+            return redirect('wishlist')->with("Error: product not removed from wishlist");
+        }
+
     }
 
     public function clear(Request $request)
