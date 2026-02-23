@@ -3,18 +3,17 @@
 namespace Database\Seeders;
 
 use App\Models\Wishlist;
+use App\Models\WishlistItem;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class WishlistSeeder extends Seeder
+class WishlistItemSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        Wishlist::create([
-            'user_id' => 1
+        WishlistItem::create([
+            'wishlist_id' => 1,
+            'product_id' => 1
         ]);
     }
 }

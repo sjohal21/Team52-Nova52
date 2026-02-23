@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wishlist extends Model
 {
-    protected $fillable = ['user_id', 'product_id'];
+    protected $fillable = ['user_id'];
+    public function items()
+    {
+        return $this->hasMany(WishlistItem::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     /** @use HasFactory<\Database\Factories\WishlistFactory> */
     use HasFactory;
