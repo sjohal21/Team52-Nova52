@@ -1,3 +1,4 @@
+
 <x-layout>
     <x-slot:title>
         Privacy Policy
@@ -68,9 +69,3 @@
 </div>
 </section>
 </x-layout>
-
-
-
-
-
-
