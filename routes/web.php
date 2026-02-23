@@ -54,7 +54,7 @@ Route::post('/wishlist/add',[WishlistController::class,'add']);
 Route::post('/wishlist/remove',[WishlistController::class,'remove']);
 
 // Wishlist clear
-
+Route::post('/wishlist/clear',[WishlistController::class,'clear']);
 
 //Register Routes
 //==============================================================================================

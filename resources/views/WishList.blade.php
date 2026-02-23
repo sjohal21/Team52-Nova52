@@ -22,6 +22,10 @@
                     </div>
                 </div>
             @endforeach
+            <form method="post" action="{{URL::to('/wishlist/clear')}}" class="mt-10">
+                <input class="btn" type="submit" class="btn" value="Clear wishlist">
+                @csrf
+            </form>
         @else
             <div class="p-10 m-10 text-center">
                 <h2 class="xl font-bold text-base-content">No products in wishlist!</h2>

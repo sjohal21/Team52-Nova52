@@ -17,7 +17,7 @@ class WishlistController extends Controller
             return redirect()->route('login');
         }
         // Gets wishlist, creates one for the user if none already exists
-        $wishlist = Wishlist::where('user_id',Auth::id())->firstOrCreate();
+        $wishlist = Wishlist::where('user_id',Auth::id())->firstOrCreate(['user_id'=>Auth::id()]);
         return view('WishList',[
             'items'=>$wishlist->items
         ]);
@@ -73,12 +73,7 @@ class WishlistController extends Controller
         // TODO: add function to clear the wishlist
         $wishlist = Wishlist::where('user_id',Auth::id())->first();
         $wishlist->delete();
-        Wishlist::create('user_id',Auth::id());
+        Wishlist::create(['user_id'=>Auth::id()]);
         return redirect('wishlist')->with("Wishlist cleared");
-    }
-
-    public function totalItems()
-    {
-        // TODO: add total items in wish list function
     }
 }
