@@ -94,8 +94,18 @@ Route::get('/order_confirmation/{order}', [App\Http\Controllers\CheckoutControll
 
 //Only users that are logged in will be able to access these routes
 Route::middleware(['auth','admin'])->group(function() {
+    //Main Admin Dashboard route
     Route::get('/admin/dashboard',[AdminDashboardController::class,'show'])
     ->name('admin.dashboard');
+    //Admin User Management
+    Route::get('/admin/users',[AdminUserController::class,'show'])
+    ->name('admin.users.show');
+    //Promotion and Demotion
+    Route::post('/admin/users/promote',[AdminUserController::class,'promote'])
+    ->name('admin.users.promote');
+    Route::post('admin/users/demote',[AdminUserController::class,'demote'])
+    ->name('admin.users.demote');
+     
 });
 
 //Product Routes

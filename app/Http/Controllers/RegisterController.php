@@ -37,7 +37,8 @@ class RegisterController extends Controller
 
         //Logs in the new user automatically
         Auth::login($user);
-
+        //regenerates session so hackers cant reuse old session
+        $request->session()->regenerate();
         //redirects user to the home page
         return redirect('/')->with('success','Welcome to Nova52');
     }
