@@ -18,7 +18,7 @@ class ProductController extends Controller
 
         //Make sure that the search isnt empty
        $request->validate([
-        'search' => 'required|string|max:255',
+        'search' => 'nullable|string|max:255',
         'category_id' => 'nullable|integer',
         'min_price' => 'nullable|numeric|min:0',
         'max_price' => 'nullable|numeric|min:0',
@@ -39,7 +39,7 @@ class ProductController extends Controller
         $query = Product::query();
 
         //shows products that have similar words to what is searched
-        if($searchedItem !== ' ') {
+        if($searchedItem !== '') {
             $query->where('name','like',"%{$searchedItem}%")->get();
         }
         
@@ -66,7 +66,7 @@ class ProductController extends Controller
         }
 
         $products = $query->get();
-        
+
         //if there are no products that match show a message
         if($products->isEmpty()) {
             return redirect()->back()->with('message','No products that match your search found!!');
