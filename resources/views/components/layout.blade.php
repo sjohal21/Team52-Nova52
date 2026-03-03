@@ -51,7 +51,7 @@
                 <ul class="dropdown-content menu menu-md rounded-box bg-base-200 p-2 mt-3 text-base-content shadow" tabindex="-1">
                     @guest<a class="btn btn-ghost" href="{{URL::to('/login')}}">Log in</a>@endguest
                     @guest<a class="btn btn-ghost" href="{{URL::to('/register')}}">Register</a>@endguest
-                        @auth<a class="btn btn-ghost" href="{{URL::to('/user/modify')}}">Change details</a>
+                        @auth<a class="btn btn-ghost" href="{{URL::to('/user/modify')}}">Change details</a>@endauth
                         @auth<a class="btn btn-ghost" href="{{URL::to('/logout')}}">Log out</a>@endauth
                 </ul>
             </div>

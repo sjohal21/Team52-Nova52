@@ -9,7 +9,7 @@
                 <h2 class="font-bold">Change account details</h2>
                 <form action="{{URL::to('/user/modify/email')}}" method="post">
                     <label for="email">Email address</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" value="{{$email}}">
                     <button type="submit">Change</button>
                     @csrf
                 </form>
