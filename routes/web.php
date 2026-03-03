@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegisterController;
+use App\Models\Wishlist;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -20,6 +21,11 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about',[AboutUsController::class,'index']);
 Route::post('/contact',[ContactController::class,'contact']);
+
+Route::view('faq', 'faq')->name('faq');
+Route::view('/shipping-returns', 'shippingReturns')->name('shipping.returns');
+Route::view('/privacy-policy', 'privacyPolicy')->name('privacy.policy');
+Route::view('/terms-conditions', 'termsConditions')->name('terms.conditions');
 
 // Basket routes
 //
@@ -35,6 +41,20 @@ Route::post('/basket/remove',[BasketController::class,'remove']); // Parameters:
 Route::post('/basket/clear',[BasketController::class,'clear']);
 
 Route::get('/products',[ProductsController::class,'index']);
+
+// Wishlist routes
+
+// Wishlist index
+Route::get('/wishlist',[WishlistController::class,'index']);
+
+// Wishlist add item
+Route::post('/wishlist/add',[WishlistController::class,'add']);
+
+// Wishlist remove item
+Route::post('/wishlist/remove',[WishlistController::class,'remove']);
+
+// Wishlist clear
+Route::post('/wishlist/clear',[WishlistController::class,'clear']);
 
 //Register Routes
 //==============================================================================================

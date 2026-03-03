@@ -59,9 +59,16 @@
                 @csrf
             </form>
 
-                @if (session('error'))
-                    <p>{{session('error')}}</p>
-                @endif
+            <!-- Add to wishlist button -->
+            <form method="post" action="{{URL::to('/wishlist/add')}}" class="flex flex-row">
+                <input type="hidden" value="{{$product->id}}" name="product_id">
+                <input class="btn btn-neutral w-auto md-w-64 rounded-full text-white mt-12" type="submit" value="Add to wishlist">
+                @csrf
+            </form>
+
+            @if (session('error'))
+                <p>{{session('error')}}</p>
+            @endif
         </div>
     </div>
     <!--this is for the information on each product-->

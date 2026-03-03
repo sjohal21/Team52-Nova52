@@ -24,7 +24,7 @@
                 <a class="btn btn-ghost" href="{{URL::to('/products')}}">Products</a>
                 <a class="btn btn-ghost" href="{{URL::to('/about')}}">About Us</a>
                 <a class="btn btn-ghost" href="{{URL::to('/contact')}}">Contact</a>
-                <a class="btn btn-ghost">Wish List</a>
+                <a class="btn btn-ghost" href="{{URL::to('/wishlist')}}">Wish List</a>
             </ul>
         </div>
         <div class="navbar-start">
@@ -35,7 +35,7 @@
             <a class="btn btn-ghost" href="{{URL::to('/products')}}">Products</a>
             <a class="btn btn-ghost" href="{{URL::to('/about')}}">About Us</a>
             <a class="btn btn-ghost" href="{{URL::to('/contact')}}">Contact</a>
-            <a class="btn btn-ghost">Wish List</a>
+            <a class="btn btn-ghost" href="{{URL::to('/wishlist')}}">Wish List</a>
         </div>
         <div class="navbar-end">
             <a class="btn btn-ghost" href="{{URL::to('/basket')}}"><img src="{{ URL::to('/') }}/pageicons/cart.svg" alt="Picture of a shopping cart" class="size-10"></a>
@@ -76,10 +76,13 @@
         </nav>
         <nav>
             <h4 class="font-bold">Support</h4>
-            <a class="link link-hover">FAQ</a>
-            <a class="link link-hover">Shipping & returns</a>
-            <a class="link link-hover">Privacy policy</a>
-            <a class="link link-hover">Terms & Conditions</a>
+            <a href="{{ route('faq') }}" class="link link-hover">FAQ
+
+            <a href="{{ route('shipping.returns') }}" class="link link-hover">Shipping &amp; Returns</a>
+
+
+            <a href="{{ route('privacy.policy') }}" class="link link-hover">Privacy Policy</a>
+            <a href="{{ route('terms.conditions') }}" class="link link-hover">Terms & Conditions </a>
         </nav>
         <nav>
             <h4 class="font-bold">Follow us</h4>
