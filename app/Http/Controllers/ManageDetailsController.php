@@ -48,4 +48,6 @@ class ManageDetailsController extends Controller
             redirect('user.managedetails')->with('success', 'Your phone number successfully changed');
         }
     }
+
+
 }
