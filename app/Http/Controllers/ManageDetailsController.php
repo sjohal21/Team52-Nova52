@@ -36,4 +36,16 @@ class ManageDetailsController extends Controller
             redirect('user.managedetails')->with('success', 'Your password successfully changed');
         }
     }
+
+    public function changePhone(Request $request)
+    {
+        $validatedPhone = $request->validate(['phone' => 'required|numeric']);
+        if($validatedPhone['phone'] != null)
+        {
+            $user = Auth::user();
+            $user->phone_number = $validatedPhone['phone'];
+            $user->save();
+            redirect('user.managedetails')->with('success', 'Your phone number successfully changed');
+        }
+    }
 }
