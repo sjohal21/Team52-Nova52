@@ -10,7 +10,8 @@ class ManageDetailsController extends Controller
 {
     public function index()
     {
-        return view('user.managedetails');
+        $user = Auth::user();
+        return view('user.managedetails',['name'=>$user->name]);
     }
 
     public function changeEmail(Request $request)
@@ -21,7 +22,7 @@ class ManageDetailsController extends Controller
             $user = Auth::user();
             $user->email = $validatedEmail['email'];
             $user->save();
-            redirect('user.managedetails')->with('success', 'Your email changed successfully');
+            return redirect('/user/modify')->with('success', 'Your email changed successfully');
         }
     }
 
@@ -33,7 +34,7 @@ class ManageDetailsController extends Controller
             $user = Auth::user();
             $user->password = Hash::make($validatedPassword['password']);
             $user->save();
-            redirect('user.managedetails')->with('success', 'Your password successfully changed');
+            return redirect('/user/modify')->with('success', 'Your password successfully changed');
         }
     }
 
@@ -45,7 +46,7 @@ class ManageDetailsController extends Controller
             $user = Auth::user();
             $user->phone_number = $validatedPhone['phone'];
             $user->save();
-            redirect('user.managedetails')->with('success', 'Your phone number successfully changed');
+            return redirect('/user/modify')->with('success', 'Your phone number successfully changed');
         }
     }
 

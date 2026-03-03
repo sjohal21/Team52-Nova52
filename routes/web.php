@@ -81,7 +81,7 @@ Route::get('/logout', [LoginController::class,'logout'])
 ->name('logout');
 
 
-Route::get('/user', [ManageDetailsController::class,'index'])->middleware('auth')->name('usermanagement');
+Route::get('/user/modify', [ManageDetailsController::class,'index'])->middleware('auth')->name('usermanagement');
 Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail'])->middleware('auth')->name('usermanagement.changeEmail');
 Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])->middleware('auth')->name('usermanagement.changePassword');
 Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])->middleware('auth')->name('usermanagement.changePhone');
