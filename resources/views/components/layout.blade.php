@@ -76,7 +76,7 @@
         </nav>
         <nav>
             <h4 class="font-bold">Support</h4>
-            <a href="{{ route('faq') }}" class="link link-hover">FAQ
+            <a href="{{ route('faq') }}" class="link link-hover">FAQ</a>
 
             <a href="{{ route('shipping.returns') }}" class="link link-hover">Shipping &amp; Returns</a>
 
