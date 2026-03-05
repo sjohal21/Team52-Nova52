@@ -11,7 +11,7 @@ class ManageDetailsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('user.managedetails',['name'=>$user->name, 'email'=>$user->email]);
+        return view('user.managedetails',['name'=>$user->name, 'email'=>$user->email, 'phone'=>$user->phone_number]);
     }
 
     public function changeEmail(Request $request)
@@ -22,19 +22,19 @@ class ManageDetailsController extends Controller
             $user = Auth::user();
             $user->email = $validatedEmail['email'];
             $user->save();
-            return redirect('/user/modify')->with('success', 'Your email changed successfully');
+            return redirect('/user/modify')->with('successEmail', 'Your email changed successfully.');
         }
     }
 
     public function changePassword(Request $request)
     {
-        $validatedPassword = $request->validate(['password' => 'required|min:8']);
+        $validatedPassword = $request->validate(['password' => 'required|min:8', 'passwordConfirm'=>'required|same:password']);
         if($validatedPassword['password'] != null)
         {
             $user = Auth::user();
             $user->password = Hash::make($validatedPassword['password']);
             $user->save();
-            return redirect('/user/modify')->with('success', 'Your password successfully changed');
+            return redirect('/user/modify')->with('successPassword', 'Your password successfully changed');
         }
     }
 
@@ -46,7 +46,7 @@ class ManageDetailsController extends Controller
             $user = Auth::user();
             $user->phone_number = $validatedPhone['phone'];
             $user->save();
-            return redirect('/user/modify')->with('success', 'Your phone number successfully changed');
+            return redirect('/user/modify')->with('successPhone', 'Your phone number successfully changed');
         }
     }
 
