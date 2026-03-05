@@ -16,6 +16,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ManageDetailsController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
@@ -65,7 +66,7 @@ Route::get('/register', [RegisterController::class,'show'])
 Route::post('/register', [RegisterController::class,'register'])
 ->middleware('guest')
 ->name('register.submit');
-//LogIn/Out Routes
+//User Routes
 //==============================================================================================
 Route::get('/login', [LoginController::class,'show'])
 ->middleware('guest')
@@ -79,6 +80,11 @@ Route::get('/logout', [LoginController::class,'logout'])
 ->middleware('auth')
 ->name('logout');
 
+
+Route::get('/user/modify', [ManageDetailsController::class,'index'])->middleware('auth')->name('usermanagement');
+Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail'])->middleware('auth')->name('usermanagement.changeEmail');
+Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])->middleware('auth')->name('usermanagement.changePassword');
+Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])->middleware('auth')->name('usermanagement.changePhone');
 //Order Routes
 //==============================================================================================
 
