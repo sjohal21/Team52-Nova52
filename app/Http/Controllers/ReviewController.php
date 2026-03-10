@@ -15,7 +15,7 @@ class ReviewController extends Controller
 
     public function addReview(Request $request)
     {
-        $validatedData = $request->validate(["product_id" => "required", "description" => "required");
+        $validatedData = $request->validate(["product_id" => "required", "description" => "required"]);
         if ($validatedData)
         {
             $userID = Auth::id();
