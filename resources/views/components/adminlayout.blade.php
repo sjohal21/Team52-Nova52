@@ -16,11 +16,13 @@
     <div class="navbar-start">
         <a class="btn btn-ghost text-xl" href="{{URL::to('/admin/dashboard')}}">Nova52 Admin</a>
     </div>
+    <!-- Admin Section buttons -->
     <div class="navbar-center hidden lg:flex">
         <a class="btn btn-ghost" href="{{URL::to('/admin/dashboard')}}">Dashboard</a>
         <a class="btn btn-ghost">Orders</a>
         <a class="btn btn-ghost" href="{{URL::to('/admin/users')}}">Users</a>
         <a class="btn btn-ghost" href="{{URL::to('/')}}">Customer view</a>
+        <a class="btn btn-ghost" href="{{URL::to('/admin/products/editProductPage')}}">Edit Products</a>
     </div>
     <div class="navbar-end">
         <div class="dropdown dropdown-end">
