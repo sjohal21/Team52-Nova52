@@ -10,7 +10,7 @@ class ReviewController extends Controller
 {
     public function index()
     {
-        return view('reviews.addreview');
+        return view('reviews.allreviews',['reviews'=>Reviews::where('user_id',Auth::id())->get()]);
     }
 
     public function addReview(Request $request)
@@ -26,5 +26,10 @@ class ReviewController extends Controller
             ]);
             return redirect('/products/' . $request->product_id)->with('success', 'Review added successfully');
         }
+    }
+
+    public function removeReview(Request $request)
+    {
+        // TODO: add function to remove review
     }
 }
