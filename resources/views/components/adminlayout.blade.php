@@ -20,6 +20,7 @@
         <a class="btn btn-ghost" href="{{URL::to('/admin/dashboard')}}">Dashboard</a>
         <a class="btn btn-ghost">Orders</a>
         <a class="btn btn-ghost" href="{{URL::to('/admin/users')}}">Users</a>
+        <a class="btn btn-ghost" href="{{URL::to('/')}}">Customer view</a>
     </div>
     <div class="navbar-end">
         <div class="dropdown dropdown-end">
