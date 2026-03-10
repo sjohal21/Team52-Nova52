@@ -13,32 +13,30 @@ class PlaceOrderController extends Controller {
         // Set address for user
         // If no address, prompt to add to profile
 
-        // 
+        //
     }
 
-    public function confirmOrder () {
-        // Display all items in order
-        $sql_query = "SELECT * FROM baskets";
-
+    public function placeOrder(Request $request) {
+        // Get all items in order
+        $basket = Basket::where(['user_id' => Auth::id(), 'id' => session('basket_id')])->get();
 
         // Create the total for the order
-        $user_id= Session::get('user_id');
-        $basket_Total = $baskets = DB::table('products')
-        ->join('baskets','products.product_id','=','baskets,product_id')
-        ->where('basket.user_id', $user_id)
-        ->sum('products.price');
+        $user_id = Auth::id();
 
-        // Display 
-    }
-
-    public function storeOrder() {
-        // Validate it's a real address
+        // Validate the request
+        $validatedRequest = $request->validate([
+            'First_Name' => 'required',
+            'Surname' => 'required',
+            'Address_Line_1' => 'required',
+            'City' => 'required',
+            'Postcode' => 'required',
+            'Select_Country' => 'required',
+        ]);
 
         // Store product data into order table
 
         // Clear the cart
     }
 
-    
 }
 
