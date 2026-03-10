@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
+use function Pest\Laravel\get;
 
 class ProductController extends Controller
 {
@@ -36,6 +38,6 @@ class ProductController extends Controller
     }
 
     public function showOne(Product $product) {
-        return view('products.show',compact('product'));
+        return view('products.show',['product'=>$product, 'reviews'=>Reviews::where('product_id',($product->id))]);
     }
 }

@@ -82,6 +82,21 @@
             </p>
         </div>
     @endif
+
+    @if($product->reviews)
+        <div class="p-5">
+            <h2 class="font-bold text-center text-lg p-2">Reviews</h2>
+            @foreach($product->reviews as $review)
+                <div class="card bg-base-300">
+                    <div class="card-body">
+                        <h3 class="font-bold">{{$review->user->name}}</h3>
+                        <p>{{$review->description}}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @endif
+
 </section>
 </x-layout>
 
