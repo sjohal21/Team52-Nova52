@@ -11,4 +11,9 @@ class Reviews extends Model
 
     /** @use HasFactory<\Database\Factories\ReviewsFactory> */
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
