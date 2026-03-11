@@ -82,20 +82,24 @@
             </p>
         </div>
     @endif
-
-    @if($product->reviews)
-        <div class="p-5">
-            <h2 class="font-bold text-center text-lg p-2">Reviews</h2>
-            @foreach($product->reviews as $review)
-                <div class="card bg-base-300">
-                    <div class="card-body">
-                        <h3 class="font-bold">{{$review->user->name}}</h3>
-                        <p>{{$review->description}}</p>
+    <div class="p-5">
+        <h2 class="font-bold text-center text-lg p-2">Reviews</h2>
+        @if($product->reviews)
+                @foreach($product->reviews as $review)
+                    <div class="card bg-base-300">
+                        <div class="card-body">
+                            <h3 class="font-bold">{{$review->user->name}}</h3>
+                            <p>{{$review->description}}</p>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
-    @endif
+                @endforeach
+        @else
+            <div class="card bg-base-300">
+                <h3 class="font-bold text-lg text-center">No reviews for product!</h3>
+            </div>
+        @endif
+        <a class="btn btn-neutral w-auto md-w-64 rounded-full text-white mt-12" href="/review/{{$product->id}}/add">Add review</a>
+    </div>
 
 </section>
 </x-layout>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,21 +11,29 @@ class ReviewController extends Controller
 {
     public function index()
     {
-        return view('reviews.allreviews',['reviews'=>Reviews::where('user_id',Auth::id())->get()]);
+        if(Auth::check())
+        {
+            return view('reviews.addreview');
+
+        }
+        else
+        {
+            return redirect('/login');
+        }
     }
 
-    public function addReview(Request $request)
+    public function addReview(Request $request, int $productID)
     {
-        $validatedData = $request->validate(["product_id" => "required", "description" => "required"]);
+        $validatedData = $request->validate(["description" => "required"]);
         if ($validatedData)
         {
             $userID = Auth::id();
             Reviews::create([
                 'user_id' => $userID,
-                'product_id' => $request->product_id,
+                'product_id' => $productID,
                 'description' => $request->description
             ]);
-            return redirect('/products/' . $request->product_id)->with('success', 'Review added successfully');
+            return redirect('/products/' . $productID)->with('success', 'Review added successfully');
         }
     }
 

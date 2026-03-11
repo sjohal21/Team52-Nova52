@@ -120,4 +120,6 @@ Route::get('/products/{product}',[ProductController::class,'showOne'])->name('pr
 //display searched products
 Route::get('/search',[ProductController::class,'search'])->name('products.search');
 
-
+// Review routes
+Route::get('/review/{productID}/add',[ReviewController::class,'index'])->name('review.add');
+Route::post('/review/{productID}/add',[ReviewController::class,'addReview'])->name('review.store');
