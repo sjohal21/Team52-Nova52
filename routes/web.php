@@ -6,16 +6,11 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegisterController;
-use App\Models\Wishlist;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ManageDetailsController;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -41,7 +36,7 @@ Route::post('/basket/remove',[BasketController::class,'remove']); // Parameters:
 // Clear basket
 Route::post('/basket/clear',[BasketController::class,'clear']);
 
-Route::get('/products',[ProductsController::class,'index']);
+Route::get('/products',[ProductController::class,'index']);
 
 // Wishlist routes
 
@@ -124,3 +119,5 @@ Route::get('/products/{product}',[ProductController::class,'showOne'])->name('pr
 
 //display searched products
 Route::get('/search',[ProductController::class,'search'])->name('products.search');
+
+
