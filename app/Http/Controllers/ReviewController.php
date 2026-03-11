@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
-    public function index()
+    public function index(int $productID)
     {
         if(Auth::check())
         {
-            return view('reviews.addreview');
+            return view('reviews.addreview')->with('productToReview', Product::where('id',$productID)->first());
 
         }
         else
