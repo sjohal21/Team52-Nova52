@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\BasketController;
@@ -116,7 +117,10 @@ Route::middleware(['auth','admin'])->group(function() {
     ->name('admin.users.demote');
     // Admin Edit Product Page
     Route::get('/admin/products/editProductPage',[AdminProductController::class,'editProductPage']);
-
+    // Admin orders page
+    Route::get('/admin/orders',[AdminOrderController::class,'index'])->name('admin.order.index');
+    // Admin order details page
+    Route::get("/admin/orders/{orderID}",[AdminOrderController::class,'show'])->name('admin.order.showOrder');
 });
 
 //Product Routes

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Orderitems;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AdminOrderController extends Controller
 {
@@ -41,12 +42,10 @@ class AdminOrderController extends Controller
         ]);
     }
 
-       public function show(Order $order)
+       public function show(int $orderID)
         {
-
-            //loads the customer that placed the order
-            $order->load('user');
-
+            //loads the order
+            $order = Order::where('id', $orderID)->first();
             //get all the items and products for the order
             $items = Orderitems::query()
                 ->where('order_id', $order->id)
