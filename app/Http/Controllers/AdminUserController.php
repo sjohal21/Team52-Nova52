@@ -1,7 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminUserController extends Controller
@@ -21,12 +20,12 @@ class AdminUserController extends Controller
         ]);
 
         //if the user doesnt exist an error is thrown
-        $user = User::findOrFail($request->'user_id');
-        
+        $user = User::findOrFail('id', $request->user_id);
+
         //change customer to an admin
-        if (user->role !== 'Admin') {
-            user->role == 'Admin';
-            user->save;
+        if ($user->role !== 'Admin') {
+            $user->role = 'Admin';
+            $user->save();
         }
         return redirect('/admin/users')->with('success','User has been successfully promoted!');
     }
@@ -35,18 +34,18 @@ class AdminUserController extends Controller
         $request->validate([
             ['user_id' => 'required,integer,exists:users,id'],
         ]);
-        
-        $user = User::findorFail($request->'user_id');
+
+        $user = User::findorFail('id',$request->user_id);
 
         //prevents current user from demoting themselves
         if($user->id === auth()->id()) {
             return back()->withErrors(['user_id' => 'You cannot demote yourself']);
         }
-        
+
         //change admin user to customer
-        if (user->role == 'Admin') {
-            user->role == 'customer';
-            user->save();
+        if ($user->role == 'Admin') {
+            $user->role = 'customer';
+            $user->save();
         }
         return redirect('/admin/users')->with('success','User has been successfully demoted');
     }
