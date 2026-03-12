@@ -39,11 +39,16 @@ class ReviewController extends Controller
 
     public function removeReview(Request $request)
     {
-        // TODO: add function to remove review
+        $validatedData = $request->validate(["review_id" => "required"]);
+        if ($validatedData)
+        {
+            Reviews::destroy($validatedData['review_id']);
+            return redirect('/user/reviews')->with('success', 'Review removed successfully');
+        }
     }
 
     public function viewPast()
     {
-        return view('reviews.allreviews')->with('reviews', Auth::user()->reviews);
+        return view('reviews.allreviews')->with(['reviews' => Auth::user()->reviews]);
     }
 }

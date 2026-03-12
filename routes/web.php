@@ -85,6 +85,7 @@ Route::post('/user/modify/password', [ManageDetailsController::class,'changePass
 Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])->middleware('auth')->name('usermanagement.changePhone');
 Route::get('/user/orders',[PastOrdersController::class,'index'])->middleware('auth');
 Route::get('/user/reviews',[ReviewController::class,'viewPast'])->middleware('auth');
+Route::post('/user/reviews/remove',[ReviewController::class,'removeReview'])->middleware('auth');
 //Order Routes
 //==============================================================================================
 

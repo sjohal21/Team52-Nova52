@@ -4,7 +4,7 @@
         All reviews
     </x-slot:title>
     <div class="p-5">
-        @if($reviews)
+        @if(count($reviews)>0)
             @foreach($reviews as $review)
                 <div class="bg-base-200 m-5 p-5 card">
                     <div class="card-body">
@@ -14,10 +14,19 @@
                             <p>{{$review->description}}</p>
                         </div>
                     </div>
+                    <div class="card-actions">
+                        <form method="post" action="{{URL::to('/user/reviews/remove')}}">
+                            <input type="hidden" value="{{$review->id}}" name="review_id">
+                            @csrf
+                            <input class="btn" type="submit" value="Delete">
+                        </form>
+                    </div>
                 </div>
             @endforeach
         @else
-            <p>No reviews!</p>
+            <div class="pt-40 pb-40">
+                <p class="font-bold text-center">No reviews!</p>
+            </div>
         @endif
     </div>
 </x-layout>
