@@ -12,10 +12,10 @@
                     <h3 class="card-title">Reviews</h3>
                 </div>
                 <div class="card-body">
-                    <p>Placeholder 1</p>
+                    <p></p>
                 </div>
                 <div class="card-actions">
-                    <a class="btn">Manage reviews</a>
+                    <a class="btn" href="{{URL::to('/user/reviews')}}">Manage reviews</a>
                 </div>
             </div>
             <div class="card bg-base-200 m-5 p-5 min-w-80">
@@ -23,10 +23,12 @@
                     <h3 class="card-title">Previous orders</h3>
                 </div>
                 <div class="card-body">
-                    <p>Placeholder 2</p>
+                    <p class="font-bold">Most recent order</p>
+                    <p>Order #{{$user->orders->last()->id}}</p>
+                    <p>£{{$user->orders->last()->total_price}}</p>
                 </div>
                 <div class="card-actions">
-                    <a class="btn">View all orders</a>
+                    <a class="btn" href="{{URL::to('/user/orders')}}">View all orders</a>
                 </div>
             </div>
         </div>

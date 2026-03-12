@@ -9,6 +9,13 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('user.profile')->with(['user'=>Auth::user()]);
+        if (Auth::check())
+        {
+            return view('user.profile')->with(['user'=>Auth::user()]);
+        }
+        else
+        {
+            return view('auth.login');
+        }
     }
 }

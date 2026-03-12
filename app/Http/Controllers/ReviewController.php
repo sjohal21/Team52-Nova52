@@ -41,4 +41,9 @@ class ReviewController extends Controller
     {
         // TODO: add function to remove review
     }
+
+    public function viewPast()
+    {
+        return view('reviews.allreviews')->with('reviews', Auth::user()->reviews);
+    }
 }
