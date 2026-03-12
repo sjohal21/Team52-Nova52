@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -117,7 +118,7 @@ Route::middleware(['auth','admin'])->group(function() {
     ->name('admin.users.demote');
     // Admin Edit Product Page
     Route::get('/admin/products/editProductPage',[AdminProductController::class,'editProductPage']);
-     
+
 });
 
 //Product Routes
