@@ -1,4 +1,3 @@
-<!-- TODO: add ability to remove and edit reviews -->
 <x-layout>
     <x-slot:title>
         All reviews
@@ -20,6 +19,7 @@
                             @csrf
                             <input class="btn" type="submit" value="Delete">
                         </form>
+                        <a class="btn" href="/review/{{$review->id}}/edit">Edit</a>
                     </div>
                 </div>
             @endforeach

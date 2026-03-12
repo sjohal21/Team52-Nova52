@@ -129,3 +129,5 @@ Route::get('/search',[ProductController::class,'search'])->name('products.search
 // Review routes
 Route::get('/review/{productID}/add',[ReviewController::class,'index'])->middleware('auth')->name('review.add');
 Route::post('/review/{productID}/add',[ReviewController::class,'addReview'])->middleware('auth')->name('review.store');
+Route::get('/review/{reviewID}/edit',[ReviewController::class,'getEditor'])->middleware('auth')->name('review.edit');
+Route::post('/review/{reviewID}/edit',[ReviewController::class,'editReview'])->middleware('auth')->name('review.edit');

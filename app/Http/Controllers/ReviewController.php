@@ -47,6 +47,22 @@ class ReviewController extends Controller
         }
     }
 
+    public function getEditor(int $reviewID)
+    {
+        return view('reviews.editreview')->with(['reviewID' => $reviewID, 'currentReview' => Reviews::where('id', $reviewID)->first()->description, 'productToReview' => Reviews::where('id', $reviewID)->first()->product]);
+    }
+    public function editReview(Request $request, int $reviewID)
+    {
+        $validatedData = $request->validate(["description" => "required"]);
+        if ($validatedData)
+        {
+            $review = Reviews::where('id',$reviewID)->first();
+            $review->description = $request->description;
+            $review->save();
+            return redirect('/user/reviews')->with('success', 'Review edited successfully');
+        }
+    }
+
     public function viewPast()
     {
         return view('reviews.allreviews')->with(['reviews' => Auth::user()->reviews]);

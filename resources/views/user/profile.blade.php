@@ -1,4 +1,3 @@
-<!-- TODO: create profile page where user can then go to their reviews or past orders -->
 <x-layout>
     <x-slot:title>
         Profile

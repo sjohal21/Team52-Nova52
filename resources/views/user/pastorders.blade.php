@@ -1,4 +1,4 @@
-<!-- TODO: create page where the user can view all their past orders -->
+<!-- TODO: create page where the user can view all their past orders and perform actions like return -->
 <x-layout>
     <x-slot:title>
         Past orders
