@@ -6,6 +6,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -76,6 +77,7 @@ Route::get('/logout', [LoginController::class,'logout'])
 ->name('logout');
 
 
+Route::get('/user/profile', [ProfileController::class,'index']);
 Route::get('/user/modify', [ManageDetailsController::class,'index'])->middleware('auth')->name('usermanagement');
 Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail'])->middleware('auth')->name('usermanagement.changeEmail');
 Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])->middleware('auth')->name('usermanagement.changePassword');
