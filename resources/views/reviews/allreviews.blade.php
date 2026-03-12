@@ -1,4 +1,4 @@
-<!-- TODO: make page showing all reviews for the currently logged in user -->
+<!-- TODO: add ability to remove and edit reviews -->
 <x-layout>
     <x-slot:title>
         All reviews
@@ -6,11 +6,13 @@
     <div class="p-5">
         @if($reviews)
             @foreach($reviews as $review)
-                <div class="bg-base-200 m-5 p-5">
-                    <h2 class="font-bold text-xl">Reviewed {{$review->product->name}}</h2>
-                    <h4 class="text-lg mt-5">Description:</h4>
-                    <div class="bg-base-300 p-5 mt-5">
-                        <p>{{$review->description}}</p>
+                <div class="bg-base-200 m-5 p-5 card">
+                    <div class="card-body">
+                        <h2 class="font-bold text-xl">Reviewed {{$review->product->name}}</h2>
+                        <h4 class="text-lg mt-5">Description:</h4>
+                        <div class="bg-base-300 p-5 mt-5">
+                            <p>{{$review->description}}</p>
+                        </div>
                     </div>
                 </div>
             @endforeach
