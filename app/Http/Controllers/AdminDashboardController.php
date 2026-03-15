@@ -12,7 +12,8 @@ class AdminDashboardController extends Controller
 
   public function show() {
 
-        //value that we will use to decide whether an item is low on stock
+        $users = User::all();
+      //value that we will use to decide whether an item is low on stock
         $lowStockBound = 6;
         //amount of entries for the recent activity
         $activityLimit = 6;
@@ -45,6 +46,35 @@ class AdminDashboardController extends Controller
         'processingOrdersCount' => $processingOrdersCount,
         'outOfStockCount' => $outOfStockCount,
         'orderInProgressCount' => $orderInProgressCount,
+            'users' => $users
         ]);
+    }
+    public function manageUsers() {
+
+        $users = User::all();
+
+        return view('admin.users',['users' => $users]);
+    }
+
+    public function promoteUser(Request $request) {
+        //gets the user id
+        $user = User::find($request->user_id);
+
+        if ($user && $user->role !== 'Admin') {
+            $user->role = 'Admin';
+            $user->save(); //writes the change into the database
+        }
+        return redirect('/admin/users')->with('success', 'User has been successfully promoted!');
+    }
+
+    public function demoteUser(Request $request) {
+        //gets the user id
+        $user = User::find($request->user_id);
+
+        if ($user && $user->role === 'Admin') {
+            $user->role = 'customer';
+            $user->save(); //writes the change into the database
+        }
+        return redirect('/admin/users')->with('success', 'User has been successfully demoted!');
     }
 }

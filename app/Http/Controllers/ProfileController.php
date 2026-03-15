@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PastOrdersController extends Controller
+class ProfileController extends Controller
 {
     public function index()
     {
-        if(Auth::check())
+        if (Auth::check())
         {
-            return view('user.pastorders')->with(['orders'=>Auth::user()->orders]);
+            return view('user.profile')->with(['user'=>Auth::user()]);
         }
         else
         {

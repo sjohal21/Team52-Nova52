@@ -19,7 +19,7 @@
     <!-- Admin Section buttons -->
     <div class="navbar-center hidden lg:flex">
         <a class="btn btn-ghost" href="{{URL::to('/admin/dashboard')}}">Dashboard</a>
-        <a class="btn btn-ghost">Orders</a>
+        <a class="btn btn-ghost" href="{{URL::to('/admin/orders')}}">Orders</a>
         <a class="btn btn-ghost" href="{{URL::to('/admin/users')}}">Users</a>
         <a class="btn btn-ghost" href="{{URL::to('/')}}">Customer view</a>
         <a class="btn btn-ghost" href="{{URL::to('/admin/products/editProductPage')}}">Edit Products</a>
