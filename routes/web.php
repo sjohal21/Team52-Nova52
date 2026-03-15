@@ -118,7 +118,7 @@ Route::middleware(['auth','admin'])->group(function() {
     // Admin product management index
     Route::get('/admin/products',[ProductManagementController::class,'index']);
     // Admin Edit Product Page
-    Route::get('/admin/products/editProduct',[ProductManagementController::class,'editProductPage']);
+    Route::get('/admin/products/editProduct/{id}',[ProductManagementController::class,'editProductPage']);
     // Admin orders page
     Route::get('/admin/orders',[AdminOrderController::class,'index'])->name('admin.order.index');
     // Admin order details page

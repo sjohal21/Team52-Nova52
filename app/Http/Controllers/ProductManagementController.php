@@ -12,9 +12,9 @@ class ProductManagementController extends Controller
         return view('admin.products.manageproducts')->with(["products"=>Product::all()]);
     }
 
-    public function editProductPage()
+    public function editProductPage(int $id)
     {
-        return view('admin.products.editProductPage');
+        return view('admin.products.editProductPage')->with(["product"=>Product::where('id',$id)->first()]);
     }
 
     public function createProduct(Request $request)
