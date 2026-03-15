@@ -110,6 +110,8 @@ Route::middleware(['auth','admin'])->group(function() {
     //Admin User Management
     Route::get('/admin/users',[AdminUserController::class,'show'])
     ->name('admin.users.show');
+    // Manage a specific user
+    Route::get('/admin/users/{user}',[AdminUserController::class,'getUserDetails']);
     // Promotion and Demotion
     Route::post('/admin/users/promote',[AdminUserController::class,'promote'])
     ->name('admin.users.promote');

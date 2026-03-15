@@ -4,6 +4,7 @@
         Manage products
     </x-slot:title>
     <div class="bg-base-200 p-5 m-5">
+        <a class=" btn bg-black text-white rounded-md">Add product</a>
         @if(count($products))
             @foreach($products as $product)
             <div class="card m-5 p-5 bg-base-300">

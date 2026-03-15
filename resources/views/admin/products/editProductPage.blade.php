@@ -8,7 +8,7 @@
         <div class="card-body">
             <p>Stock: {{$product->stock_level}}</p>
             <p>Description:</p>
-            <textarea class="textarea">{{$product->description}}</textarea>
+            <textarea class="textarea textarea-lg w-auto">{{$product->description}}</textarea>
         </div>
     </div>
 </x-adminlayout>

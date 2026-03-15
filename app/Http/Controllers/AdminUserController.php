@@ -13,6 +13,13 @@ class AdminUserController extends Controller
         return view('admin.users',['users' => $users]);
     }
 
+    public function getUserDetails(int $id)
+    {
+        $user = User::where('id',$id)->first();
+        return view('admin.userdetail',['user' => $user]);
+    }
+
+
     public function promote(Request $request) {
         //makes sure that a valid user id exists for the user
         $request->validate([
