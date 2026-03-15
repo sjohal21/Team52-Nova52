@@ -22,7 +22,7 @@
         <a class="btn btn-ghost" href="{{URL::to('/admin/orders')}}">Orders</a>
         <a class="btn btn-ghost" href="{{URL::to('/admin/users')}}">Users</a>
         <a class="btn btn-ghost" href="{{URL::to('/')}}">Customer view</a>
-        <a class="btn btn-ghost" href="{{URL::to('/admin/products/editProductPage')}}">Edit Products</a>
+        <a class="btn btn-ghost" href="{{URL::to('/admin/products')}}">Products</a>
     </div>
     <div class="navbar-end">
         <div class="dropdown dropdown-end">

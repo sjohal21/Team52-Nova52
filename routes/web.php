@@ -3,13 +3,13 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminOrderController;
-use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PastOrdersController;
+use App\Http\Controllers\ProductManagementController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -115,8 +115,10 @@ Route::middleware(['auth','admin'])->group(function() {
     ->name('admin.users.promote');
     Route::post('admin/users/demote',[AdminUserController::class,'demote'])
     ->name('admin.users.demote');
+    // Admin product management index
+    Route::get('/admin/products',[ProductManagementController::class,'index']);
     // Admin Edit Product Page
-    Route::get('/admin/products/editProductPage',[AdminProductController::class,'editProductPage']);
+    Route::get('/admin/products/editProduct',[ProductManagementController::class,'editProductPage']);
     // Admin orders page
     Route::get('/admin/orders',[AdminOrderController::class,'index'])->name('admin.order.index');
     // Admin order details page

@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductManagementController extends Controller
 {
     public function index()
     {
-        return view('admin.products.manageproducts');
+        return view('admin.products.manageproducts')->with(["products"=>Product::all()]);
+    }
+
+    public function editProductPage()
+    {
+        return view('admin.products.editProductPage');
     }
 
     public function createProduct(Request $request)
