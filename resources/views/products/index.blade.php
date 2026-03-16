@@ -39,11 +39,11 @@
 
             <button class="absolute right-3 top-3 text-lg opacity-80 hover:opacity-100">
                 [icon]
-</button>
+    </button>
 
  <!--Product Image-->
 <figure class="h-40 overflow-hidden rounded-t-2xl">
-    <img src="{{$product->photo_url}}"
+    <img src="{{Storage::url($product->photo_url)}}"
     alt="{{$product->name}}"
     class="w-full h-full object-cover">
 </figure>

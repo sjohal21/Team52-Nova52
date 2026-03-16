@@ -33,6 +33,7 @@ class ProductManagementController extends Controller
         $product->stock_level = $request['stockQuantity'];
         $product->description = $request['productDescription'];
         $product->price = $request['productPrice'];
+        $product->photo_url = $request->file('uploadedImage')->store('images', 'public');
         $product->save();
         return redirect('/admin/products');
 
