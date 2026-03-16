@@ -17,6 +17,10 @@ class ProductManagementController extends Controller
         return view('admin.products.editProductPage')->with(["product"=>Product::where('id',$id)->first()]);
     }
 
+    public function createProductPage()
+    {
+        return view('admin.products.addproduct');
+    }
     public function createProduct(Request $request)
     {
         // TODO: add function to add a product to the database
