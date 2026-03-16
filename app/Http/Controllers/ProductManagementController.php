@@ -28,7 +28,14 @@ class ProductManagementController extends Controller
 
     public function modifyProduct(Request $request)
     {
-        // TODO: add function to change an already existing product
+        $product = Product::where('id',$request['productID'])->first();
+        $product->name = $request['productName'];
+        $product->stock_level = $request['stockQuantity'];
+        $product->description = $request['productDescription'];
+        $product->price = $request['productPrice'];
+        $product->save();
+        return redirect('/admin/products');
+
     }
 
     public function deleteProduct(Request $request)

@@ -13,6 +13,7 @@
                 </div>
                 <div class="card-body">
                     <p>Stock: {{$product->stock_level}}</p>
+                    <p>Price: {{$product->price}}</p>
                 </div>
                 <div class="card-actions">
                     <a class="btn" href="{{URL::to("/admin/products/editProduct/{$product->id}")}}">Edit product</a>
