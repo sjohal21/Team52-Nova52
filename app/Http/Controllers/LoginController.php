@@ -23,15 +23,15 @@ class LoginController extends Controller
       if(Auth::attempt($credentials,$request->boolean('remember'))) {
 
         //gives user a new session ID to prevent hackers using an old one to access their account
-     $request->session()->regenerate();
+    $request->session()->regenerate();
 
-     $user = Auth::user();
-     if($user->role === 'Admin') {
-     return redirect('/')->with('success','Welcome to Nova52 Administrator');
-     }
-     else {
-     return redirect('/')->with('success','Welcome to Nova52');
-     }
+    $user = Auth::user();
+    if($user->role === 'Admin') {
+    return redirect('/')->with('success','Welcome to Nova52 Administrator');
+    }
+    else {
+    return redirect('/')->with('success','Welcome to Nova52');
+    }
 
       }
       return back()

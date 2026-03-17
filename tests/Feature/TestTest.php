@@ -7,6 +7,20 @@ uses(RefreshDatabase::class);
 
 // Checks to see that the main page is loading correctly
 
+beforeEach(function() {
+    $user -> user = \App\Models\User::factory()->create([
+        'name' => 'Testing User',
+        'phone_number' => '0123456789',
+        'address' => null,
+        'email' => 'testing@email.com',
+        'role' => 'Customer',
+        'password' => bcrypt('test')
+    ]);
+
+    $user -> actingAs($user->user);
+
+});
+
 it('main page loads correctly', function () {
     $response = $this->get(route('home.index'));
 
@@ -17,15 +31,6 @@ it('main page loads correctly', function () {
 });
 
 it ('User can log in', function() {
-    $user = \App\Models\User::factory()->create([
-        'name' => 'Testing User',
-        'phone_number' => '0123456789',
-        'address' => null,
-        'email' => 'testing@email.com',
-        'role' => 'Customer',
-        'password' => bcrypt('test')
-    ]);
-
     $response = $this -> post(route('login'), [
         'email' => $user -> email,
         'password' => 'test'
@@ -37,3 +42,9 @@ it ('User can log in', function() {
 
 
 //TODO: Add Item to Basket
+it ('Adds Item to basekt', function() {
+    
+});
+
+
+//TODO: Change quantity in Basket
