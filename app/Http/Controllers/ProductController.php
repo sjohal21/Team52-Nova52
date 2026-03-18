@@ -20,9 +20,9 @@ class ProductController extends Controller
     public function search(Request $request) {
 
         //Make sure that the search isnt empty
-       $request->validate([
+        $request->validate([
         'search' => 'required|string|max:255'
-       ]);
+        ]);
 
         //Retrieve the entered item for the search
         $searchedItem = $request->input('search');
