@@ -51,7 +51,6 @@ class ProductManagementController extends Controller
         }
         $product->save();
         return redirect('/admin/products');
-
     }
 
     public function deleteProduct(Request $request)
