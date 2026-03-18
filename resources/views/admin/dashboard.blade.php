@@ -5,8 +5,8 @@
             <div class="flex-col w-6/12">
                 <div class="card bg-base-200 m-5">
                     <div class="card-body">
-                        <h2 class="card-title font-bold justify-center">Orders to process</h2>
-                        <p>{{$pendingOrdersCount}} orders to process</p>
+                        <h2 class="card-title font-bold justify-center">Pending Orders</h2>
+                        <p>{{$pendingOrdersCount}} Pending Orders:</p>
                         <a class="btn btn-ghost bg-black text-white rounded-md" href="{{URL::to('/admin/orders')}}">Manage orders</a>
                     </div>
                 </div>
