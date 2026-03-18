@@ -14,8 +14,7 @@ class AdminLog extends Model
     ];
     
     public function returnTop5() {
-
-        $this -> AdminLog::orderBy('created_at') -> take(5) -> get();        
-        return $this;
+        
+        return AdminLog::orderBy('created_at', 'action') -> take(5) -> get();
     }
 }
