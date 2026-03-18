@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\AdminLog;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class AdminUserController extends Controller
     public function promote(Request $request) {
         //makes sure that a valid user id exists for the user
         $request->validate([
-          'user_id' => ['required','integer','exists:users,id']
+        'user_id' => ['required','integer','exists:users,id']
         ]);
 
         //if the user doesnt exist an error is thrown
@@ -34,6 +35,12 @@ class AdminUserController extends Controller
             $user->role = 'Admin';
             $user->save();
         }
+        // TODO: ADD LOG
+        AdminLog::create([
+            'user_id' => $user -> id,
+            'action' => $user -> name . 'was promoted to Admin'
+        ]);
+
         return redirect('/admin/users')->with('success','User has been successfully promoted!');
     }
 
@@ -54,6 +61,11 @@ class AdminUserController extends Controller
             $user->role = 'customer';
             $user->save();
         }
+        // TODO: ADD LOG
+        Adminlog::create([
+            'user_id' => $user -> id,
+            'action' => $user -> name . "was demoted from Admin"
+        ]);
         return redirect('/admin/users')->with('success','User has been successfully demoted');
     }
 }

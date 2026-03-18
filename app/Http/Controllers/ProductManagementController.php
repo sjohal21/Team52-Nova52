@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\AdminLog;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class ProductManagementController extends Controller
 
     public function editProductPage(int $id)
     {
+        // TODO: ADD LOG
         return view('admin.products.editProductPage')->with(["product"=>Product::where('id',$id)->first()]);
     }
 
@@ -24,6 +26,16 @@ class ProductManagementController extends Controller
     }
     public function createProduct(Request $request)
     {
+        // TODO: add function to add a product to the database
+
+        /* Uncomment when finished. Last line before return
+        Adminlog::create([
+            'user_id' => auth() -> user() -> id,
+            'action' => $product->name . " was created"
+        ]);
+        */
+
+
         $product = new Product();
         $product->name = $request['productName'];
         $product->stock_level = $request['stockQuantity'];
@@ -50,11 +62,24 @@ class ProductManagementController extends Controller
             $product->photo_url = $request->file('uploadedImage')->store('images', 'public');
         }
         $product->save();
+
+        Adminlog::create([
+            'user_id' => auth() -> user() -> id,
+            'action' => $product->name . " was modified"
+        ]);
         return redirect('/admin/products');
     }
 
     public function deleteProduct(Request $request)
     {
         // TODO: add function to remove a product from the database
+
+        /* Uncomment when finished. Must be before item deletion line return statement
+        Adminlog::create([
+            'user_id' => auth() -> user() -> id,
+            'action' => $product->name . " was deleted"
+        ]);
+        */
+
     }
 }
