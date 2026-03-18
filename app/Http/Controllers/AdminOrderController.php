@@ -42,7 +42,7 @@ class AdminOrderController extends Controller
         ]);
     }
 
-       public function show(int $orderID)
+        public function show(int $orderID)
         {
             //loads the order
             $order = Order::where('id', $orderID)->first();

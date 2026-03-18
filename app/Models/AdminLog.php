@@ -10,9 +10,12 @@ class AdminLog extends Model
     protected $fillable = [
         "user_id",
         "username",
-        "Action",
-        "Description"
+        "Action"
     ];
     
+    public function returnTop5() {
 
+        $this -> AdminLog::orderBy('created_at') -> take(5) -> get();        
+        return $this;
+    }
 }
