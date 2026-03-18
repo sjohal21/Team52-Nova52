@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -19,7 +20,7 @@ class AdminDashboardController extends Controller
         $activityLimit = 6;
 
         //number of the amount of products that are currently low on stock
-        $lowStockCount = Order::query()
+        $lowStockCount = Product::query()
         ->WhereNotNull('stock_level')
         ->WhereBetween('stock_level',[1,$lowStockBound])
         ->count();
