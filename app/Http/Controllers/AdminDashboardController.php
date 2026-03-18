@@ -11,7 +11,6 @@ use App\Models\User;
 
 class AdminDashboardController extends Controller
 {
-
   public function show() {
       //value that we will use to decide whether an item is low on stock
         $lowStockBound = 6;
