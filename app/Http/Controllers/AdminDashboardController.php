@@ -8,7 +8,6 @@ use App\Models\AdminLog;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-
 class AdminDashboardController extends Controller
 {
   public function show() {
