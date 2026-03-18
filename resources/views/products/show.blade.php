@@ -3,7 +3,7 @@
         {{$product->name}}
     </x-slot:title>
 <!-- this shows the names for the products-->
- <section class="bg-base-200 py-10 text-center">
+<section class="bg-base-200 py-10 text-center">
     <h1 class="text-3xl md:text-4xl font-bold">
         {{$product->name}}
     </h1>
@@ -16,14 +16,11 @@
         <div>
             <div class="relative rounded-xl overflow-hidden shadow">
                 <!--this is for the heart-->
-                <button class="absolute top-3 right-3 text-xl opacity-80 hover:opacity-100">
-                    [icon]
-                </button>
                 <img src="{{Storage::url($product->photo_url)}}" alt="{{$product->name}}" class="w-full h-80 object-cover rounded-xl">
             </div>
             <!--this is for the product image (underneath)-->
-            <!-- Commented out due to not currently existing multi-image functionality
-            <div class="flex gap-3 mt-4">
+            <!-- Commented out due to not currently existing multi-image functionality -->
+            <!--<div class="flex gap-3 mt-4">
                 <img src="{{$product->photo_url}}" class="w-20 h-16 object-cover rounded-lg shadow">
                 <img src="{{$product->photo_url}}" class="w-20 h-16 object-cover rounded-lg shadow">
                 <img src="{{$product->photo_url}}" class="w-20 h-16 object-cover rounded-lg shadow">
