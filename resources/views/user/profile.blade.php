@@ -23,8 +23,12 @@
                 </div>
                 <div class="card-body">
                     <p class="font-bold">Most recent order</p>
-                    <p>Order #{{$user->orders->last()->id}}</p>
-                    <p>£{{$user->orders->last()->total_price}}</p>
+                    @if(count($user->orders))
+                        <p>Order #{{$user->orders->last()->id}}</p>
+                        <p>£{{$user->orders->last()->total_price}}</p>
+                    @else
+                        <p>No recent order</p>
+                    @endif
                 </div>
                 <div class="card-actions">
                     <a class="btn" href="{{URL::to('/user/orders')}}">View all orders</a>
