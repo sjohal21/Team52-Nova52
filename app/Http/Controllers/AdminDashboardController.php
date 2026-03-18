@@ -28,7 +28,7 @@ class AdminDashboardController extends Controller
         ->count();
 
         //number of the amount of products that are currently out of stock
-        $outOfStockCount = Order::query()
+        $outOfStockCount = Product::query()
         ->where('stock_level',0)
         ->count();
 
