@@ -9,8 +9,8 @@ class AdminLog extends Model
 {
     protected $fillable = [
         "user_id",
-        "username",
-        "Action"
+        "name",
+        "action"
     ];
     
     public function returnTop5() {
