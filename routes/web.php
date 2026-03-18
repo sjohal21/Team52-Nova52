@@ -142,6 +142,8 @@ Route::get('/products/{product}',[ProductController::class,'showOne'])->name('pr
 
 //display searched products
 Route::get('/search',[ProductController::class,'search'])->name('products.search');
+// Search by category id
+Route::get('/searchCategory/{categoryName}',[ProductController::class,'searchByCategory'])->name('products.searchCategory');
 
 // Review routes
 Route::get('/review/{productID}/add',[ReviewController::class,'index'])->middleware('auth')->name('review.add');
