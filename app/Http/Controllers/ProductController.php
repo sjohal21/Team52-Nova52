@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
+use function Pest\Laravel\get;
 
 class ProductController extends Controller
 {
@@ -35,7 +38,18 @@ class ProductController extends Controller
         return view('products.index',compact('products'));
     }
 
+    public function searchByCategory(string $categoryName)
+    {
+        $category = Category::where('name',$categoryName)->first();
+        $products = $category->products;
+        if ($products->isEmpty())
+        {
+            return redirect()->back()->with('message','No products that match your search found!');
+        }
+        return view('products.index',compact('products'));
+    }
+
     public function showOne(Product $product) {
-        return view('products.show',compact('product'));
+        return view('products.show',['product'=>$product, 'reviews'=>Reviews::where('product_id',($product->id))]);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Product;
@@ -10,38 +12,39 @@ use App\Models\Product;
 class AdminDashboardController extends Controller
 {
 
-    public function show() {
-        $users = User::all();
-        return view('admin.dashboard',['users' => $users]);
-    }
-
-    public function manageUsers() {
+  public function show() {
 
         $users = User::all();
+      //value that we will use to decide whether an item is low on stock
+        $lowStockBound = 6;
+        //amount of entries for the recent activity
+        $activityLimit = 6;
 
-        return view('admin.users',['users' => $users]);
-    }
+        //number of the amount of products that are currently low on stock
+        $lowStockCount = Product::WhereBetween('stock_level',[1,$lowStockBound])->count();
 
-    public function promoteUser(Request $request) {
-        //gets the user id
-        $user = User::find($request->user_id);
+        //number of the amount of orders that are currently processing
+        $processingOrdersCount = Order::query()
+        ->where('status','Pending')
+        ->count();
 
-        if ($user && $user->role !== 'Admin') {
-            $user->role = 'Admin';
-            $user->save(); //writes the change into the database
-        }
-        return redirect('/admin/users')->with('success', 'User has been successfully promoted!');
-    }
+        //number of the amount of products that are currently out of stock
+        $outOfStockCount = Product::query()
+        ->where('stock_level',0)
+        ->count();
 
-    public function demoteUser(Request $request) {
-        //gets the user id
-        $user = User::find($request->user_id);
+        //number of the amount of orders in progress
+        $orderInProgressCount = Order::where('status','Processing')->count();
 
-        if ($user && $user->role === 'Admin') {
-            $user->role = 'customer';
-            $user->save(); //writes the change into the database
-        }
-        return redirect('/admin/users')->with('success', 'User has been successfully demoted!');
+        //returning the view for the admin dashboard
+        return view('admin.dashboard',[
+        'lowStockBound' => $lowStockBound,
+        'lowStockCount' => $lowStockCount,
+        'processingOrdersCount' => $processingOrdersCount,
+        'outOfStockCount' => $outOfStockCount,
+        'orderInProgressCount' => $orderInProgressCount,
+            'users' => $users
+        ]);
     }
     public function updateStock(Request $request, $id)
 {

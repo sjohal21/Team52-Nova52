@@ -8,13 +8,16 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Orderitems;
 use App\Models\User;
-use App\Models\Basket; // Pre- Merge
+use App\Models\Basket;
+ use Illuminate\Support\Facades\Auth;
+
+ // Pre- Merge
 
 class CheckoutController extends Controller
 {
     public function index()
     {
-        $user = auth()->user();
+        $user = Auth::user();
 
         // If the user is not to login
         if(!$user){
@@ -65,9 +68,7 @@ class CheckoutController extends Controller
         //  *********** Get basket items/total ***********
 
 
-        $user = auth()->user();
-
-        // $basket = $user->basket;   when we delete basket after order it breaks the post request
+        $user = Auth::user();
 
         $basketId = session('basket_id');// no ,1
         $basket = Basket::with('items.product')->find($basketId);

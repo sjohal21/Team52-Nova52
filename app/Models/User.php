@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Basket::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class);
+    }
 }

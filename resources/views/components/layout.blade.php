@@ -51,7 +51,9 @@
                 <ul class="dropdown-content menu menu-md rounded-box bg-base-200 p-2 mt-3 text-base-content shadow" tabindex="-1">
                     @guest<a class="btn btn-ghost" href="{{URL::to('/login')}}">Log in</a>@endguest
                     @guest<a class="btn btn-ghost" href="{{URL::to('/register')}}">Register</a>@endguest
-                    @auth<a class="btn btn-ghost" href="{{URL::to('/logout')}}">Log out</a>@endauth
+                        @auth<a class="btn btn-ghost" href="{{URL::to('/user/profile')}}">Profile</a>@endauth
+                        @auth<a class="btn btn-ghost" href="{{URL::to('/user/modify')}}">Change details</a>@endauth
+                        @auth<a class="btn btn-ghost" href="{{URL::to('/logout')}}">Log out</a>@endauth
                 </ul>
             </div>
         </div>
@@ -72,17 +74,17 @@
             <a class="link link-hover" href="{{URL::to('/about')}}">About us</a>
             <a class="link link-hover" href="{{URL::to('/contact')}}">Contact</a>
             <a class="link link-hover">Wish list</a>
-            <a class="link link-hover">Admin log in</a>
+            <a class="link link-hover" href="{{URL::to('/admin/dashboard')}}">Administration</a>
         </nav>
         <nav>
             <h4 class="font-bold">Support</h4>
-            <a href="{{ route('faq') }}" class="link link-hover">FAQ
+            <a href="{{ route('faq') }}" class="link link-hover">FAQ</a>
 
             <a href="{{ route('shipping.returns') }}" class="link link-hover">Shipping &amp; Returns</a>
 
 
             <a href="{{ route('privacy.policy') }}" class="link link-hover">Privacy Policy</a>
-            <a href="{{ route('terms.conditions') }}" class="link link-hover">Terms & Conditions </a>
+            <a href="{{ route('terms.conditions') }}" class="link link-hover">Terms & Conditions</a>
         </nav>
         <nav>
             <h4 class="font-bold">Follow us</h4>

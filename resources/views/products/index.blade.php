@@ -39,37 +39,44 @@
 
             <button class="absolute right-3 top-3 text-lg opacity-80 hover:opacity-100">
                 [icon]
-</button>
+            </button>
 
- <!--Product Image-->
-<figure class="h-40 overflow-hidden rounded-t-2xl">
-    <img src="{{$product->photo_url}}"
-    alt="{{$product->name}}"
-    class="w-full h-full object-cover">
-</figure>
+         <!--Product Image-->
+            @if($product->photo_url)
 
-<!--Product Information -->
-<div class="card-body text-center px-4">
-    <h3 class="font-semibold text-sm">{{$product->name}}</h3>
+            <figure class="h-40 overflow-hidden rounded-t-2xl">
+                <img src="{{Storage::url($product->photo_url)}}"
+                alt="{{$product->name}}"
+                class="w-full h-full object-cover">
+            </figure>
+            @else
+                <figure class="h-40 overflow-hidden rounded-t-2xl">
+                    <p>No image</p>
+                </figure>
+            @endif
 
-    <p class="text-xs text-base-content mb-3">
-        from £{{number_format($product->price,2)}}
-</p>
-<!--Product Details-->
-<a href="{{route('products.show', $product->id) }}"
-class="btn btn-neutral btn-xs rounded-full px-4">
-view product
-</a>
-</div>
-</div>
-@empty
-<!-- If no products match search -->
-<p class="text-center col-span-full text-sm md:text-base">
-    No products found.
-</p>
-@endforelse
 
-</div>
+        <!--Product Information -->
+        <div class="card-body text-center px-4">
+            <h3 class="font-semibold text-sm">{{$product->name}}</h3>
+
+            <p class="text-xs text-base-content mb-3">
+                from £{{number_format($product->price,2)}}
+            </p>
+            <!--Product Details-->
+            <a href="{{route('products.show', $product->id) }}"
+            class="btn btn-neutral btn-xs rounded-full px-4">
+            View Product
+            </a>
+        </div>
+    </div>
+    @empty
+    <!-- If no products match search -->
+    <p class="text-center col-span-full text-sm md:text-base">
+        No products found.
+    </p>
+    @endforelse
+    </div>
 </section>
 </x-layout>
 

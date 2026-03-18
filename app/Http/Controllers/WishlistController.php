@@ -70,7 +70,6 @@ class WishlistController extends Controller
 
     public function clear()
     {
-        // TODO: add function to clear the wishlist
         $wishlist = Wishlist::where('user_id',Auth::id())->first();
         $wishlist->delete();
         Wishlist::create(['user_id'=>Auth::id()]);
