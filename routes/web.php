@@ -105,6 +105,9 @@ Route::middleware(['auth','admin'])->group(function() {
 
     Route::post('/admin/demote',[AdminDashboardController::class,'demoteUser'])
     ->name('admin.demote');
+
+    Route::post('/admin/products/{id}/update-stock', [AdminDashboardController::class, 'updateStock'])
+    ->name('admin.updateStock');
 });
 
 //Product Routes

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Product;
 
 
 class AdminDashboardController extends Controller
@@ -42,4 +43,19 @@ class AdminDashboardController extends Controller
         }
         return redirect('/admin/users')->with('success', 'User has been successfully demoted!');
     }
+    public function updateStock(Request $request, $id)
+{
+    $request->validate([
+        'stock_level' => 'required|integer|min:0'
+    ]);
+
+    $product = Product::find($id);
+    
+    if ($product) {
+        $product->stock_level = $request->stock_level;
+        $product->save();
+    }
+    
+    return redirect()->back();
+}
 }

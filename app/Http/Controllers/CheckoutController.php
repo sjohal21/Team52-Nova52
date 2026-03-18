@@ -101,6 +101,12 @@ class CheckoutController extends Controller
                 $orderItem->amount = $basketItem->amount;
                 $orderItem->price = $basketItem->product->price;
                 $orderItem->save(); // Save to database
+
+                $product = Product::find($basketItem->product_id);
+                if ($product) {
+                    $product->stock_level -= $basketItem->amount; // Reduce stock level by the amount ordered
+                    $product->save(); // Save the updated product to the database
+                }
             }
 
             //  *********** After Successful Order ***********
