@@ -126,6 +126,7 @@ Route::middleware(['auth','admin'])->group(function() {
     Route::post('/admin/products/editProduct',[ProductManagementController::class,'modifyProduct']);
     // Admin orders page
     Route::get('/admin/orders',[AdminOrderController::class,'index'])->name('admin.order.index');
+    Route::post('/admin/orders/updateStatus/{id}',[AdminOrderController::class,'updateStatus']);
     // Admin order details page
     Route::get("/admin/orders/{orderID}",[AdminOrderController::class,'show'])->name('admin.order.showOrder');
 });

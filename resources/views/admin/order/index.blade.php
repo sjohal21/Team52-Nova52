@@ -4,7 +4,7 @@
         All orders
     </x-slot:title>
     <div class="p-5 bg-base-200">
-        <h1 class="font-bold text-2xl">All orders</h1>
+        <h1 class="font-bold text-2xl pt-5 pb-5">All orders</h1>
         @if(count($orders))
             @foreach($orders as $order)
             <div class="bg-base-300 card">
@@ -12,8 +12,8 @@
                     <h2 class="text-lg font-bold">Order {{$order->id}}</h2>
                     <p>For {{$order->First_Name}} {{$order->Surname}}</p>
                 </div>
-                <div class="card-actions">
-                    <a class="btn" href="{{URL::to("/admin/orders/{$order->id}")}}">View details</a>
+                <div class="card-actions m-5">
+                    <a class="btn bg-black text-white rounded-md" href="{{URL::to("/admin/orders/{$order->id}")}}">View details</a>
                 </div>
             </div>
             @endforeach

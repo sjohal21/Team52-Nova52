@@ -26,7 +26,7 @@ class AdminDashboardController extends Controller
 
         //number of the amount of orders that are currently processing
         $processingOrdersCount = Order::query()
-        ->where('status','pending')
+        ->where('status','Pending')
         ->count();
 
         //number of the amount of products that are currently out of stock
@@ -35,9 +35,7 @@ class AdminDashboardController extends Controller
         ->count();
 
         //number of the amount of orders in progress
-        $orderInProgressCount = Order::query()
-        ->where('status','!=','processing')
-        ->count();
+        $orderInProgressCount = Order::where('status','Processing')->count();
 
         //returning the view for the admin dashboard
         return view('admin.dashboard',[
@@ -48,33 +46,5 @@ class AdminDashboardController extends Controller
         'orderInProgressCount' => $orderInProgressCount,
             'users' => $users
         ]);
-    }
-    public function manageUsers() {
-
-        $users = User::all();
-
-        return view('admin.users',['users' => $users]);
-    }
-
-    public function promoteUser(Request $request) {
-        //gets the user id
-        $user = User::find($request->user_id);
-
-        if ($user && $user->role !== 'Admin') {
-            $user->role = 'Admin';
-            $user->save(); //writes the change into the database
-        }
-        return redirect('/admin/users')->with('success', 'User has been successfully promoted!');
-    }
-
-    public function demoteUser(Request $request) {
-        //gets the user id
-        $user = User::find($request->user_id);
-
-        if ($user && $user->role === 'Admin') {
-            $user->role = 'customer';
-            $user->save(); //writes the change into the database
-        }
-        return redirect('/admin/users')->with('success', 'User has been successfully demoted!');
     }
 }

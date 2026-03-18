@@ -57,20 +57,22 @@ class AdminOrderController extends Controller
             return view('admin.order.show', [
                 'order' => $order,
                 'items' => $items,
-                'total' => $total
+                'total' => $total,
+                'possibleStatus' => ['Pending','Processing','Shipped','Delivered','Cancelled/Returned']
             ]);
         }
 
-    public function updateStatus(Request $request, Order $order) {
+    public function updateStatus(Request $request, int $id) {
 
     //validate the status values
         $request->validate([
-            'status' => 'nullable|in:Pending,Processing,Shipped,Delivered,Cancelled/Returned'
+            'status' => 'nullable|in:Pending,Processing,Shipped,Delivered,Cancelled/Returned',
         ]);
 
     //Update the status of the order and save the change into the database
+        $order = Order::where('id', $id)->first();
         $order->status = $request->status;
-        $order->save;
+        $order->save();
 
         return back()->with('success','Order status updated');
     }

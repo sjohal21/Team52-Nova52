@@ -44,4 +44,30 @@
             @endforeach
         </div>
     </div>
+    <div class="card mt-5 p-5 bg-base-200">
+        <h2 class="text-center text-2xl font-bold">
+            Process order
+        </h2>
+        <div class="card-body flex flex-col">
+            <div class="card m-5 p-5 bg-base-300">
+                <h3 class="card-title">Order status</h3>
+                <div class="card-body">
+                    <form method="post" action="{{URL::to("/admin/orders/updateStatus/{$order->id}")}}">
+                        <label for="status">Order status</label>
+                        <select name="status" id="status" class="select">
+                            @foreach($possibleStatus as $status)
+                                @if($status == $order->status)
+                                    <option value="{{$status}}" selected>{{$status}}</option>
+                                @else
+                                    <option value="{{$status}}">{{$status}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        @csrf
+                        <input type="submit" class="btn bg-black text-white rounded-md" value="Update">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </x-adminlayout>
