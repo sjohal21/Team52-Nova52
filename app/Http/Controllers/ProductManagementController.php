@@ -36,7 +36,6 @@ class ProductManagementController extends Controller
         $product->photo_url = $request->file('uploadedImage')->store('images', 'public');
         $product->save();
         return redirect('/admin/products');
-
     }
 
     public function deleteProduct(Request $request)
