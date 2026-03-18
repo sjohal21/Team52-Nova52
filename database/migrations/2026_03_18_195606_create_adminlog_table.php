@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('adminlog', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('name')-> references('name')-> on('users');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string("action");
-
             $table->timestamps();
         });
     }

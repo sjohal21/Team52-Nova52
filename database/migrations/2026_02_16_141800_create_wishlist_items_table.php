@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('wishlist_id')->constrained('wishlists')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->timestamps();
+
+            
         });
     }
 
