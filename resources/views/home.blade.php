@@ -2,129 +2,179 @@
     <x-slot:title>
         Home
     </x-slot:title>
+
     @php
         $lightclass = "dark:hidden block";
         $darkclass = "hidden dark:block";
     @endphp
-    <div class="flex flex-col bg-base-200">
-        <div class="text-center p-5">
-            <h1 class="text-2xl font-bold">Discover the Future of Technology</h1>
-            <h3 class="text-1x1">Explore our range of innovative products designed to enhance your lifestyle. From high-performance laptops to sleek smartphones, experience technology like never before.</h3>
-        </div>
-    </div>
-   <div class="flex flex-col bg-base-100 p-5">
-    <h2 class="text-1xl text-center font-bold p-3">Explore Our Categories</h2>
 
-    <div class="grid p-1 grid-flow-col gap-2">
+    <section class="max-w-7xl mx-auto px-4 py-8 md:py-12 space-y-10">
 
-        <div class="card w-auto bg-base-200">
-            <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/pageicons/laptop.svg" alt="Picture of laptop" class="h-16 w-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/pageicons/laptopwhite.svg" alt="Picture of laptop" class="h-16 w-16 {{$darkclass}}">
-            </figure>
-            <div class="card-body text-center">
-                <h2 class="card-title">Laptops</h2>
-            </div>
-        </div>
+        {{-- HERO --}}
+        <section class="bg-base-200 rounded-[2rem] overflow-hidden">
+            <div class="grid md:grid-cols-2 items-center min-h-[500px]">
+                <div class="px-8 py-12 md:px-14 md:py-16">
+                    <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-4">
+                        Nova52
+                    </p>
 
-        <div class="card w-auto bg-base-200">
-            <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/pageicons/cell-phone.svg" alt="Picture of smartphone" class="h-16 w-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/pageicons/cell-phone-white.svg" alt="Picture of smartphone" class="h-16 w-16 {{$darkclass}}">
-            </figure>
-            <div class="card-body text-center">
-                <h2 class="card-title">Smartphones</h2>
-            </div>
-        </div>
+                    <h1 class="text-4xl md:text-6xl font-semibold leading-tight text-base-content max-w-xl">
+                        Discover the future of technology.
+                    </h1>
 
-        <div class="card w-auto bg-base-200">
-            <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/pageicons/tablet.svg" alt="Picture of tablet" class="w-16 h-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/pageicons/tabletwhite.svg" alt="Picture of tablet" class="w-16 h-16 {{$darkclass}}">
-            </figure>
-            <div class="card-body text-center">
-                <h2 class="card-title">Tablets</h2>
-            </div>
-        </div>
+                    <p class="mt-6 text-base md:text-lg text-base-content/70 max-w-lg leading-relaxed">
+                        Explore our range of innovative products designed to enhance your lifestyle.
+                        From high-performance laptops to sleek smartphones, experience technology like never before.
+                    </p>
 
-        <div class="card w-auto bg-base-200">
-            <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/pageicons/computer.svg" alt="Picture of desktop computer" class="w-16 h-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/pageicons/computer-white.svg" alt="Picture of desktop computer" class="w-16 h-16 {{$darkclass}}">
-            </figure>
-            <div class="card-body text-center">
-                <h2 class="card-title">Desktops</h2>
-            </div>
-        </div>
-
-        <div class="card w-auto bg-base-200">
-            <figure class="p-2 text-center">
-                <img src="{{URL::to("/")}}/pageicons/headphone.svg" alt="Picture of over ear headphones" class="w-16 h-16 {{$lightclass}}">
-                <img src="{{URL::to("/")}}/pageicons/headphonewhite.svg" alt="Picture of over ear headphones" class="w-16 h-16 {{$darkclass}}">
-            </figure>
-            <div class="card-body text-center">
-                <h2 class="card-title">Audio</h2>
-            </div>
-        </div>
-
-    </div>
-</div>
-    <div class="flex flex-col bg-base-200 p-5">
-        <div class="grid grid-flow-col grid-rows-1 gap-3">
-            <div class="card w-auto">
-                <figure>
-                    <img src="{{URL::to("/")}}/pageicons/free-shipping.svg" alt="Picture of a delivery lorry with the word free on it" class="w-16 h-16 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/pageicons/free-shipping-white.svg" alt="Picture of a delivery lorry with the word free on it" class="w-16 h-q6 {{$darkclass}}">
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title text-center">Free delivery over £50</h2>
-                </div>
-            </div>
-            <div class="card w-auto">
-                <figure>
-                    <img src="{{URL::to("/")}}/pageicons/cyber-security.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-16 h-16 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/pageicons/cyber-security-white.svg" alt="Picture of a padlock in front of a shield and PCB traces" class="w-16 h-16 {{$darkclass}}">
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title text-center">Secure Checkout</h2>
-                </div>
-            </div>
-            <div class="card w-auto">
-                <figure>
-                    <img src="{{URL::to("/")}}/pageicons/shield.svg" alt="Picture of a shield with a tick in the middle" class="w-16 h-16 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/pageicons/shieldwhite.svg" alt="Picture of a shield with a tick in the middle" class="w-16 h-16 {{$darkclass}}">
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title text-center">1-Year Warranty</h2>
-                </div>
-            </div>
-            <div class="card w-auto">
-                <figure>
-                    <img src="{{URL::to("/")}}/pageicons/student.svg" alt="Picture of a person with a graduation cap" class="w-16 h-16 {{$lightclass}}">
-                    <img src="{{URL::to("/")}}/pageicons/studentwhite.svg" alt="Picture of a person with a graduation cap" class="w-16 h-16 {{$darkclass}}">
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title text-center">Student-Friendly Pricing</h2>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="{{ URL::to('/products') }}" class="btn btn-neutral rounded-full px-7">
+                            Shop Now
+                        </a>
+                        <a href="{{ URL::to('/about') }}" class="btn btn-outline rounded-full px-7">
+                            Learn More
+                        </a>
+                    </div>
                 </div>
 
+                <div class="flex items-center justify-center px-8 pb-10 md:pb-0">
+                    <img src="{{ URL::to('/') }}/pageicons/laptop.svg" alt="Featured technology product"
+                         class="w-52 h-52 md:w-72 md:h-72 {{ $lightclass }}">
+                    <img src="{{ URL::to('/') }}/pageicons/laptopwhite.svg" alt="Featured technology product"
+                         class="w-52 h-52 md:w-72 md:h-72 {{ $darkclass }}">
+                </div>
             </div>
-        </div>
+        </section>
 
+        {{-- CATEGORY INTRO --}}
+        <section class="text-center pt-2">
+            <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-3">
+                Explore
+            </p>
+            <h2 class="text-3xl md:text-4xl font-semibold text-base-content">
+                Our Categories
+            </h2>
+        </section>
 
-<!-- About Us Section  -->
+        {{-- CATEGORIES --}}
+        <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <figure class="justify-start">
+                    <img src="{{URL::to('/')}}/pageicons/laptop.svg" alt="Picture of laptop" class="w-16 h-16 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/laptopwhite.svg" alt="Picture of laptop" class="w-16 h-16 {{ $darkclass }}">
+                </figure>
+                <div>
+                    <h3 class="text-xl font-semibold text-base-content">Laptops</h3>
+                    <p class="text-base-content/60 mt-1">Powerful, portable, everyday ready.</p>
+                </div>
+            </div>
 
-<section class="text-center max-w-3x1 mx-auto mb-20">
-    <div class="inline-block border border-base-content px-10 py-2 rounded-md mb-6">
-        <h2 class="text-2x1 md:text-3x1 font-bold">About Us</h2>
-    </div>
-    <p class="mb-8">
-    At Nova52, we are committed to making reliable, high-quality technology accessible to everyone.
-    We offer a range of laptops, smartphones, tablets and other smart devices designed for students,
-    professionals and everyday users.
-    </p>
-    <a class="btn btn-neutral rounded-full" href="{{URL::to('/about')}}">
-        Learn More
-    </a>
-</section>
-    </div>
+            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <figure class="justify-start">
+                    <img src="{{URL::to('/')}}/pageicons/cell-phone.svg" alt="Picture of smartphone" class="w-16 h-16 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/cell-phone-white.svg" alt="Picture of smartphone" class="w-16 h-16 {{ $darkclass }}">
+                </figure>
+                <div>
+                    <h3 class="text-xl font-semibold text-base-content">Smartphones</h3>
+                    <p class="text-base-content/60 mt-1">Smooth performance in your hand.</p>
+                </div>
+            </div>
+
+            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <figure class="justify-start">
+                    <img src="{{URL::to('/')}}/pageicons/tablet.svg" alt="Picture of tablet" class="w-16 h-16 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/tabletwhite.svg" alt="Picture of tablet" class="w-16 h-16 {{ $darkclass }}">
+                </figure>
+                <div>
+                    <h3 class="text-xl font-semibold text-base-content">Tablets</h3>
+                    <p class="text-base-content/60 mt-1">Flexible devices for work and play.</p>
+                </div>
+            </div>
+
+            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <figure class="justify-start">
+                    <img src="{{URL::to('/')}}/pageicons/computer.svg" alt="Picture of desktop computer" class="w-16 h-16 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/computer-white.svg" alt="Picture of desktop computer" class="w-16 h-16 {{ $darkclass }}">
+                </figure>
+                <div>
+                    <h3 class="text-xl font-semibold text-base-content">Desktops</h3>
+                    <p class="text-base-content/60 mt-1">Reliable setups for focused work.</p>
+                </div>
+            </div>
+
+            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <figure class="justify-start">
+                    <img src="{{URL::to('/')}}/pageicons/headphone.svg" alt="Picture of headphones" class="w-16 h-16 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/headphonewhite.svg" alt="Picture of headphones" class="w-16 h-16 {{ $darkclass }}">
+                </figure>
+                <div>
+                    <h3 class="text-xl font-semibold text-base-content">Audio</h3>
+                    <p class="text-base-content/60 mt-1">Clear sound, minimal design.</p>
+                </div>
+            </div>
+        </section>
+
+        {{-- BENEFITS --}}
+        <section class="grid gap-4 md:grid-cols-4">
+            <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
+                <figure class="justify-center mb-4">
+                    <img src="{{URL::to('/')}}/pageicons/free-shipping.svg" alt="Free delivery icon" class="w-14 h-14 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/free-shipping-white.svg" alt="Free delivery icon" class="w-14 h-14 {{ $darkclass }}">
+                </figure>
+                <h3 class="text-lg font-semibold text-base-content">Free Delivery</h3>
+                <p class="text-base-content/60 mt-2">Over £50 on qualifying orders.</p>
+            </div>
+
+            <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
+                <figure class="justify-center mb-4">
+                    <img src="{{URL::to('/')}}/pageicons/cyber-security.svg" alt="Secure checkout icon" class="w-14 h-14 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/cyber-security-white.svg" alt="Secure checkout icon" class="w-14 h-14 {{ $darkclass }}">
+                </figure>
+                <h3 class="text-lg font-semibold text-base-content">Secure Checkout</h3>
+                <p class="text-base-content/60 mt-2">Protected payments and trusted security.</p>
+            </div>
+
+            <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
+                <figure class="justify-center mb-4">
+                    <img src="{{URL::to('/')}}/pageicons/shield.svg" alt="Warranty icon" class="w-14 h-14 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/shieldwhite.svg" alt="Warranty icon" class="w-14 h-14 {{ $darkclass }}">
+                </figure>
+                <h3 class="text-lg font-semibold text-base-content">1-Year Warranty</h3>
+                <p class="text-base-content/60 mt-2">Reliable support you can count on.</p>
+            </div>
+
+            <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
+                <figure class="justify-center mb-4">
+                    <img src="{{URL::to('/')}}/pageicons/student.svg" alt="Student pricing icon" class="w-14 h-14 {{ $lightclass }}">
+                    <img src="{{URL::to('/')}}/pageicons/studentwhite.svg" alt="Student pricing icon" class="w-14 h-14 {{ $darkclass }}">
+                </figure>
+                <h3 class="text-lg font-semibold text-base-content">Student Pricing</h3>
+                <p class="text-base-content/60 mt-2">Affordable technology for modern study.</p>
+            </div>
+        </section>
+
+        {{-- ABOUT --}}
+        <section class="bg-base-200 rounded-[2rem] border border-base-300 px-8 py-14 md:px-12 text-center">
+            <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-3">
+                About Nova52
+            </p>
+
+            <h2 class="text-3xl md:text-4xl font-semibold text-base-content">
+                Technology made simple, reliable and accessible.
+            </h2>
+
+            <p class="mt-4 text-base-content/70 max-w-2xl mx-auto leading-relaxed">
+                At Nova52, we are committed to making high-quality technology accessible to everyone.
+                We offer a range of laptops, smartphones, tablets and smart devices designed for students,
+                professionals and everyday users.
+            </p>
+
+            <div class="mt-8">
+                <a class="btn btn-neutral rounded-full px-8" href="{{ URL::to('/about') }}">
+                    Learn More
+                </a>
+            </div>
+        </section>
+
+    </section>
 </x-layout>

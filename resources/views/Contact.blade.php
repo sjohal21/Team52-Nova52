@@ -1,67 +1,125 @@
-<x-layout xmlns:x-slot="http://www.w3.org/1999/xlink">
+<x-layout>
     <x-slot:title>
-        Contact
+        Contact Us
     </x-slot:title>
-    <div class="flex flex-col bg-base-300">
-        <div class="text-center p-5">
-            <h2 class="text-3xl font-bold">Contact Us</h2>
-            <h3 class="text-2xl p-2">Have a question? Get in touch with the Nova52 team.</h3>
-        </div>
-        <div class="bg-base-100 p-5 text-center">
-            <h2 class="text-3xl font-bold">Get in touch</h2>
-            <div class="grid grid-cols-2 gap-4 p-5">
-                <div class="card w-auto bg-base-300 p-3">
-                    <div class="card-body">
-                            <h2 class="text-2xl font-bold card-title">Address</h2>
-                            <div class="text-xl text-left">
-                                <p>Aston University</p>
-                                <p>Birmingham</p>
-                                <p>B4 7ET</p>
-                                <p>United Kingdom</p>
-                            </div>
+
+    <section class="max-w-6xl mx-auto px-4 py-10 md:py-14 space-y-10">
+
+        {{-- HERO --}}
+        <section class="bg-base-200 rounded-[2rem] px-8 py-14 md:px-14 md:py-20 text-center">
+            <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-4">
+                Contact Nova52
+            </p>
+            <h1 class="text-4xl md:text-6xl font-semibold text-base-content leading-tight max-w-3xl mx-auto">
+                We’re here to help.
+            </h1>
+            <p class="mt-6 text-base md:text-lg text-base-content/70 max-w-2xl mx-auto leading-relaxed">
+                Have a question about your order, our products or your account? Get in touch and our team will be happy to assist.
+            </p>
+        </section>
+
+        {{-- CONTACT GRID --}}
+        <section class="grid gap-6 lg:grid-cols-2">
+
+            {{-- FORM --}}
+            <div class="bg-base-200 border border-base-300 rounded-[2rem] p-8 md:p-10">
+                <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-3">
+                    Send a Message
+                </p>
+                <h2 class="text-2xl md:text-3xl font-semibold text-base-content mb-6">
+                    Contact us
+                </h2>
+
+                <form action="{{ URL::to('/contact') }}" method="POST" class="space-y-5">
+                    @csrf
+
+                    <div>
+                        <label class="block text-sm font-medium text-base-content mb-2">Full Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name"
+                            class="input input-bordered w-full rounded-2xl bg-base-100"
+                        >
                     </div>
-                </div>
-                <div class="card w-auto bg-base-300 p-3">
-                    <div class="card-body">
-                        <h2 class="text-2xl font-bold card-title">Email</h2>
-                        <a href="mailto:nova52@example.com" class="text-xl underline text-left">nova52@example.com</a>
+
+                    <div>
+                        <label class="block text-sm font-medium text-base-content mb-2">Email Address</label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            class="input input-bordered w-full rounded-2xl bg-base-100"
+                        >
                     </div>
-                </div>
-                <div class="card w-auto bg-base-300 p-3">
-                    <div class="card-body">
-                        <h2 class="text-2xl font-bold card-title">Phone</h2>
-                        <a class="text-xl text-left" href="tel:01213335689">0121 333 5689</a>
+
+                    <div>
+                        <label class="block text-sm font-medium text-base-content mb-2">Subject</label>
+                        <input
+                            type="text"
+                            name="subject"
+                            placeholder="What can we help with?"
+                            class="input input-bordered w-full rounded-2xl bg-base-100"
+                        >
                     </div>
-                </div>
-                <div class="card w-auto bg-base-300 p-3">
-                    <div class="card-body">
-                        <h2 class="text-2xl font-bold card-title">Operating hours</h2>
-                        <div class="text-xl text-left">
-                            <p>Monday - Friday:</p>
-                            <p>9:00 - 17:00</p>
+
+                    <div>
+                        <label class="block text-sm font-medium text-base-content mb-2">Message</label>
+                        <textarea
+                            name="message"
+                            rows="6"
+                            placeholder="Write your message here..."
+                            class="textarea textarea-bordered w-full rounded-2xl bg-base-100"
+                        ></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="btn btn-neutral rounded-full px-8">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            {{-- INFO PANEL --}}
+            <div class="space-y-6">
+                <div class="bg-base-200 border border-base-300 rounded-[2rem] p-8 md:p-10">
+                    <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-3">
+                        Contact Details
+                    </p>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-base-content mb-6">
+                        Reach out directly
+                    </h2>
+
+                    <div class="space-y-5 text-base-content/80">
+                        <div>
+                            <p class="text-sm text-base-content/60 mb-1">Email</p>
+                            <p class="font-medium text-base-content">support@nova52.com</p>
+                        </div>
+
+                        <div>
+                            <p class="text-sm text-base-content/60 mb-1">Phone</p>
+                            <p class="font-medium text-base-content">+44 0121 000 0000</p>
+                        </div>
+
+                        <div>
+                            <p class="text-sm text-base-content/60 mb-1">Opening Hours</p>
+                            <p class="font-medium text-base-content">Mon – Fri, 9:00am – 5:00pm</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="bg-base-200 border border-base-300 rounded-[2rem] p-8">
+                    <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-3">
+                        Response Time
+                    </p>
+                    <p class="text-base-content/70 leading-relaxed">
+                        We aim to respond to all enquiries within 24–48 hours. For order-related questions, please include your order number for quicker support.
+                    </p>
                 </div>
             </div>
-            <div class="card bg-base-300 w-auto p-3">
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title font-bold text-2xl">Send us a message</h2>
-                    <p class="text-xl">Have a question or need support? Fill out the form below and we will get back to you as soon as possible.</p>
-                    <form method="post">
-                        @csrf
-                        <div class="grid grid-cols-2 h-auto gap-5">
-                            <input class="input rounded-box" type="text" placeholder="First name" id="first_name" name="first_name">
-                            <input class="input rounded-box" type="text" placeholder="Surname" id="last_name" name="last_name">
-                            <input class="input rounded-box" type="email" placeholder="Email address" id="email" name="email">
-                            <input class="input rounded-box" type="text" placeholder="Subject" id="subject" name="subject">
-                        </div>
-                        <div class="justify-center p-5">
-                            <textarea class="textarea h-auto" id="message" name="message"></textarea>
-                            <button class="btn p-5 btn-neutral m-5">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
+        </section>
+
+    </section>
 </x-layout>
