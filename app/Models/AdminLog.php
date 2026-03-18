@@ -7,6 +7,7 @@ use League\CommonMark\Extension\DescriptionList\Node\Description;
 
 class AdminLog extends Model
 {
+    protected $table = 'adminlog';
     protected $fillable = [
         "user_id",
         "name",
