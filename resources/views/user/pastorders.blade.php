@@ -8,16 +8,10 @@
         <div class="bg-base-200 mt-5 p-3 rounded-md">
             @if($orders)
                 @foreach($orders as $order)
-                    <div class="bg-base-300 m-5 p-5">
+                    <div class="card bg-base-300 m-5 p-5">
                         <p>Order #{{$order->id}}</p>
                         <p>Price: £{{$order->total_price}}</p>
-                        @foreach($order->Orderitems as $orderItem)
-                            <div class="bg-base-200 p-5 m-2">
-                                <p class="font-bold">{{$orderItem->product->name}}</p>
-                                <p>x{{$orderItem->amount}}</p>
-                                <p>£{{$orderItem->price}}</p>
-                            </div>
-                        @endforeach
+
                     </div>
                 @endforeach
             @else
