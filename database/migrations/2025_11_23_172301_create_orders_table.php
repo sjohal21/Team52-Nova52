@@ -38,7 +38,7 @@ return new class extends Migration
 
             // Time Of Order
             $table->timestamps();
-         
+
             // **Not needed as basket resets after order is placed**
             //   $table->integer('basket_id');
             //   $table->foreign('basket_id')->references('id')->on('baskets');

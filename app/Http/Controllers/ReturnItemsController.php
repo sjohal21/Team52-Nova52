@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Orderitems;
+use App\Models\ReturnedItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ class ReturnItemsController extends Controller
             return redirect('/');
         }
     }
-    public function returnItem(int $orderItemsID)
+    public function returnItem(int $orderItemsID, Request $request)
     {
         $order = Orderitems::where('id',$orderItemsID)->first()->order;
         // Check if the item being returned actually belongs to the current user
@@ -32,11 +33,18 @@ class ReturnItemsController extends Controller
             $order = $item->order;
             $newOrderTotal = $order->total_price - $item->price;
             $order->total_price = $newOrderTotal;
+            ReturnedItem::create([
+                'item_id'=>$item->product->id,
+                'order_id'=>$order->id,
+                'user_id'=>Auth::id(),
+                'reason'=>$request->input('reasonReturn','Unknown'),
+                ]);
+            $item->product->stock_level += 1;
             $item->delete();
             $order->save();
             if(count($order->Orderitems) < 1)
             {
-                $order->delete();
+                $order->status = 'Cancelled/Returned';
             }
             return redirect('/user/returnSuccess');
         }

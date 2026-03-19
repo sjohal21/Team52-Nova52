@@ -68,19 +68,18 @@ class CheckoutController extends Controller
         //  *********** Get basket items/total ***********
 
 
-        $user = Auth::user();
-
         $basketId = session('basket_id');// no ,1
         $basket = Basket::with('items.product')->find($basketId);
 
         $basketItems = $basket->items;
         $subtotal = $basket->totalPrice();
-        $vat = ($subtotal / 1.2) * 20; // 20% VAT
+        $vat = round(($subtotal * 0.20),2,PHP_ROUND_HALF_UP); // 20% VAT
         $deliveryFee = 4.99;   // Standard delivery fee rate
         $total = $subtotal + $deliveryFee + $vat;
 
         //  *********** Create Order ***********
             $order = new \App\Models\Order(); //Initialize order Model/Object
+            $order->user_id = Auth::id();
             $order->First_Name = $request->input('First_Name');
             $order->Surname = $request->input('Surname');
             $order->Email_Address = $request->input('Email_Address');
@@ -96,11 +95,10 @@ class CheckoutController extends Controller
             // Create order items from basket items (Copies)
             foreach($basketItems as $basketItem){
                 $orderItem = new \App\Models\Orderitems(); //Initialize orderItems Model/Object
-                $orderItem->user_id = Auth::id();
                 $orderItem->order_id = $order->id;
                 $orderItem->product_id = $basketItem->product_id;
                 $orderItem->amount = $basketItem->amount;
-                $orderItem->price = $basketItem->product->price;
+                $orderItem->price = round($basketItem->product->price,2);
                 $orderItem->save(); // Save to database
             }
 

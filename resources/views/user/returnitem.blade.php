@@ -6,16 +6,16 @@
     <div class="p-5 m-5">
         <form method="post" action="{{URL::to("/user/orders/returnItem/{$item->id}")}}">
             <fieldset>
-                <input type="radio" id="faultyDamaged" name="reasonReturn">
+                <input type="radio" id="faultyDamaged" name="reasonReturn" value="Faulty/damaged item">
                 <label for="faultyDamaged">Faulty/damaged item</label><br>
-                <input type="radio" id="notAsDescribed" name="reasonReturn">
+                <input type="radio" id="notAsDescribed" name="reasonReturn" value="Not as described">
                 <label for="notAsDescribed">Not as described</label><br>
-                <input type="radio" id="wrongItem" name="reasonReturn">
+                <input type="radio" id="wrongItem" name="reasonReturn" value="Wrong item">
                 <label for="wrongItem">Wrong item</label><br>
-                <input type="radio" id="changedMind" name="reasonReturn">
+                <input type="radio" id="changedMind" name="reasonReturn" value="Changed my mind">
                 <label for="changedMind">Changed my mind</label><br>
-                <label for="otherReason">Other (specify): </label>
-                <input type="text" id="otherReason" name="reasonReturn" class="input">
+                <!-- <label for="otherReason">Other (specify): </label>
+                <input type="text" id="otherReason" name="reasonReturn" class="input"> -->
             </fieldset>
             @csrf
             <input type="submit" value="Submit">
