@@ -17,4 +17,8 @@ class AdminLog extends Model
         
         return AdminLog::orderBy('created_at', 'action') -> take(5) -> get();
     }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
