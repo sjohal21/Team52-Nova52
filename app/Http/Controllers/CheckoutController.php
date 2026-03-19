@@ -97,6 +97,7 @@ class CheckoutController extends Controller
             // Create order items from basket items (Copies)
             foreach($basketItems as $basketItem){
                 $orderItem = new \App\Models\Orderitems(); //Initialize orderItems Model/Object
+                $orderItem->user_id = Auth::id();
                 $orderItem->order_id = $order->id;
                 $orderItem->product_id = $basketItem->product_id;
                 $orderItem->amount = $basketItem->amount;

@@ -13,12 +13,18 @@ class PastOrdersController extends Controller
         return view('user.pastorders')->with(['orders'=>Auth::user()->orders]);
     }
 
-    public function orderDetails(Request $request)
+    public function orderDetails(int $orderID)
     {
-            $order = Order::find($request->order_id);
-            if($order->belongsTo(Auth::user()->orders))
+            $order = Auth::user()->orders->where('id', $orderID)->first();
+            $itemsPrice = 0;
+            foreach ($order->Orderitems as $orderitem)
             {
-                return view('user.orderdetail')->with(['order'=>$order]);
+                $itemsPrice += ($orderitem->price * $orderitem->amount);
+            }
+            $extraCost = $order->total_price - $itemsPrice;
+            if($order)
+            {
+                return view('user.orderdetail')->with(['order'=>$order, 'extraCost'=>$extraCost]);
             }
     }
 }

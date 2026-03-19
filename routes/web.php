@@ -12,6 +12,7 @@ use App\Http\Controllers\PastOrdersController;
 use App\Http\Controllers\ProductManagementController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReturnItemsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
@@ -87,8 +88,14 @@ Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail']
 Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])->middleware('auth')->name('usermanagement.changePassword');
 Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])->middleware('auth')->name('usermanagement.changePhone');
 Route::get('/user/orders',[PastOrdersController::class,'index'])->middleware('auth');
+Route::get('/user/orders/{orderID}',[PastOrdersController::class,'orderDetails'])->middleware('auth');
+Route::get('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class,'index'])->middleware('auth');
+Route::post('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class, 'returnItem'])->middleware('auth');
+Route::get('/user/returnSuccess',[ReturnItemsController::class, 'returnSuccess'])->middleware('auth');
 Route::get('/user/reviews',[ReviewController::class,'viewPast'])->middleware('auth');
 Route::post('/user/reviews/remove',[ReviewController::class,'removeReview'])->middleware('auth');
+
+
 //Order Routes
 //==============================================================================================
 

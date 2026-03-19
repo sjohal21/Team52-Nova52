@@ -2,26 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Orderitems;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReturnItemsController extends Controller
 {
-    public function index(Request $request)
+    public function index(int $orderItemsID)
     {
-        $validatedRequest = $request->validate(['orderItemID' => 'required|exists:Orderitems,id']);
-        $item = Orderitems::where($validatedRequest['orderItemID'], 'id')->first();
-        return view('user.returnitem')->with(['item' => $item]);
+        $item = Orderitems::where('id',$orderItemsID)->first();
+        if(Auth::user()->orderItems->contains($item))
+        {
+            return view('user.returnitem')->with(['item' => $item]);
+        }
+        else
+        {
+            return redirect('/');
+        }
     }
-    public function returnItem(Request $request)
+    public function returnItem(int $orderItemsID)
     {
-        $validatedRequest = $request->validate(['orderItemID' => 'required|exists:Orderitems,id']);
-        $item = Orderitems::where($validatedRequest['orderItemID'], 'id')->first();
-        $order = $item->order;
-        $order->remove($item);
-        $newOrderTotal = $order->total - $item->price;
-        $order->total = $newOrderTotal;
-        $order->save();
-        return redirect()->view('user.returnitem')->with(['order' => $order]);
+        $item = Orderitems::where('id',$orderItemsID)->where('user_id',Auth::id())->first();
+        // Check if the item being returned actually belongs to the current user
+        if($item)
+        {
+            $tempItem = $item;
+            $order = $item->order;
+            $newOrderTotal = $order->total_price - $item->price;
+            $order->total_price = $newOrderTotal;
+            $item->delete();
+            $order->save();
+            if(count($order->Orderitems) < 1)
+            {
+                $order->delete();
+            }
+            return redirect('/user/returnSuccess');
+        }
+        else
+        {
+            return redirect('/');
+        }
+    }
+    public function returnSuccess()
+    {
+        return view('user.returnsuccess');
     }
 }

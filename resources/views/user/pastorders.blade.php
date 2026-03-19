@@ -9,9 +9,9 @@
             @if($orders)
                 @foreach($orders as $order)
                     <div class="card bg-base-300 m-5 p-5">
-                        <p>Order #{{$order->id}}</p>
+                        <p class="font-bold">Order #{{$order->id}}</p>
                         <p>Price: £{{$order->total_price}}</p>
-
+                        <a class="btn bg-black text-white rounded-md w-min mt-5" href="{{URL::to("/user/orders/{$order->id}")}}">Details</a>
                     </div>
                 @endforeach
             @else
