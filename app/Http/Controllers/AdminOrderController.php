@@ -52,12 +52,10 @@ class AdminOrderController extends Controller
                 ->with('product')
                 ->get();
 
-            $total = $items->sum('amount');
-
             return view('admin.order.show', [
                 'order' => $order,
                 'items' => $items,
-                'total' => $total,
+                'total' => $order->total_price,
                 'possibleStatus' => ['Pending','Processing','Shipped','Delivered','Cancelled/Returned']
             ]);
         }
@@ -76,4 +74,6 @@ class AdminOrderController extends Controller
 
         return back()->with('success','Order status updated');
     }
+
+
 }
