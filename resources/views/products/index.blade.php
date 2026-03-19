@@ -36,11 +36,11 @@
         @forelse ($products as $product)
         <div class="card bg-base-100 shadow-md rounded-2xl pb-4 relative hover:shadow-xl transition">
             <!--design for the product-->
-
+            <!-- Commented out until future development
             <button class="absolute right-3 top-3 text-lg opacity-80 hover:opacity-100">
                 [icon]
             </button>
-
+            -->
          <!--Product Image-->
             @if($product->photo_url)
 
