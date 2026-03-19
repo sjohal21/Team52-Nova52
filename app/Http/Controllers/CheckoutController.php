@@ -77,11 +77,10 @@ class CheckoutController extends Controller
         $subtotal = $basket->totalPrice();
         $vat = ($subtotal / 1.2) * 20; // 20% VAT
         $deliveryFee = 4.99;   // Standard delivery fee rate
-        $total = $subtotal + $deliveryFee;
+        $total = $subtotal + $deliveryFee + $vat;
 
         //  *********** Create Order ***********
             $order = new \App\Models\Order(); //Initialize order Model/Object
-            $order->user_id = $user->id;
             $order->First_Name = $request->input('First_Name');
             $order->Surname = $request->input('Surname');
             $order->Email_Address = $request->input('Email_Address');

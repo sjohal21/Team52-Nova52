@@ -12,7 +12,8 @@ class ReturnItemsController extends Controller
     public function index(int $orderItemsID)
     {
         $item = Orderitems::where('id',$orderItemsID)->first();
-        if(Auth::user()->orderItems->contains($item))
+        $order = Orderitems::where('id',$orderItemsID)->first()->order;
+        if($order->user_id == Auth::id())
         {
             return view('user.returnitem')->with(['item' => $item]);
         }
@@ -23,11 +24,11 @@ class ReturnItemsController extends Controller
     }
     public function returnItem(int $orderItemsID)
     {
-        $item = Orderitems::where('id',$orderItemsID)->where('user_id',Auth::id())->first();
+        $order = Orderitems::where('id',$orderItemsID)->first()->order;
         // Check if the item being returned actually belongs to the current user
-        if($item)
+        if($order->user_id == Auth::id())
         {
-            $tempItem = $item;
+            $item = $order->Orderitems->where('id',$orderItemsID)->first();
             $order = $item->order;
             $newOrderTotal = $order->total_price - $item->price;
             $order->total_price = $newOrderTotal;
