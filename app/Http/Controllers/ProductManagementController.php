@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -19,21 +20,36 @@ class ProductManagementController extends Controller
 
     public function createProductPage()
     {
-        return view('admin.products.addproduct');
+        return view('admin.products.addproduct')->with(["categories"=>Category::all()]);
     }
     public function createProduct(Request $request)
     {
         // TODO: add function to add a product to the database
-    }
-
-    public function modifyProduct(Request $request)
-    {
-        $product = Product::where('id',$request['productID'])->first();
+        $product = new Product();
         $product->name = $request['productName'];
         $product->stock_level = $request['stockQuantity'];
         $product->description = $request['productDescription'];
         $product->price = $request['productPrice'];
-        $product->photo_url = $request->file('uploadedImage')->store('images', 'public');
+        $product->category_id = $request['categoryID'];
+        if($request['uploadedImage'] != null)
+        {
+            $product->photo_url = $request->file('uploadedImage')->store('images', 'public');
+        }
+        $product->save();
+        return redirect('/admin/products');
+    }
+
+    public function modifyProduct(Request $request)
+    {
+        $product = Product::where('id', $request['productID'])->first();
+        $product->name = $request['productName'];
+        $product->stock_level = $request['stockQuantity'];
+        $product->description = $request['productDescription'];
+        $product->price = $request['productPrice'];
+        if ($request['uploadedImage'] != null)
+        {
+            $product->photo_url = $request->file('uploadedImage')->store('images', 'public');
+        }
         $product->save();
         return redirect('/admin/products');
 

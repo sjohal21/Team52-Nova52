@@ -129,6 +129,7 @@ Route::middleware(['auth','admin'])->group(function() {
     Route::get('/admin/products',[ProductManagementController::class,'index']);
     // Admin create product page
     Route::get('/admin/products/create',[ProductManagementController::class,'createProductPage']);
+    Route::post('/admin/products/create',[ProductManagementController::class,'createProduct']);
     // Admin Edit Product Page
     Route::get('/admin/products/editProduct/{id}',[ProductManagementController::class,'editProductPage']);
     Route::post('/admin/products/editProduct',[ProductManagementController::class,'modifyProduct']);
