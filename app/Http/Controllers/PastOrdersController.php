@@ -16,12 +16,7 @@ class PastOrdersController extends Controller
     public function orderDetails(int $orderID)
     {
             $order = Auth::user()->orders->where('id', $orderID)->first();
-            $itemsPrice = 0;
-            foreach ($order->Orderitems as $orderitem)
-            {
-                $itemsPrice += ($orderitem->price * $orderitem->amount);
-            }
-            $extraCost = $order->total_price - $itemsPrice;
+            $extraCost = $order->vat + $order->shipping;
             if($order)
             {
                 return view('user.orderdetail')->with(['order'=>$order, 'extraCost'=>$extraCost]);

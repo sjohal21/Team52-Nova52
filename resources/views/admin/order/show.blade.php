@@ -42,6 +42,11 @@
                     </div>
                 </div>
             @endforeach
+            @if($order->status = "Cancelled/Returned")
+                <div class="card m-5 p-5 bg-base-300">
+                    <a class="card-title underline" href="{{URL::to('/admin/returns')}}">View returns for all returned items</a>
+                </div>
+            @endif
         </div>
     </div>
     <div class="card mt-5 p-5 bg-base-200">

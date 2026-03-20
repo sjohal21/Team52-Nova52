@@ -11,6 +11,7 @@
                 <div class="card-body">
                     <h2 class="text-lg font-bold">Order {{$order->id}}</h2>
                     <p>For {{$order->First_Name}} {{$order->Surname}}</p>
+                    <p>Status: {{$order->status}}</p>
                 </div>
                 <div class="card-actions m-5">
                     <a class="btn bg-black text-white rounded-md" href="{{URL::to("/admin/orders/{$order->id}")}}">View details</a>

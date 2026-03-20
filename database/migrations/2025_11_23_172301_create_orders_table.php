@@ -33,8 +33,17 @@ return new class extends Migration
             // Status
             $table->string('status')->default('pending');
 
+            // Items price
+            $table->decimal('items_price');
+
+            // VAT price
+            $table->decimal('vat');
+
+            // Shipping price
+            $table->decimal('shipping');
+
             // Total Price
-            $table->decimal('total_price', 10, 2);
+            $table->decimal('total_price');
 
             // Time Of Order
             $table->timestamps();

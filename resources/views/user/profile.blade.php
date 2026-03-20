@@ -25,7 +25,11 @@
                     <p class="font-bold">Most recent order</p>
                     @if(count($user->orders))
                         <p>Order #{{$user->orders->last()->id}}</p>
-                        <p>£{{$user->orders->last()->total_price}}</p>
+                        @if($user->orders->last()->status != "Cancelled/Returned")
+                            <p>£{{$user->orders->last()->total_price}}</p>
+                        @else
+                            <p>Cancelled/refunded</p>
+                        @endif
                     @else
                         <p>No recent order</p>
                     @endif

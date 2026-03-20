@@ -31,20 +31,30 @@ class ReturnItemsController extends Controller
         {
             $item = $order->Orderitems->where('id',$orderItemsID)->first();
             $order = $item->order;
-            $newOrderTotal = $order->total_price - $item->price;
+            // Take away item plus VAT
+            $newOrderTotal = $order->total_price - $item->price - (($item->price)*0.2);
             $order->total_price = $newOrderTotal;
             ReturnedItem::create([
-                'item_id'=>$item->product->id,
+                'product_id'=>$item->product->id,
                 'order_id'=>$order->id,
                 'user_id'=>Auth::id(),
                 'reason'=>$request->input('reasonReturn','Unknown'),
+                'refund_amount'=>($item->price + ($item->price*0.2)),
                 ]);
             $item->product->stock_level += 1;
             $item->delete();
-            $order->save();
             if(count($order->Orderitems) < 1)
             {
                 $order->status = 'Cancelled/Returned';
+                $order->items_price = 0;
+                $order->vat = 0;
+                $order->shipping = 0;
+                $order->total_price = 0;
+                $order->save();
+            }
+            else
+            {
+                $order->save();
             }
             return redirect('/user/returnSuccess');
         }

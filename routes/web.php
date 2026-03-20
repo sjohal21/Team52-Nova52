@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\AdminReturnsController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ContactController;
@@ -136,6 +137,8 @@ Route::middleware(['auth','admin'])->group(function() {
     Route::post('/admin/orders/updateStatus/{id}',[AdminOrderController::class,'updateStatus']);
     // Admin order details page
     Route::get("/admin/orders/{orderID}",[AdminOrderController::class,'show'])->name('admin.order.showOrder');
+    // Admin view returns
+    Route::get("/admin/returns",[AdminReturnsController::class,'index'])->name('admin.returns.index');
 });
 
 //Product Routes

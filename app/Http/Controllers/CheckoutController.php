@@ -89,6 +89,9 @@ class CheckoutController extends Controller
             $order->City = $request->input('City');
             $order->Postcode = $request->input('Postcode');
             $order->Select_Country = $request->input('Select_Country');
+            $order->items_price = $subtotal;
+            $order->vat = $vat;
+            $order->shipping = $deliveryFee;
             $order->total_price = $total;
             $order->save(); // Save to database
 

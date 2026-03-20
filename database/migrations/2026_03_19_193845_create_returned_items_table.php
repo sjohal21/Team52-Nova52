@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('returned_items', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('item_id')->references('id')->on('products');
+            $table->foreignId('product_id')->references('id')->on('products');
             $table->foreignId('order_id')->references('id')->on('orders');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('reason');
+            $table->decimal('refund_amount');
         });
     }
 
