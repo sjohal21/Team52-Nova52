@@ -14,6 +14,12 @@ if [ ! -f /webfiles/migrations_completed ]; then
     touch /webfiles/migrations_completed
 fi
 
+# Set permissions for Laravel storage and bootstrap/cache
+chown -R www-data:www-data /var/www/html/storage
+chown -R www-data:www-data /var/www/html/bootstrap/cache
+chmod -R 775 /var/www/html/storage
+chmod -R 775 /var/www/html/bootstrap/cache
+
 # Run Laravel seeders (if needed)
 # php artisan db:seed --force
 
