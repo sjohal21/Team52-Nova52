@@ -24,7 +24,6 @@ class ProductManagementController extends Controller
     }
     public function createProduct(Request $request)
     {
-        // TODO: add function to add a product to the database
         $product = new Product();
         $product->name = $request['productName'];
         $product->stock_level = $request['stockQuantity'];
