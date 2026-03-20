@@ -44,7 +44,7 @@
          <!--Product Image-->
             @if($product->photo_url)
 
-            <figure class="h-40 overflow-hidden rounded-t-2xl">
+            <figure class="h-75 overflow-hidden rounded-t-2xl">
                 <img src="{{Storage::url($product->photo_url)}}"
                 alt="{{$product->name}}"
                 class="w-full h-full object-cover">

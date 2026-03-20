@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,5 +24,14 @@ class AppServiceProvider extends ServiceProvider
         if(env('APP_ENV') !== 'local') {
             URL::forceScheme('https');
         }
+
+        $source = public_path('images/products');
+        $destination = storage_path('app/public/products');
+
+        if (!File::exists($destination)) {
+            File::makeDirectory($destination, 0755, true);
+        }
+
+        File::copyDirectory($source, $destination);
     }
 }
