@@ -51,8 +51,10 @@
                 <ul class="dropdown-content menu menu-md rounded-box bg-base-200 p-2 mt-3 text-base-content shadow" tabindex="-1">
                     @guest<a class="btn btn-ghost" href="{{URL::to('/login')}}">Log in</a>@endguest
                     @guest<a class="btn btn-ghost" href="{{URL::to('/register')}}">Register</a>@endguest
+                        @if(Auth::user()->role = "Admin")
+                        <a class="btn btn-ghost" href="{{URL::to('/admin/dashboard')}}">Admin</a>
+                        @endif
                         @auth<a class="btn btn-ghost" href="{{URL::to('/user/profile')}}">Profile</a>@endauth
-                        @auth<a class="btn btn-ghost" href="{{URL::to('/user/modify')}}">Change details</a>@endauth
                         @auth<a class="btn btn-ghost" href="{{URL::to('/logout')}}">Log out</a>@endauth
                 </ul>
             </div>
@@ -74,7 +76,6 @@
             <a class="link link-hover" href="{{URL::to('/about')}}">About us</a>
             <a class="link link-hover" href="{{URL::to('/contact')}}">Contact</a>
             <a class="link link-hover">Wish list</a>
-            <a class="link link-hover" href="{{URL::to('/admin/dashboard')}}">Administration</a>
         </nav>
         <nav>
             <h4 class="font-bold">Support</h4>
