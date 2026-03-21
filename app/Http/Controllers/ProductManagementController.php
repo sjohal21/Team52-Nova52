@@ -16,7 +16,6 @@ class ProductManagementController extends Controller
 
     public function editProductPage(int $id)
     {
-
         return view('admin.products.editProductPage')->with(["product"=>Product::where('id',$id)->first()]);
     }
 
@@ -62,6 +61,7 @@ class ProductManagementController extends Controller
             'action' => $product->name . " was modified"
         ]);
         return redirect('/admin/products');
+
     }
 
     public function deleteProduct(Request $request)
