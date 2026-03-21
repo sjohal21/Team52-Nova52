@@ -33,6 +33,7 @@ class ManageDetailsController extends Controller
         {
             $user = Auth::user();
             $user->password = Hash::make($validatedPassword['password']);
+            $user->must_change_password = false;
             $user->save();
             return redirect('/user/modify')->with('successPassword', 'Your password successfully changed');
         }
