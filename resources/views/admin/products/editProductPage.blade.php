@@ -31,4 +31,14 @@
             </div>
         </form>
     </div>
+    <div class="card bg-base-200 p-5 m-5">
+        <h1 class="card-title">Deletion</h1>
+        <form method="post" action="{{URL::to('/admin/products/deleteProduct')}}">
+            <div class="card-actions">
+                <input type="hidden" name="productID" value="{{$product->id}}">
+                <input type="submit" value="Delete" class="btn bg-red-500 text-white rounded-md p-2">
+                @csrf
+            </div>
+        </form>
+    </div>
 </x-adminlayout>

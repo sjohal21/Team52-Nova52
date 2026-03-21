@@ -133,6 +133,8 @@ Route::middleware(['auth','admin'])->group(function() {
     // Admin Edit Product Page
     Route::get('/admin/products/editProduct/{id}',[ProductManagementController::class,'editProductPage']);
     Route::post('/admin/products/editProduct',[ProductManagementController::class,'modifyProduct']);
+    // Delete product
+    Route::post('/admin/products/deleteProduct',[ProductManagementController::class,'deleteProduct']);
     // Admin orders page
     Route::get('/admin/orders',[AdminOrderController::class,'index'])->name('admin.order.index');
     Route::post('/admin/orders/updateStatus/{id}',[AdminOrderController::class,'updateStatus']);

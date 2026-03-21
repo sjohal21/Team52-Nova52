@@ -67,13 +67,21 @@ class ProductManagementController extends Controller
     public function deleteProduct(Request $request)
     {
         // TODO: add function to remove a product from the database
-
-        /* Uncomment when finished. Must be before item deletion line return statement
-        Adminlog::create([
-            'user_id' => auth() -> user() -> id,
-            'action' => $product->name . " was deleted"
-        ]);
-        */
+        $validated = $request->validate(['productID'=>'required|exists:products,id']);
+        if($validated['productID'] != null)
+        {
+            $product = Product::where('id', $validated['productID'])->first();
+            Adminlog::create([
+                'user_id' => auth() -> user() -> id,
+                'action' => $product->name . " was deleted"
+            ]);
+            $product->delete();
+            return redirect('/admin/products')->with('success','Product deleted');
+        }
+        else
+        {
+            return redirect('/admin/products')->with('error','Product not found');
+        }
 
     }
 }
