@@ -6,7 +6,7 @@
     <div class="p-5">
         <h1 class="font-bold text-2xl">Past orders</h1>
         <div class="bg-base-200 mt-5 p-3 rounded-md">
-            @if($orders)
+            @if(count($orders))
                 @foreach($orders as $order)
                     <div class="card bg-base-300 m-5 p-5">
                         @if($order->status != "Cancelled/Returned")
