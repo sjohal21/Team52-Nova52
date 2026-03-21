@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\AdminLog;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AdminUserController extends Controller
 {
@@ -14,8 +15,9 @@ class AdminUserController extends Controller
         return view('admin.users',['users' => $users]);
     }
 
-    public function getUserDetails(int $id)
+    public function getUserDetails(string $id)
     {
+        Log::info($id);
         $user = User::where('id',$id)->first();
         return view('admin.userdetail',['user' => $user]);
     }
@@ -24,7 +26,7 @@ class AdminUserController extends Controller
     public function promote(Request $request) {
         //makes sure that a valid user id exists for the user
         $request->validate([
-        'user_id' => ['required','integer','exists:users,id']
+        'user_id' => 'required','integer','exists:users,id'
         ]);
 
         //if the user doesnt exist an error is thrown
@@ -46,14 +48,16 @@ class AdminUserController extends Controller
 
     public function demote(Request $request) {
         $request->validate([
-            ['user_id' => 'required,integer,exists:users,id'],
+            'user_id' => 'required|integer|exists:users,id',
         ]);
 
-        $user = User::findorFail('id',$request->user_id);
+        $user = User::findOrFail($request->user_id);
 
         //prevents current user from demoting themselves
         if($user->id === auth()->id()) {
-            return back()->withErrors(['user_id' => 'You cannot demote yourself']);
+            $url = "/admin/users/{$user->id}";
+            error_log($url);
+            return redirect($url)->withErrors(['error' => 'You cannot demote yourself']);
         }
 
         //change admin user to customer

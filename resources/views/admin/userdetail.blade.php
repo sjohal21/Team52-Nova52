@@ -21,6 +21,33 @@
                 <h2 class="card-title">User information</h2>
                 <div class="card-body">
                     <p>Role: {{$user->role}}</p>
+                    @isset($success)
+                        @if($success="User has been successfully promoted!")
+                            <p>{{$success}}</p>
+                        @elseif($success="User has been successfully demoted")
+                            <p>{{$success}}</p>
+                        @endif
+                    @endisset
+                    @if($errors->any())
+                        <p>{{$errors->first('error')}}</p>
+                    @endif
+
+
+                </div>
+                <div class="card-actions">
+                    @if($user->role = "Admin")
+                        <form method="post" action="{{URL::to('/admin/users/demote')}}">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{$user->id}}">
+                            <input type="submit" class="btn bg-red-400 text-white rounded-md" value="Demote">
+                        </form>
+                    @elseif($user->role="Customer")
+                        <form method="post" action="{{URL::to('/admin/users/promote')}}">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{$user->id}}">
+                            <input type="submit" class="btn bg-red-400 text-white rounded-md" value="Promote">
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>
