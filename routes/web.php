@@ -83,35 +83,67 @@ Route::get('/logout', [LoginController::class,'logout'])
 ->name('logout');
 
 
-Route::get('/user/profile', [ProfileController::class,'index'])->middleware('auth');
-Route::get('/user/modify', [ManageDetailsController::class,'index'])->middleware('auth')->name('usermanagement');
-Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail'])->middleware('auth')->name('usermanagement.changeEmail');
-Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])->middleware('auth')->name('usermanagement.changePassword');
-Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])->middleware('auth')->name('usermanagement.changePhone');
-Route::get('/user/orders',[PastOrdersController::class,'index'])->middleware('auth');
-Route::get('/user/orders/{orderID}',[PastOrdersController::class,'orderDetails'])->middleware('auth');
-Route::get('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class,'index'])->middleware('auth');
-Route::post('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class, 'returnItem'])->middleware('auth');
-Route::get('/user/returnSuccess',[ReturnItemsController::class, 'returnSuccess'])->middleware('auth');
-Route::get('/user/reviews',[ReviewController::class,'viewPast'])->middleware('auth');
-Route::post('/user/reviews/remove',[ReviewController::class,'removeReview'])->middleware('auth');
+Route::get('/user/profile', [ProfileController::class,'index'])
+->middleware(['auth','forced.password.change']);
 
+Route::get('/user/modify', [ManageDetailsController::class,'index'])
+->middleware('auth')
+->name('usermanagement');
+
+Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail'])
+->middleware('auth')
+->name('usermanagement.changeEmail');
+
+Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])
+->middleware('auth')
+->name('usermanagement.changePassword');
+
+Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])
+->middleware('auth')
+->name('usermanagement.changePhone');
+
+Route::get('/user/orders',[PastOrdersController::class,'index'])
+->middleware(['auth','forced.password.change']);
+
+Route::get('/user/orders/{orderID}',[PastOrdersController::class,'orderDetails'])
+->middleware(['auth','forced.password.change']);
+//return
+Route::get('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class,'index'])
+->middleware(['auth','forced.password.change']);
+
+Route::post('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class, 'returnItem'])
+->middleware(['auth','forced.password.change']);
+
+Route::get('/user/returnSuccess',[ReturnItemsController::class, 'returnSuccess'])
+->middleware(['auth','forced.password.change']);
+//reviews
+Route::get('/user/reviews',[ReviewController::class,'viewPast'])
+->middleware(['auth','forced.password.change']);
+Route::post('/user/reviews/remove',[ReviewController::class,'removeReview'])
+->middleware(['auth','forced.password.change']);
+//==============================================================================================
 
 //Order Routes
 //==============================================================================================
 
-Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->middleware('auth')->name('checkout'); //Only logged in users can access checkout
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])
+->middleware(['auth','forced.password.change'])
+->name('checkout'); //Only logged in users can access checkout
 
-Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])->middleware('auth')->name('placeorder'); //Only logged in users can place order
+Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])
+->middleware(['auth','forced.password.change'])
+->name('placeorder'); //Only logged in users can place order
 
-Route::get('/order_confirmation/{order}', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])->middleware('auth')->name('order.success'); // Only logged in users can access order confirmation
+Route::get('/order_confirmation/{order}', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])
+->middleware(['auth','forced.password.change'])
+->name('order.success'); // Only logged in users can access order confirmation
 // dont forget {order}
 
 //==============================================================================================
 //Admin Routes
 
 //Only users that are logged in will be able to access these routes
-Route::middleware(['auth','admin'])->group(function() {
+Route::middleware(['auth','admin','forced.password.change'])->group(function() {
     // Main Admin Dashboard route
     Route::get('/admin/dashboard',[AdminDashboardController::class,'show'])
     ->name('admin.dashboard');
