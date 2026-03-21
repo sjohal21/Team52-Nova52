@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('baskets', function (Blueprint $table) {
+        Schema::create('basket', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users'); // Cleaner then writing twice
             // Product id should only be for basketitems table
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('baskets');
+        Schema::dropIfExists('basket');
     }
 };
