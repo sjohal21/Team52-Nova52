@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     //gives a name admin which links to the AdminMiddleware class
     $middleware->alias(['admin'=> \App\Http\Middleware\AdminMiddleware::class,
       ]);
+    $middleware->alias(['forced.password.change'=> \App\Http\Middleware\ForcedPasswordChange::class,]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
