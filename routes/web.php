@@ -20,7 +20,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ManageDetailsController;
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about',[AboutUsController::class,'index']);
 Route::post('/contact',[ContactController::class,'contact']);
