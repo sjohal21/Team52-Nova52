@@ -1,4 +1,4 @@
-<!-- TODO: add page to show users' specific details -->
+<!-- TODO: add page to show users' specific details and allow promotion and demotion -->
 <x-adminlayout>
     <x-slot:title>
         Manage account for {{$user->name}}

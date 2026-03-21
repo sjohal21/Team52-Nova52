@@ -32,14 +32,14 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-200 m-5 w-6/12">
+            <div class="card bg-base-200 m-5 w-6/12 p-5">
                 <h2 class="card-title font-bold justify-center">Recent activity</h2>
                 <div class="card-body">
                     @foreach($recentActivities as $activity)
-                        <div class="card bg-base-300">
+                        <div class="card bg-base-300 p-5">
                             <h3 class="card-title">{{$activity->user->name}}</h3>
                             <div class="card-body">
-                                <p>Performed {{$activity->action}}</p>
+                                <p>{{$activity->action}}</p>
                             </div>
                         </div>
                     @endforeach

@@ -16,7 +16,7 @@ class ProductManagementController extends Controller
 
     public function editProductPage(int $id)
     {
-        
+
         return view('admin.products.editProductPage')->with(["product"=>Product::where('id',$id)->first()]);
     }
 
@@ -26,16 +26,6 @@ class ProductManagementController extends Controller
     }
     public function createProduct(Request $request)
     {
-        // TODO: add function to add a product to the database
-
-        /* Uncomment when finished. Last line before return
-        Adminlog::create([
-            'user_id' => auth() -> user() -> id,
-            'action' => $product->name . " was created"
-        ]);
-        */
-
-
         $product = new Product();
         $product->name = $request['productName'];
         $product->stock_level = $request['stockQuantity'];
@@ -47,6 +37,10 @@ class ProductManagementController extends Controller
             $product->photo_url = $request->file('uploadedImage')->store('images', 'public');
         }
         $product->save();
+        Adminlog::create([
+            'user_id' => auth() -> user() -> id,
+            'action' => $product->name . " was created"
+        ]);
         return redirect('/admin/products');
     }
 
