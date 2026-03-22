@@ -2,31 +2,41 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\AdminReturnsController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PastOrdersController;
+use App\Http\Controllers\ProductManagementController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReturnItemsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ManageDetailsController;
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/about',[AboutUsController::class,'index']);
 Route::post('/contact',[ContactController::class,'contact']);
+
+Route::view('faq', 'faq')->name('faq');
+Route::view('/shipping-returns', 'shippingReturns')->name('shipping.returns');
+Route::view('/privacy-policy', 'privacyPolicy')->name('privacy.policy');
+Route::view('/terms-conditions', 'termsConditions')->name('terms.conditions');
 
 // Basket routes
 //
 // Get basket view
 Route::get('/basket',[BasketController::class,'index']);
 // Add item to basket
-Route::post('/basket/add',[BasketController::class,'add'])->middleware('auth'); // Parameters: product_id, quantity
+Route::post('/basket/add',[BasketController::class,'add'])
+->middleware('auth'); // Parameters: product_id, quantity
 // Update basket item by ID
 Route::post('/basket/update',[BasketController::class,'update']); // Parameters - quantity, product_id
 // Remove item from basket by ID
@@ -34,7 +44,25 @@ Route::post('/basket/remove',[BasketController::class,'remove']); // Parameters:
 // Clear basket
 Route::post('/basket/clear',[BasketController::class,'clear']);
 
-Route::get('/products',[ProductsController::class,'index']);
+Route::get('/products',[ProductController::class,'index']);
+
+// Wishlist routes
+
+// Wishlist index
+Route::get('/wishlist',[WishlistController::class,'index']);
+->middleware(['auth','forced.password.change']);
+
+// Wishlist add item
+Route::post('/wishlist/add',[WishlistController::class,'add']);
+->middleware(['auth','forced.password.change']);
+
+// Wishlist remove item
+Route::post('/wishlist/remove',[WishlistController::class,'remove']);
+->middleware(['auth','forced.password.change']);
+
+// Wishlist clear
+Route::post('/wishlist/clear',[WishlistController::class,'clear']);
+->middleware(['auth','forced.password.change']);
 
 //Register Routes
 //==============================================================================================
@@ -45,7 +73,7 @@ Route::get('/register', [RegisterController::class,'show'])
 Route::post('/register', [RegisterController::class,'register'])
 ->middleware('guest')
 ->name('register.submit');
-//LogIn/Out Routes
+//User Routes
 //==============================================================================================
 Route::get('/login', [LoginController::class,'show'])
 ->middleware('guest')
@@ -59,32 +87,112 @@ Route::get('/logout', [LoginController::class,'logout'])
 ->middleware('auth')
 ->name('logout');
 
+
+Route::get('/user/profile', [ProfileController::class,'index'])
+->middleware(['auth','forced.password.change']);
+
+Route::get('/user/modify', [ManageDetailsController::class,'index'])
+->middleware('auth')
+->name('usermanagement');
+
+Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail'])
+->middleware('auth')
+->name('usermanagement.changeEmail');
+
+Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])
+->middleware('auth')
+->name('usermanagement.changePassword');
+
+Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])
+->middleware('auth')
+->name('usermanagement.changePhone');
+
+Route::get('/user/orders',[PastOrdersController::class,'index'])
+->middleware(['auth','forced.password.change']);
+
+Route::get('/user/orders/{orderID}',[PastOrdersController::class,'orderDetails'])
+->middleware(['auth','forced.password.change']);
+//return
+Route::get('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class,'index'])
+->middleware(['auth','forced.password.change']);
+
+Route::post('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class, 'returnItem'])
+->middleware(['auth','forced.password.change']);
+
+Route::get('/user/returnSuccess',[ReturnItemsController::class, 'returnSuccess'])
+->middleware(['auth','forced.password.change']);
+//reviews
+Route::get('/user/reviews',[ReviewController::class,'viewPast'])
+->middleware(['auth','forced.password.change']);
+Route::post('/user/reviews/remove',[ReviewController::class,'removeReview'])
+->middleware(['auth','forced.password.change']);
+//==============================================================================================
+
 //Order Routes
 //==============================================================================================
 
-Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->middleware('auth')->name('checkout'); //Only logged in users can access checkout
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])
+->middleware(['auth','forced.password.change'])
+->name('checkout'); //Only logged in users can access checkout
 
-Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])->middleware('auth')->name('placeorder'); //Only logged in users can place order
+Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])
+->middleware(['auth','forced.password.change'])
+->name('placeorder'); //Only logged in users can place order
 
-Route::get('/order_confirmation/{order}', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])->middleware('auth')->name('order.success'); // Only logged in users can access order confirmation
+Route::get('/order_confirmation/{order}', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])
+->middleware(['auth','forced.password.change'])
+->name('order.success'); // Only logged in users can access order confirmation
 // dont forget {order}
 
 //==============================================================================================
 //Admin Routes
 
 //Only users that are logged in will be able to access these routes
-Route::middleware(['auth','admin'])->group(function() {
+Route::middleware(['auth','admin','forced.password.change'])->group(function() {
+    // Main Admin Dashboard route
     Route::get('/admin/dashboard',[AdminDashboardController::class,'show'])
     ->name('admin.dashboard');
 
-    Route::get('/admin/users',[AdminDashboardController::class,'manageUsers'])
-    ->name('admin.users');
+    //Admin User Management
+    Route::get('/admin/users',[AdminUserController::class,'show'])
+    ->name('admin.users.show');
 
-    Route::post('/admin/promote',[AdminDashboardController::class,'promoteUser'])
-    ->name('admin.promote');
+    // Manage a specific user
+    Route::get("/admin/users/{id}",[AdminUserController::class,'getUserDetails']);
 
-    Route::post('/admin/demote',[AdminDashboardController::class,'demoteUser'])
-    ->name('admin.demote');
+    // Promotion and Demotion
+    Route::post('/admin/users/promote',[AdminUserController::class,'promote'])
+    ->name('admin.users.promote');
+
+    Route::post('/admin/users/demote',[AdminUserController::class,'demote'])
+    ->name('admin.users.demote');
+
+    // Admin product management index
+    Route::get('/admin/products',[ProductManagementController::class,'index']);
+
+    // Admin create product page
+    Route::get('/admin/products/create',[ProductManagementController::class,'createProductPage']);
+
+    Route::post('/admin/products/create',[ProductManagementController::class,'createProduct']);
+
+    // Admin Edit Product Page
+    Route::get('/admin/products/editProduct/{id}',[ProductManagementController::class,'editProductPage']);
+
+    Route::post('/admin/products/editProduct',[ProductManagementController::class,'modifyProduct']);
+
+    // Delete product
+    Route::post('/admin/products/deleteProduct',[ProductManagementController::class,'deleteProduct']);
+
+    // Admin orders page
+    Route::get('/admin/orders',[AdminOrderController::class,'index'])->name('admin.order.index');
+
+    Route::post('/admin/orders/updateStatus/{id}',[AdminOrderController::class,'updateStatus']);
+
+    // Admin order details page
+    Route::get("/admin/orders/{orderID}",[AdminOrderController::class,'show'])->name('admin.order.showOrder');
+    
+    // Admin view returns
+    Route::get("/admin/returns",[AdminReturnsController::class,'index'])->name('admin.returns.index');
 });
 
 //Product Routes
@@ -98,3 +206,11 @@ Route::get('/products/{product}',[ProductController::class,'showOne'])->name('pr
 
 //display searched products
 Route::get('/search',[ProductController::class,'search'])->name('products.search');
+// Search by category id
+Route::get('/searchCategory/{categoryName}',[ProductController::class,'searchByCategory'])->name('products.searchCategory');
+
+// Review routes
+Route::get('/review/{productID}/add',[ReviewController::class,'index'])->middleware('auth')->name('review.add');
+Route::post('/review/{productID}/add',[ReviewController::class,'addReview'])->middleware('auth')->name('review.store');
+Route::get('/review/{reviewID}/edit',[ReviewController::class,'getEditor'])->middleware('auth')->name('review.edit');
+Route::post('/review/{reviewID}/edit',[ReviewController::class,'editReview'])->middleware('auth')->name('review.edit');
