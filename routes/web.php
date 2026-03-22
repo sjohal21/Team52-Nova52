@@ -35,7 +35,8 @@ Route::view('/terms-conditions', 'termsConditions')->name('terms.conditions');
 // Get basket view
 Route::get('/basket',[BasketController::class,'index']);
 // Add item to basket
-Route::post('/basket/add',[BasketController::class,'add'])->middleware('auth'); // Parameters: product_id, quantity
+Route::post('/basket/add',[BasketController::class,'add'])
+->middleware('auth'); // Parameters: product_id, quantity
 // Update basket item by ID
 Route::post('/basket/update',[BasketController::class,'update']); // Parameters - quantity, product_id
 // Remove item from basket by ID
@@ -48,16 +49,20 @@ Route::get('/products',[ProductController::class,'index']);
 // Wishlist routes
 
 // Wishlist index
-Route::get('/wishlist',[WishlistController::class,'index']);
+Route::get('/wishlist',[WishlistController::class,'index'])
+->middleware(['auth','forced.password.change']);
 
 // Wishlist add item
-Route::post('/wishlist/add',[WishlistController::class,'add']);
+Route::post('/wishlist/add',[WishlistController::class,'add'])
+->middleware(['auth','forced.password.change']);
 
 // Wishlist remove item
-Route::post('/wishlist/remove',[WishlistController::class,'remove']);
+Route::post('/wishlist/remove',[WishlistController::class,'remove'])
+->middleware(['auth','forced.password.change']);
 
 // Wishlist clear
-Route::post('/wishlist/clear',[WishlistController::class,'clear']);
+Route::post('/wishlist/clear',[WishlistController::class,'clear'])
+->middleware(['auth','forced.password.change']);
 
 //Register Routes
 //==============================================================================================
@@ -83,63 +88,109 @@ Route::get('/logout', [LoginController::class,'logout'])
 ->name('logout');
 
 
-Route::get('/user/profile', [ProfileController::class,'index'])->middleware('auth');
-Route::get('/user/modify', [ManageDetailsController::class,'index'])->middleware('auth')->name('usermanagement');
-Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail'])->middleware('auth')->name('usermanagement.changeEmail');
-Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])->middleware('auth')->name('usermanagement.changePassword');
-Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])->middleware('auth')->name('usermanagement.changePhone');
-Route::get('/user/orders',[PastOrdersController::class,'index'])->middleware('auth');
-Route::get('/user/orders/{orderID}',[PastOrdersController::class,'orderDetails'])->middleware('auth');
-Route::get('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class,'index'])->middleware('auth');
-Route::post('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class, 'returnItem'])->middleware('auth');
-Route::get('/user/returnSuccess',[ReturnItemsController::class, 'returnSuccess'])->middleware('auth');
-Route::get('/user/reviews',[ReviewController::class,'viewPast'])->middleware('auth');
-Route::post('/user/reviews/remove',[ReviewController::class,'removeReview'])->middleware('auth');
+Route::get('/user/profile', [ProfileController::class,'index'])
+->middleware(['auth','forced.password.change']);
 
+Route::get('/user/modify', [ManageDetailsController::class,'index'])
+->middleware('auth')
+->name('usermanagement');
+
+Route::post('/user/modify/email', [ManageDetailsController::class,'changeEmail'])
+->middleware('auth')
+->name('usermanagement.changeEmail');
+
+Route::post('/user/modify/password', [ManageDetailsController::class,'changePassword'])
+->middleware('auth')
+->name('usermanagement.changePassword');
+
+Route::post('/user/modify/phone', [ManageDetailsController::class,'changePhone'])
+->middleware('auth')
+->name('usermanagement.changePhone');
+
+Route::get('/user/orders',[PastOrdersController::class,'index'])
+->middleware(['auth','forced.password.change']);
+
+Route::get('/user/orders/{orderID}',[PastOrdersController::class,'orderDetails'])
+->middleware(['auth','forced.password.change']);
+//return
+Route::get('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class,'index'])
+->middleware(['auth','forced.password.change']);
+
+Route::post('/user/orders/returnItem/{orderItemsID}',[ReturnItemsController::class, 'returnItem'])
+->middleware(['auth','forced.password.change']);
+
+Route::get('/user/returnSuccess',[ReturnItemsController::class, 'returnSuccess'])
+->middleware(['auth','forced.password.change']);
+//reviews
+Route::get('/user/reviews',[ReviewController::class,'viewPast'])
+->middleware(['auth','forced.password.change']);
+Route::post('/user/reviews/remove',[ReviewController::class,'removeReview'])
+->middleware(['auth','forced.password.change']);
+//==============================================================================================
 
 //Order Routes
 //==============================================================================================
 
-Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->middleware('auth')->name('checkout'); //Only logged in users can access checkout
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])
+->middleware(['auth','forced.password.change'])
+->name('checkout'); //Only logged in users can access checkout
 
-Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])->middleware('auth')->name('placeorder'); //Only logged in users can place order
+Route::post('/checkout',[App\Http\Controllers\CheckoutController::Class, 'checkout'])
+->middleware(['auth','forced.password.change'])
+->name('placeorder'); //Only logged in users can place order
 
-Route::get('/order_confirmation/{order}', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])->middleware('auth')->name('order.success'); // Only logged in users can access order confirmation
+Route::get('/order_confirmation/{order}', [App\Http\Controllers\CheckoutController::class, 'OrderConfirmation'])
+->middleware(['auth','forced.password.change'])
+->name('order.success'); // Only logged in users can access order confirmation
 // dont forget {order}
 
 //==============================================================================================
 //Admin Routes
 
 //Only users that are logged in will be able to access these routes
-Route::middleware(['auth','admin'])->group(function() {
+Route::middleware(['auth','admin','forced.password.change'])->group(function() {
     // Main Admin Dashboard route
     Route::get('/admin/dashboard',[AdminDashboardController::class,'show'])
     ->name('admin.dashboard');
+
     //Admin User Management
     Route::get('/admin/users',[AdminUserController::class,'show'])
     ->name('admin.users.show');
+
     // Manage a specific user
     Route::get("/admin/users/{id}",[AdminUserController::class,'getUserDetails']);
+
     // Promotion and Demotion
     Route::post('/admin/users/promote',[AdminUserController::class,'promote'])
     ->name('admin.users.promote');
+
     Route::post('/admin/users/demote',[AdminUserController::class,'demote'])
     ->name('admin.users.demote');
+
     // Admin product management index
     Route::get('/admin/products',[ProductManagementController::class,'index']);
+
     // Admin create product page
     Route::get('/admin/products/create',[ProductManagementController::class,'createProductPage']);
+
     Route::post('/admin/products/create',[ProductManagementController::class,'createProduct']);
+
     // Admin Edit Product Page
     Route::get('/admin/products/editProduct/{id}',[ProductManagementController::class,'editProductPage']);
+
     Route::post('/admin/products/editProduct',[ProductManagementController::class,'modifyProduct']);
+
     // Delete product
     Route::post('/admin/products/deleteProduct',[ProductManagementController::class,'deleteProduct']);
+
     // Admin orders page
     Route::get('/admin/orders',[AdminOrderController::class,'index'])->name('admin.order.index');
+
     Route::post('/admin/orders/updateStatus/{id}',[AdminOrderController::class,'updateStatus']);
+
     // Admin order details page
     Route::get("/admin/orders/{orderID}",[AdminOrderController::class,'show'])->name('admin.order.showOrder');
+    
     // Admin view returns
     Route::get("/admin/returns",[AdminReturnsController::class,'index'])->name('admin.returns.index');
 });
