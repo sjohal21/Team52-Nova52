@@ -41,6 +41,8 @@
     </div>
 
     <div class="bg-base-200 border border-base-300 rounded-[1.75rem] p-8 md:p-10">
+         <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-3">
+
             We Offer
           </p>
       <h2 class="text-2xl md:text-3xl font-semibold text-base-content mb-4">
@@ -70,7 +72,7 @@
             <div class="rounded-[1.75rem] overflow-hidden bg-base-200 border border-base-300">
    <img src="{{URL::to('/')}}/images/laptop-img.png" alt="Laptop"
           class="w-full h-72 object-cover">
-    <div>
+</div>
     <div class="rounded-[1.75rem] overflow-hidden bg-base-200 border border-base-300">
     <img src="{{URL::to('/')}}/images/heaphones-img.png" alt="Headphones"
        class="w-full h-72 object-cover">
