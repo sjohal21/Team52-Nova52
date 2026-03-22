@@ -36,40 +36,41 @@
  <!--Input Fields for contact information-->
         <div>
         <label class="block text-sm font-medium text-base-content mb-2">Full Name</label>
-    <input>
+    <input
      type="text"
       name="name"
       placeholder="Enter your name"
       class="input input-bordered w-full rounded-2xl bg-base-100"
-                            
+         >                   
       </div>
 
       <div>
       <label class="block text-sm font-medium text-base-content mb-2">Email Address</label>
-      <input>
+      <input
         type="email"
         name="email"
         placeholder="Enter your email"
          class="input input-bordered w-full rounded-2xl bg-base-100"
-                        
+                  >      
     </div>
 
          <div>
      <label class="block text-sm font-medium text-base-content mb-2">Subject</label>
-          <input>
+          <input
         type="text"
          name="subject"
          placeholder="What can we help with?"
          class="input input-bordered w-full rounded-2xl bg-base-100"
-                      
+             >         
       </div>
           <div>
           <label class="block text-sm font-medium text-base-content mb-2">Message</label>
-      <textarea>
+      <textarea
            name="message"
        rows="6"
        placeholder="Write your message here..."
         class="textarea textarea-bordered w-full rounded-2xl bg-base-100"
+        >
      </textarea>
     </div>
 
