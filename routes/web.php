@@ -49,19 +49,19 @@ Route::get('/products',[ProductController::class,'index']);
 // Wishlist routes
 
 // Wishlist index
-Route::get('/wishlist',[WishlistController::class,'index']);
+Route::get('/wishlist',[WishlistController::class,'index'])
 ->middleware(['auth','forced.password.change']);
 
 // Wishlist add item
-Route::post('/wishlist/add',[WishlistController::class,'add']);
+Route::post('/wishlist/add',[WishlistController::class,'add'])
 ->middleware(['auth','forced.password.change']);
 
 // Wishlist remove item
-Route::post('/wishlist/remove',[WishlistController::class,'remove']);
+Route::post('/wishlist/remove',[WishlistController::class,'remove'])
 ->middleware(['auth','forced.password.change']);
 
 // Wishlist clear
-Route::post('/wishlist/clear',[WishlistController::class,'clear']);
+Route::post('/wishlist/clear',[WishlistController::class,'clear'])
 ->middleware(['auth','forced.password.change']);
 
 //Register Routes
