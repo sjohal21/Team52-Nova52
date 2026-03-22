@@ -25,6 +25,7 @@ class AdminProductManagementController extends Controller
             'chosenCategory' => $request->category_id ?? null //if no product is chosen return null
         ]);
         }
+    }
 
     public function createProductPage(Request $request) {
 
@@ -45,7 +46,7 @@ class AdminProductManagementController extends Controller
         'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
     ]);
 
-    photoURL = null;
+    $photoURL = null;
     if ($request->hasFile('photo')){
         $photoURL = $request->file('photo')->store('products','public');
     }
@@ -65,7 +66,7 @@ class AdminProductManagementController extends Controller
 
     public function editProductPage($id) {
 
-        $product = Product::findorFail($id)
+        $product = Product::findorFail($id);
         $categories = Category::orderBy('name')->get();
 
         return view('admin.products.edit',[
@@ -115,4 +116,4 @@ class AdminProductManagementController extends Controller
      
     
     }
-}
+
