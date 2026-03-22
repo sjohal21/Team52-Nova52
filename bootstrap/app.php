@@ -13,9 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
     
     //gives a name admin which links to the AdminMiddleware class
-    $middleware->alias(['admin'=> \App\Http\Middleware\AdminMiddleware::class,
-      ]);
-    $middleware->alias(['forced.password.change'=> \App\Http\Middleware\ForcedPasswordChange::class,]);
+    $middleware->alias([
+    'admin'=> \App\Http\Middleware\AdminMiddleware::class,
+    'forced.password.change'=> \App\Http\Middleware\ForcedPasswordChange::class,
+       ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
