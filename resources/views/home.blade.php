@@ -58,7 +58,7 @@
 
         <!--Catergories card-->
         <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <a class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl" href="{{URL::to("/searchCategory/Laptop")}}">
                 <figure class="justify-start">
                     <img src="{{URL::to('/')}}/pageicons/laptop.svg" alt="Picture of laptop" class="w-16 h-16 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/laptopwhite.svg" alt="Picture of laptop" class="w-16 h-16 {{ $darkclass }}">
@@ -67,9 +67,9 @@
                     <h3 class="text-xl font-semibold text-base-content">Laptops</h3>
                     <p class="text-base-content/60 mt-1">Powerful, portable, everyday ready.</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <a class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl" href="{{URL::to("/searchCategory/Smartphone")}}">
                 <figure class="justify-start">
                     <img src="{{URL::to('/')}}/pageicons/cell-phone.svg" alt="Picture of smartphone" class="w-16 h-16 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/cell-phone-white.svg" alt="Picture of smartphone" class="w-16 h-16 {{ $darkclass }}">
@@ -78,9 +78,9 @@
                     <h3 class="text-xl font-semibold text-base-content">Smartphones</h3>
                     <p class="text-base-content/60 mt-1">Smooth performance in your hand.</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <a class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl" href="{{URL::to("/searchCategory/Tablet")}}">
                 <figure class="justify-start">
                     <img src="{{URL::to('/')}}/pageicons/tablet.svg" alt="Picture of tablet" class="w-16 h-16 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/tabletwhite.svg" alt="Picture of tablet" class="w-16 h-16 {{ $darkclass }}">
@@ -89,9 +89,9 @@
                     <h3 class="text-xl font-semibold text-base-content">Tablets</h3>
                     <p class="text-base-content/60 mt-1">Flexible devices for work and play.</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <a class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl" href="{{URL::to("/searchCategory/Desktop")}}">
                 <figure class="justify-start">
                     <img src="{{URL::to('/')}}/pageicons/computer.svg" alt="Picture of desktop computer" class="w-16 h-16 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/computer-white.svg" alt="Picture of desktop computer" class="w-16 h-16 {{ $darkclass }}">
@@ -100,9 +100,9 @@
                     <h3 class="text-xl font-semibold text-base-content">Desktops</h3>
                     <p class="text-base-content/60 mt-1">Reliable setups for focused work.</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <a class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl" href="{{URL::to("/searchCategory/Audio")}}">
                 <figure class="justify-start">
                     <img src="{{URL::to('/')}}/pageicons/headphone.svg" alt="Picture of headphones" class="w-16 h-16 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/headphonewhite.svg" alt="Picture of headphones" class="w-16 h-16 {{ $darkclass }}">
@@ -111,7 +111,7 @@
                     <h3 class="text-xl font-semibold text-base-content">Audio</h3>
                     <p class="text-base-content/60 mt-1">Clear sound, minimal design.</p>
                 </div>
-            </div>
+            </a>
         </section>
 
         <!--Benefits card-->

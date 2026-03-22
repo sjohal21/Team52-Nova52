@@ -6,18 +6,17 @@
     <div class="p-5">
         <h1 class="font-bold text-2xl">Past orders</h1>
         <div class="bg-base-200 mt-5 p-3 rounded-md">
-            @if($orders)
+            @if(count($orders))
                 @foreach($orders as $order)
-                    <div class="bg-base-300 m-5 p-5">
-                        <p>Order #{{$order->id}}</p>
-                        <p>Price: £{{$order->total_price}}</p>
-                        @foreach($order->Orderitems as $orderItem)
-                            <div class="bg-base-200 p-5 m-2">
-                                <p class="font-bold">{{$orderItem->product->name}}</p>
-                                <p>x{{$orderItem->amount}}</p>
-                                <p>£{{$orderItem->price}}</p>
-                            </div>
-                        @endforeach
+                    <div class="card bg-base-300 m-5 p-5">
+                        @if($order->status != "Cancelled/Returned")
+                            <p class="font-bold">Order #{{$order->id}}</p>
+                            <p>Price: £{{$order->total_price}}</p>
+                            <a class="btn bg-black text-white rounded-md w-min mt-5" href="{{URL::to("/user/orders/{$order->id}")}}">Details</a>
+                        @else
+                            <p class="font-bold">Order #{{$order->id}}</p>
+                            <p>Refunded</p>
+                        @endif
                     </div>
                 @endforeach
             @else

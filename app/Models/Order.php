@@ -24,6 +24,9 @@ class Order extends Model
         'Postcode',
         'Select_Country',
         'status',
+        'items_price',
+        'vat',
+        'shipping',
         'total_price',
     ];
 

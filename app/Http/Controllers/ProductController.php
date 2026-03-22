@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
@@ -19,9 +20,9 @@ class ProductController extends Controller
     public function search(Request $request) {
 
         //Make sure that the search isnt empty
-       $request->validate([
+        $request->validate([
         'search' => 'required|string|max:255'
-       ]);
+        ]);
 
         //Retrieve the entered item for the search
         $searchedItem = $request->input('search');
@@ -34,6 +35,17 @@ class ProductController extends Controller
             return redirect()->back()->with('message','No products that match your search found!!');
         }
 
+        return view('products.index',compact('products'));
+    }
+
+    public function searchByCategory(string $categoryName)
+    {
+        $category = Category::where('name',$categoryName)->first();
+        $products = $category->products;
+        if ($products->isEmpty())
+        {
+            return redirect()->back()->with('message','No products that match your search found!');
+        }
         return view('products.index',compact('products'));
     }
 

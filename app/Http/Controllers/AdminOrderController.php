@@ -42,7 +42,7 @@ class AdminOrderController extends Controller
         ]);
     }
 
-       public function show(int $orderID)
+        public function show(int $orderID)
         {
             //loads the order
             $order = Order::where('id', $orderID)->first();
@@ -52,26 +52,28 @@ class AdminOrderController extends Controller
                 ->with('product')
                 ->get();
 
-            $total = $items->sum('amount');
-
             return view('admin.order.show', [
                 'order' => $order,
                 'items' => $items,
-                'total' => $total
+                'total' => $order->total_price,
+                'possibleStatus' => ['Pending','Processing','Shipped','Delivered','Cancelled/Returned']
             ]);
         }
 
-    public function updateStatus(Request $request, Order $order) {
+    public function updateStatus(Request $request, int $id) {
 
     //validate the status values
         $request->validate([
-            'status' => 'nullable|in:Pending,Processing,Shipped,Delivered,Cancelled/Returned'
+            'status' => 'nullable|in:Pending,Processing,Shipped,Delivered,Cancelled/Returned',
         ]);
 
     //Update the status of the order and save the change into the database
+        $order = Order::where('id', $id)->first();
         $order->status = $request->status;
-        $order->save;
+        $order->save();
 
         return back()->with('success','Order status updated');
     }
+
+
 }

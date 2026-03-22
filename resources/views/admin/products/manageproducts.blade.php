@@ -4,7 +4,7 @@
         Manage products
     </x-slot:title>
     <div class="bg-base-200 p-5 m-5">
-        <a class=" btn bg-black text-white rounded-md">Add product</a>
+        <a class=" btn bg-black text-white rounded-md" href="{{URL::to('/admin/products/create')}}">Add product</a>
         @if(count($products))
             @foreach($products as $product)
             <div class="card m-5 p-5 bg-base-300">
@@ -13,6 +13,7 @@
                 </div>
                 <div class="card-body">
                     <p>Stock: {{$product->stock_level}}</p>
+                    <p>Price: {{$product->price}}</p>
                 </div>
                 <div class="card-actions">
                     <a class="btn" href="{{URL::to("/admin/products/editProduct/{$product->id}")}}">Edit product</a>

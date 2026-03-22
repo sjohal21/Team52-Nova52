@@ -33,12 +33,21 @@ return new class extends Migration
             // Status
             $table->string('status')->default('pending');
 
+            // Items price
+            $table->decimal('items_price');
+
+            // VAT price
+            $table->decimal('vat');
+
+            // Shipping price
+            $table->decimal('shipping');
+
             // Total Price
-            $table->decimal('total_price', 10, 2);
+            $table->decimal('total_price');
 
             // Time Of Order
             $table->timestamps();
-         
+
             // **Not needed as basket resets after order is placed**
             //   $table->integer('basket_id');
             //   $table->foreign('basket_id')->references('id')->on('baskets');

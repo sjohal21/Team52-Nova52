@@ -23,11 +23,30 @@
                 </div>
                 <div class="card-body">
                     <p class="font-bold">Most recent order</p>
-                    <p>Order #{{$user->orders->last()->id}}</p>
-                    <p>£{{$user->orders->last()->total_price}}</p>
+                    @if(count($user->orders))
+                        <p>Order #{{$user->orders->last()->id}}</p>
+                        @if($user->orders->last()->status != "Cancelled/Returned")
+                            <p>£{{$user->orders->last()->total_price}}</p>
+                        @else
+                            <p>Cancelled/refunded</p>
+                        @endif
+                    @else
+                        <p>No recent order</p>
+                    @endif
                 </div>
                 <div class="card-actions">
                     <a class="btn" href="{{URL::to('/user/orders')}}">View all orders</a>
+                </div>
+            </div>
+            <div class="card bg-base-200 m-5 p-5 min-w-80">
+                <div class="card-title">
+                    <h3 class="card-title">User details</h3>
+                </div>
+                <div class="card-body">
+                    <p></p>
+                </div>
+                <div class="card-actions">
+                    <a class="btn" href="{{URL::to('/user/modify')}}">Modify</a>
                 </div>
             </div>
         </div>
