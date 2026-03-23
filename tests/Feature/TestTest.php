@@ -8,7 +8,7 @@ uses(RefreshDatabase::class);
 // Checks to see that the main page is loading correctly
 
 beforeEach(function() {
-    $user -> user = \App\Models\User::factory()->create([
+    $this -> user = \App\Models\User::factory()->create([
         'name' => 'Testing User',
         'phone_number' => '0123456789',
         'address' => null,
@@ -17,7 +17,25 @@ beforeEach(function() {
         'password' => bcrypt('test')
     ]);
 
-    $user -> actingAs($user->user);
+    $this -> basket = \App\Models\Basket::factory()->create([
+        'user_id ' => $this -> user -> id
+    
+    ]);
+
+    $this -> category = \App\Models\Category::factory()->create([
+        'name' => "TestCategory"
+    ]);
+
+    $this -> product = \App\Models\Product::factory()->create([
+        'name' => "Test Product",
+        'category_id' => $this -> category -> id,
+        'stock_level' => 100,
+        'description' => null,
+        'photo_url' => null,
+        'price' => 99.99
+    ]); 
+
+    
 
 });
 
@@ -32,12 +50,12 @@ it('main page loads correctly', function () {
 
 it ('User can log in', function() {
     $response = $this -> post(route('login'), [
-        'email' => $user -> email,
+        'email' => $this -> user -> email,
         'password' => 'test'
     ]);
 
     $response -> assertRedirect(route('home.index'));
-    $this -> assertAuthenticatedAs($user);
+    $this -> assertAuthenticatedAs($this -> user);
 });
 
 
