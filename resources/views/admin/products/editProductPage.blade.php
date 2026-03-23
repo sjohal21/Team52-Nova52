@@ -18,19 +18,22 @@
                             <div id = "Description">
                                 <h4 class="font-bold justify-center">Update product details shown in the catalogue</h4>
                             </div>
+                             <div>
+                                <button class="btn btn-sm rounded-full px-8 bg-red-500 text-white border-none hover:bg-red-600">Back to products</button>
+                            </div>
                         </div>
 
                     <!-- Bottomn Left Section Card -->
-                        <div>
+                        <!-- <div>
                             <a class="text-red-500 font-semibold hover:underline">Back To Products</a>
-                        </div>
+                        </div> -->
 
                     <!-- Bottom Right Section Card -->
                         <div class = "flex items-center gap-3 justify-end" > 
                             <!-- <button class="btn btn-success btn-sm">Active</button>
                             <button class="btn btn-ghost btn-sm">Hidden</button> -->
-                            <button class="btn btn-success btn-sm rounded-full px-8 text-white">Active</button>
-                            <button class="btn btn-ghost btn-sm rounded-full px-8 bg-gray-400 text-black hover:bg-gray-500"> Hidden </button>
+                            <!--<button class="btn btn-success btn-sm rounded-full px-8 text-white">Active</button>
+                            <button class="btn btn-ghost btn-sm rounded-full px-8 bg-gray-400 text-black hover:bg-gray-500"> Hidden </button> -->
                         </div>
                     </div>
                 </div>
@@ -49,74 +52,76 @@
                                 <!-- Name secction -->
                                 <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                     <label class="font-bold text-xl">Name:</label>
-                                    <input type="text" value="{{ old('name') }}" class="input input-bordered w-full bg-white" />
+                                    <input type="text" value="" placeholder="Enter the name" class="input input-bordered w-full bg-white" />
                                 </div>
 
                                 <!-- Category section -->
                                 <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                     <label class="font-bold text-xl">Category:</label>
                                     <select class="select select-bordered w-full bg-white">
-                                    <option value="Laptop" {{ old('category') == 'Laptop' ? 'selected' : '' }}>Laptop</option>
-                                    <option value="Phone" {{ old('category') == 'Phone' ? 'selected' : '' }}>Phone</option>
-                                    <option value="Tablet" {{ old('category') == 'Tablet' ? 'selected' : '' }}>Tablet</option>
+                                        <option value="Laptop" {{ old('category') == 'Laptop' ? 'selected' : '' }}>Laptop</option>
+                                        <option value="Phone" {{ old('category') == 'Phone' ? 'selected' : '' }}>Phone</option>
+                                        <option value="Tablet" {{ old('category') == 'Tablet' ? 'selected' : '' }}>Tablet</option>
                                     </select>
                                 </div>
 
                                 <!-- Price section -->
                                 <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                     <label class="font-bold text-xl">Price:</label>
-                                    <input type="text" value="{{ old('price') }}" class="input input-bordered w-full bg-white" />
+                                    <input type="text" value="" placeholder="Enter the price " class="input input-bordered w-full bg-white" />
                                 </div>
 
                                 <!-- Tagline section -->
                                 <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                     <label class="font-bold text-xl">Tagline:</label>
-                                    <input type="text" value="{{ old('tagline') }}" class="input input-bordered w-full bg-white" />
+                                    <input type="text" value="" placeholder="Enter the tagline" class="input input-bordered w-full bg-white" />
                                 </div>
 
                                 <!-- Key Features section -->
                                 <div class="grid grid-cols-[140px_1fr] gap-4 items-start">
                                     <label class="font-bold text-xl pt-2">Key feature:</label>
                                     <div class="space-y-3">
-                                        <input type="text" value="{{ old('feature_1') }}" class="input input-bordered w-full bg-white" />
-                                        <input type="text" value="{{ old('feature_2') }}" class="input input-bordered w-full bg-white" />
-                                        <input type="text" value="{{ old('feature_3') }}" class="input input-bordered w-full bg-white" />
+                                        <input type="text" value="" placeholder="Enter feature 1" class="input input-bordered w-full bg-white" />
+                                        <input type="text" value="" placeholder="Enter feature 2" class="input input-bordered w-full bg-white" />
+                                        <input type="text" value="" placeholder="Enter feature 3" class="input input-bordered w-full bg-white" />
                                     </div>
                                 </div>
 
                                 <!-- Images section -->
-                                <div class="pt-4 flex flex-col sm:flex-row sm:items-center gap-6">
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-white shadow">
-                                            <img src="https://via.placeholder.com/100x80" class="w-full h-full object-cover" alt="product image">
-                                            <button class="absolute inset-0 flex items-center justify-center text-red-500 font-bold text-sm bg-black/20">
+                                <div class="pt-4">
+                                    <!-- Image grid -->
+                                    <div class="grid grid-cols-2 gap-4 w-fit">
+                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-gray-200 shadow">
+                                            <img src="https://via.placeholder.com/150" alt="product image" class="w-full h-full object-cover">
+                                            <button type="button" class="absolute bottom-1 left-1/2 -translate-x-1/2 text-red-500 text-xs font-bold bg-white/80 px-2 py-1 rounded">
                                                 Remove
                                             </button>
                                         </div>
 
-                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-white shadow">
-                                            <img src="https://via.placeholder.com/100x80" class="w-full h-full object-cover" alt="product image">
-                                            <button class="absolute inset-0 flex items-center justify-center text-red-500 font-bold text-sm bg-black/20">
+                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-gray-200 shadow">
+                                            <img src="https://via.placeholder.com/150" alt="product image" class="w-full h-full object-cover">
+                                            <button type="button" class="absolute bottom-1 left-1/2 -translate-x-1/2 text-red-500 text-xs font-bold bg-white/80 px-2 py-1 rounded">
                                                 Remove
                                             </button>
                                         </div>
 
-                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-white shadow">
-                                            <img src="https://via.placeholder.com/100x80" class="w-full h-full object-cover" alt="product image">
-                                            <button class="absolute inset-0 flex items-center justify-center text-red-500 font-bold text-sm bg-black/20">
+                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-gray-200 shadow">
+                                            <img src="https://via.placeholder.com/150" alt="product image" class="w-full h-full object-cover">
+                                            <button type="button" class="absolute bottom-1 left-1/2 -translate-x-1/2 text-red-500 text-xs font-bold bg-white/80 px-2 py-1 rounded">
                                                 Remove
                                             </button>
                                         </div>
 
-                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-white shadow">
-                                            <img src="https://via.placeholder.com/100x80" class="w-full h-full object-cover" alt="product image">
-                                            <button class="absolute inset-0 flex items-center justify-center text-red-500 font-bold text-sm bg-black/20">
+                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-gray-200 shadow">
+                                            <img src="https://via.placeholder.com/150" alt="product image" class="w-full h-full object-cover">
+                                            <button type="button" class="absolute bottom-1 left-1/2 -translate-x-1/2 text-red-500 text-xs font-bold bg-white/80 px-2 py-1 rounded">
                                                 Remove
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div>
+                                    <!-- Upload button row -->
+                                    <div class="flex justify-end mt-6">
                                         <button class="btn rounded-full bg-black text-white border-none hover:bg-gray-800 px-6">
                                             Upload New Image
                                         </button>
@@ -132,13 +137,13 @@
                                 <!-- Description Section-->
                                 <div>
                                     <label class="block font-bold text-2xl mb-3">Product Description:</label>
-                                    <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none" placeholder="Enter product description">{{ old('description') }}</textarea>
+                                    <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none" placeholder="Enter product description"></textarea>
                                 </div>
 
                                 <!-- Specification section -->
                                 <div>
                                     <label class="block font-bold text-2xl mb-3" placeholder="Enter product specification"></label>
-                                    <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none" placcholder="Enter Specification" >{{ old('specification') }}</textarea>
+                                    <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none" placcholder="Enter Specification" ></textarea>
                                 </div>
                             </div>
 
