@@ -58,7 +58,6 @@
                             <!-- Category section -->
                             <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                 <label class="font-bold text-xl">Category:</label>
-                                <select class="select select-bordered w-full bg-white">   
                                     <select name="categoryID" class="select select-bordered w-full bg-white">
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}" {{ old('categoryID') == $category->id ? 'selected' : '' }}> {{ $category->name }}</option>

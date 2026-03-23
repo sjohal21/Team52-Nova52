@@ -33,8 +33,9 @@
             </div>
         </div>
 
-
-            <div id ="OrderSummary" class="flex-1 bg-base-300 p-6 rounded-xl shadow">
+        
+        <div id ="OrderSummary" class="p-8 rounded-xl mt-10 w-11/12 mx-auto">
+            <div id = DeliveryInfo class="flex-auto bg-base-300 p-2 rounded-xl">
                 <div class="card">
                     <div class="card-body">
                         <h1 class="text-2xl font-bold text-center">Order Summary</h1>
@@ -59,7 +60,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+    
 
         <div id ="Bottom half" class = "p-8 rounded-xl mt-10 w-11/12 mx-auto">
             <div id = DeliveryInfo class="flex-auto bg-base-300 p-2 rounded-xl w-full">
