@@ -37,7 +37,6 @@ class AdminUserController extends Controller
             $user->role = 'Admin';
             $user->save();
         }
-        // TODO: ADD LOG
         AdminLog::create([
             'user_id' => $user -> id,
             'action' => $user -> name . 'was promoted to Admin'
@@ -65,7 +64,6 @@ class AdminUserController extends Controller
             $user->role = 'customer';
             $user->save();
         }
-        // TODO: ADD LOG
         Adminlog::create([
             'user_id' => $user -> id,
             'action' => $user -> name . "was demoted from Admin"

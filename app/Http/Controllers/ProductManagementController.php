@@ -66,7 +66,6 @@ class ProductManagementController extends Controller
 
     public function deleteProduct(Request $request)
     {
-        // TODO: add function to remove a product from the database
         $validated = $request->validate(['productID'=>'required|exists:products,id']);
         if($validated['productID'] != null)
         {
