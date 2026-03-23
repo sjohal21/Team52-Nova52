@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('basket_items', function (Blueprint $table) { // BasketItems is basket_items
             $table->id();
             $table->foreignId('basket_id')->constrained('baskets')->onDelete('cascade'); //If u delete basket it deltes the basket items from database
-             $table->foreignId('product_id')->constrained('products')->onDelete('cascade'); // Because in thoery if you delete a product it should delete from basket items too
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade'); // Because in thoery if you delete a product it should delete from basket items too
             $table->integer('amount');
             $table->timestamps();
         });

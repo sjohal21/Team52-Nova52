@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Basket extends Model
 {
     use HasFactory;
-    protected $table = 'basket';
     protected $fillable = [
         'user_id'
         // removed product_id as Basket has many BasketItems

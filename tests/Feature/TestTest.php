@@ -52,19 +52,42 @@ it ('User can log in', function() {
     $this->actingAs($this-> user);
 
     $response = $this -> post(route('login.submit'), [
-        'email' => $this-> user->email,
+        'email' => $this-> user -> mail,
         'password' => 'test'
     ]);
     $response -> assertRedirect(route('home'));
     $this -> assertAuthenticatedAs($this-> user);
 });
 
+it ('Adds Item to basket - Invalid Amount', function() {
+    $this -> actingAs($this -> user);
 
-//TODO: Add Item to Basket
-/*
-it ('Adds Item to basket', function() {
+    $response = $this -> post(route('basket'), [
+        'product_id' => $this -> product -> id,
+        'quantity' => 1000
+    ]);
+    
+    $response -> assertSee('Not enough stock available');
+});
+
+it ('Adds Item to basket - Valid Amount', function() {
+    $this ->actingAs($this -> user);
+
+    $response = $this -> post(route('basket-add'), [
+        'product_id' => $this -> product -> id,
+        'quantity' => 1
+    ]);
+
+    $response -> assertDontSee('Not enough stock available');
 
 });
-*/
 
 //TODO: Change quantity in Basket
+it ('Change quantity in basket', function() {
+    $this -> actingAs($this -> user);
+
+    $response = $this -> post(route('basket-change'), [
+        
+    ]);
+
+});
