@@ -102,9 +102,3 @@ it ('Change quantity in basket', function() {
     $secondResponse -> assertRedirect(route('basket'));
 
 });
-
-it ('Create a valid order', function() {
-    $this -> actingAs($this -> user);
-
-    $response = $this -> post(route())
-});
