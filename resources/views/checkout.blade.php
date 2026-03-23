@@ -60,10 +60,10 @@
                     </div>
                 </div>
             </div>
-    
+        <div>
 
-        <div id ="Bottom half" class = "p-8 rounded-xl mt-10 w-11/12 mx-auto">
-            <div id = DeliveryInfo class="flex-auto bg-base-300 p-2 rounded-xl w-full">
+        <div id ="Bottom half" class = "mt-25">
+            <div id = DeliveryInfo class="flex-auto bg-base-300 p-2 rounded-xl ">
                 <div class="card">
                     <div class="card-body">
                         <h1 class="text-2xl font-bold text-center">Delivery Information</h1>
@@ -126,7 +126,7 @@
                 </div>
             </div>
 
-            <div id =PaymentMethod class ="flex-auto bg-base-300 p-2 rounded-xl w-full mt-10">
+            <div id =PaymentMethod class ="flex-auto bg-base-300 p-2 rounded-xl w-full mt-25">
                 <div class="card">
                         <div class="card-body">
                             <h1 class = "text-2xl font-bold text-center mb-4">Payment Method</h1>
