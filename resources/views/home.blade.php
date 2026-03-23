@@ -3,6 +3,7 @@
         Home
     </x-slot:title>
 
+    <!--Light and dark mode incorporated with device default settings-->
     @php
         $lightclass = "dark:hidden block";
         $darkclass = "hidden dark:block";
@@ -10,43 +11,42 @@
 
     <section class="max-w-7xl mx-auto px-4 py-8 md:py-12 space-y-10">
 
-        {{-- HERO --}}
-        <section class="bg-base-200 rounded-[2rem] overflow-hidden">
-            <div class="grid md:grid-cols-2 items-center min-h-[500px]">
-                <div class="px-8 py-12 md:px-14 md:py-16">
-                    <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-4">
-                        Nova52
-                    </p>
+ <section class="bg-base-200 rounded-[2rem] overflow-hidden">
+ <div class="grid md:grid-cols-2 items-center min-h-[500px]">
+ <div class="px-8 py-12 md:px-14 md:py-16">
+  <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-4">
+          Nova52
+  </p>
+<!--Information card at start of page-->
+     <h1 class="text-4xl md:text-6xl font-semibold leading-tight text-base-content max-w-xl">
+    Discover the future of technology.
+    </h1>
 
-                    <h1 class="text-4xl md:text-6xl font-semibold leading-tight text-base-content max-w-xl">
-                        Discover the future of technology.
-                    </h1>
+    <p class="mt-6 text-base md:text-lg text-base-content/70 max-w-lg leading-relaxed">
+        Explore our range of innovative products designed to enhance your lifestyle.
+        From high-performance laptops to sleek smartphones, experience technology like never before.
+         </p>
 
-                    <p class="mt-6 text-base md:text-lg text-base-content/70 max-w-lg leading-relaxed">
-                        Explore our range of innovative products designed to enhance your lifestyle.
-                        From high-performance laptops to sleek smartphones, experience technology like never before.
-                    </p>
+    <div class="mt-8 flex flex-wrap gap-4">
+ <a href="{{ URL::to('/products') }}" class="btn btn-neutral rounded-full px-7">
+     Shop Now
+     </a>
+     <a href="{{ URL::to('/about') }}" class="btn btn-outline rounded-full px-7">
+         Learn More
+         </a>
+         </div>
+      </div>
 
-                    <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="{{ URL::to('/products') }}" class="btn btn-neutral rounded-full px-7">
-                            Shop Now
-                        </a>
-                        <a href="{{ URL::to('/about') }}" class="btn btn-outline rounded-full px-7">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-center px-8 pb-10 md:pb-0">
-                    <img src="{{ URL::to('/') }}/pageicons/laptop.svg" alt="Featured technology product"
-                         class="w-52 h-52 md:w-72 md:h-72 {{ $lightclass }}">
-                    <img src="{{ URL::to('/') }}/pageicons/laptopwhite.svg" alt="Featured technology product"
-                         class="w-52 h-52 md:w-72 md:h-72 {{ $darkclass }}">
-                </div>
+ <div class="flex items-center justify-center px-8 pb-10 md:pb-0">
+             <img src="{{ URL::to('/') }}/pageicons/laptop.svg" alt="Featured technology product"
+  class="w-52 h-52 md:w-72 md:h-72 {{ $lightclass }}">
+    <img src="{{ URL::to('/') }}/pageicons/laptopwhite.svg" alt="Featured technology product"
+         class="w-52 h-52 md:w-72 md:h-72 {{ $darkclass }}">
+         </div>
             </div>
         </section>
 
-        {{-- CATEGORY INTRO --}}
+
         <section class="text-center pt-2">
             <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-3">
                 Explore
@@ -56,7 +56,7 @@
             </h2>
         </section>
 
-        {{-- CATEGORIES --}}
+        <!--Catergories card-->
         <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             <a class="bg-base-200 rounded-[1.75rem] border border-base-300 p-8 min-h-[220px] flex flex-col justify-between transition duration-300 hover:-translate-y-1 hover:shadow-xl" href="{{URL::to("/searchCategory/Laptop")}}">
                 <figure class="justify-start">
@@ -114,7 +114,7 @@
             </a>
         </section>
 
-        {{-- BENEFITS --}}
+        <!--Benefits card-->
         <section class="grid gap-4 md:grid-cols-4">
             <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
                 <figure class="justify-center mb-4">
@@ -153,7 +153,7 @@
             </div>
         </section>
 
-        {{-- ABOUT --}}
+        <!--Short About Us Info-->
         <section class="bg-base-200 rounded-[2rem] border border-base-300 px-8 py-14 md:px-12 text-center">
             <p class="text-sm uppercase tracking-[0.2em] text-base-content/60 mb-3">
                 About Nova52
@@ -168,7 +168,7 @@
                 We offer a range of laptops, smartphones, tablets and smart devices designed for students,
                 professionals and everyday users.
             </p>
-
+            <!--Button to About Us Page-->
             <div class="mt-8">
                 <a class="btn btn-neutral rounded-full px-8" href="{{ URL::to('/about') }}">
                     Learn More
