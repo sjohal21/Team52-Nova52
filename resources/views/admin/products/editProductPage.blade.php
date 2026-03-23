@@ -59,10 +59,10 @@
                                 <!-- Category section -->
                                 <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                     <label class="font-bold text-xl">Category:</label>
-                                    <select class="select select-bordered w-full bg-white">
-                                        <option value="Laptop" {{ old('category') == 'Laptop' ? 'selected' : '' }}>Laptop</option>
-                                        <option value="Phone" {{ old('category') == 'Phone' ? 'selected' : '' }}>Phone</option>
-                                        <option value="Tablet" {{ old('category') == 'Tablet' ? 'selected' : '' }}>Tablet</option>
+                                    <select name="categoryID" class="select select-bordered w-full bg-white">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}" {{ old('categoryID' , $product->category_id) == $category->id ? 'selected' : '' }}> {{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
