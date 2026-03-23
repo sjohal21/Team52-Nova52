@@ -23,7 +23,7 @@
        <div>
      <input
        type="email"
-       name="email"
+       name="email" 
    placeholder="Enter your email address"
     class="input input-bordered w-full rounded-2xl bg-base-100"
    required

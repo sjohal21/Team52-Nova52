@@ -117,8 +117,8 @@
         <!--Benefits card-->
         <section class="grid gap-4 md:grid-cols-4">
             <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
-                <figure class="justify-center mb-4">
-                    <img src="{{URL::to('/')}}/pageicons/free-shipping.svg" alt="Free delivery icon" class="w-14 h-14 {{ $lightclass }}">
+        <figure class="flex justify-center items-center mb-4">           
+             <img src="{{URL::to('/')}}/pageicons/free-shipping.svg" alt="Free delivery icon" class="w-14 h-14 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/free-shipping-white.svg" alt="Free delivery icon" class="w-14 h-14 {{ $darkclass }}">
                 </figure>
                 <h3 class="text-lg font-semibold text-base-content">Free Delivery</h3>
@@ -126,8 +126,8 @@
             </div>
 
             <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
-                <figure class="justify-center mb-4">
-                    <img src="{{URL::to('/')}}/pageicons/cyber-security.svg" alt="Secure checkout icon" class="w-14 h-14 {{ $lightclass }}">
+        <figure class="flex justify-center items-center mb-4">              
+             <img src="{{URL::to('/')}}/pageicons/cyber-security.svg" alt="Secure checkout icon" class="w-14 h-14 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/cyber-security-white.svg" alt="Secure checkout icon" class="w-14 h-14 {{ $darkclass }}">
                 </figure>
                 <h3 class="text-lg font-semibold text-base-content">Secure Checkout</h3>
@@ -135,8 +135,8 @@
             </div>
 
             <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
-                <figure class="justify-center mb-4">
-                    <img src="{{URL::to('/')}}/pageicons/shield.svg" alt="Warranty icon" class="w-14 h-14 {{ $lightclass }}">
+            <figure class="flex justify-center items-center mb-4">     
+                   <img src="{{URL::to('/')}}/pageicons/shield.svg" alt="Warranty icon" class="w-14 h-14 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/shieldwhite.svg" alt="Warranty icon" class="w-14 h-14 {{ $darkclass }}">
                 </figure>
                 <h3 class="text-lg font-semibold text-base-content">1-Year Warranty</h3>
@@ -144,8 +144,8 @@
             </div>
 
             <div class="bg-base-200 rounded-[1.5rem] border border-base-300 p-6 text-center">
-                <figure class="justify-center mb-4">
-                    <img src="{{URL::to('/')}}/pageicons/student.svg" alt="Student pricing icon" class="w-14 h-14 {{ $lightclass }}">
+            <figure class="flex justify-center items-center mb-4">                  
+         <img src="{{URL::to('/')}}/pageicons/student.svg" alt="Student pricing icon" class="w-14 h-14 {{ $lightclass }}">
                     <img src="{{URL::to('/')}}/pageicons/studentwhite.svg" alt="Student pricing icon" class="w-14 h-14 {{ $darkclass }}">
                 </figure>
                 <h3 class="text-lg font-semibold text-base-content">Student Pricing</h3>

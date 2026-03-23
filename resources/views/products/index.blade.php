@@ -14,18 +14,54 @@
     Explore the latest tech across all of our categories
 </p>
 
-<!-- Search Bar-->
- <div class="max-w-md mx-auto mt-6">
+<!-- Search Bar + Filter -->
+<div class="max-w-2xl mx-auto mt-6">
     <form action="{{route('products.search')}}" method="GET"
     class="flex items-center bg-base-100 rounded-full shadow px-4 py-3 gap-2">
-    <span class="text-lg"><!--search icon for the placeholder--></span>
+
+        <!-- Search input -->
         <input
-        type="text"
-        name="search"
-        value="{{ request('search') }}"
-        placeholder="search products..."
-        class="w-full bg-transparent outline-none text-sm"
+     type="text"
+     name="search"
+     value="{{ request('search') }}"
+      placeholder="Search products..."
+      class="flex-1 bg-transparent outline-none text-sm"
         >
+
+     <!-- Category filter -->
+    <select name="category" class="select select-bordered rounded-full text-sm">
+    <option value="">All</option>
+
+    <option value="Laptop" {{ request('category') == 'Laptop' ? 'selected' : '' }}>
+        Laptops
+    </option>
+
+    <option value="Smartphone" {{ request('category') == 'Smartphone' ? 'selected' : '' }}>
+        Smartphones
+    </option>
+
+    <option value="Tablet" {{ request('category') == 'Tablet' ? 'selected' : '' }}>
+        Tablets
+    </option>
+
+    <option value="Desktop" {{ request('category') == 'Desktop' ? 'selected' : '' }}>
+        Desktops
+    </option>
+
+    <option value="Audio" {{ request('category') == 'Audio' ? 'selected' : '' }}>
+        Audio
+    </option>
+</select>
+
+        <!-- Button -->
+        <button type="submit"
+                class="btn btn-neutral rounded-full px-4">
+            Filter
+        </button>
+
+    </form>
+</div>
+    
 </form>
 </div>
 </section>
