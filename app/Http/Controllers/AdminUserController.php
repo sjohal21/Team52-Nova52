@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 
 class AdminUserController extends Controller
 {
-    public function show() {
+    public function show(Request $request) {
         //Get all of the users from the users table and order them by name
 
         $query = User::query();
@@ -116,7 +116,7 @@ class AdminUserController extends Controller
         ]);
 
         //if the user doesnt exist an error is thrown
-        $user = User::findOrFail('id', $request->user_id);
+        $user = User::findOrFail('id',$request->user_id);
 
         //change customer to an admin
         if ($user->role !== 'Admin') {
