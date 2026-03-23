@@ -74,6 +74,16 @@ Route::get('/register', [RegisterController::class,'show'])
 Route::post('/register', [RegisterController::class,'register'])
 ->middleware('guest')
 ->name('register.submit');
+
+//Forgot Password Routes
+//==============================================================================================
+Route::get('/forgot-password', function () {
+    return view('auth.forgotPassword');
+})->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', function () {
+    //
+})->middleware('guest')->name('password.email');
 //User Routes
 //==============================================================================================
 Route::get('/login', [LoginController::class,'show'])

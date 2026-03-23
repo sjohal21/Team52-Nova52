@@ -71,6 +71,13 @@
             name="password"
         class="input input-bordered w-full rounded-2xl bg-base-100"
            required>
+
+           <div class="flex justify-end">
+    <a href="{{ route('password.request') }}"
+       class="text-sm text-base-content/70 hover:text-base-content underline underline-offset-4">
+        Forgot password?
+    </a>
+</div>
           @error('password')
       <span class="text-error text-sm block mt-2">{{ $message }}</span>
      @enderror
