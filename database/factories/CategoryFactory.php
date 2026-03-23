@@ -3,21 +3,25 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Baskets>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class BasketsFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
+
+    protected $model = Category::class;
+
     public function definition(): array
     {
         return [
-            //
+            'name' => $this -> faker -> word()
         ];
     }
 }
