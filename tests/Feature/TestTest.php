@@ -5,7 +5,7 @@ use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use phpDocumentor\Reflection\Types\Null_;
 uses(RefreshDatabase::class);
-// Checkout, Add to basket, Change quantity
+// Checkout, Change quantity
 
 // Checks to see that the main page is loading correctly
 
@@ -86,8 +86,18 @@ it ('Adds Item to basket - Valid Amount', function() {
 it ('Change quantity in basket', function() {
     $this -> actingAs($this -> user);
 
-    $response = $this -> post(route('basket-change'), [
-        
+    $firstResponse = $this -> post(route('basket-add'), [
+        'product_id' => $this -> product -> id,
+        'amount' => 1
     ]);
+
+    $firstResponse-> assertRedirect();
+
+    $secondResponse = $this -> post(route('basket.update'), [
+        'product_id' => $this -> product -> id,
+        'amount' => 5
+    ]);
+
+    $secondResponse -> assertRedirect(route('basket'));
 
 });
