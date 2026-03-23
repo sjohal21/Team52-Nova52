@@ -127,13 +127,13 @@
                     <div class="pl-0 lg:pl-2 flex flex-col justify-between">
                         <div class="space-y-6">
 
-                            <!-- Description -->
+                            <!-- Description Section-->
                             <div>
                                 <label class="block font-bold text-2xl mb-3">Product Description:</label>
                                 <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none">Lorem Epsum</textarea>
                             </div>
 
-                            <!-- Specification -->
+                            <!-- Specification section -->
                             <div>
                                 <label class="block font-bold text-2xl mb-3">Product Specification:</label>
                                 <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none">Lorem Epsum</textarea>
