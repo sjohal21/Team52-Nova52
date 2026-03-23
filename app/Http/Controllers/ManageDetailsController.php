@@ -11,7 +11,7 @@ class ManageDetailsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('user.managedetails',['name'=>$user->name, 'email'=>$user->email, 'phone'=>$user->phone_number, 'mustChangePassword'=>$user->must_change_password]);
+        return view('user.managedetails',['name'=>$user->name, 'email'=>$user->email, 'phone'=>$user->phone_number, 'changepassword'=>$user->must_change_password]);
     }
 
     public function changeEmail(Request $request)

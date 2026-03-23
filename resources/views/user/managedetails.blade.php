@@ -40,8 +40,8 @@
                 <h2 class="font-bold p-5">Change password</h2>
                 <div class="card bg-base-300">
                     <div class="card-body">
-                        @if($mustChangePassword)
-                            <p>First login requires password change</p>
+                        @if($changepassword)
+                            <p class="font-bold p-5">First login requires password change</p>
                         @endif
                         <form action="{{URL::to('/user/modify/password')}}" method="post" class="block">
                             <p class="font-bold">New password</p>
