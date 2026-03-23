@@ -2,12 +2,13 @@
 
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use phpDocumentor\Reflection\Types\Null_;
 uses(RefreshDatabase::class);
-// Checkout, Change quantity
+// Checkout
 
-// Checks to see that the main page is loading correctly
+
 
 beforeEach(function() {
     $this->user = User::factory()->create([
@@ -100,4 +101,10 @@ it ('Change quantity in basket', function() {
 
     $secondResponse -> assertRedirect(route('basket'));
 
+});
+
+it ('Create a valid order', function() {
+    $this -> actingAs($this -> user);
+
+    $response = $this -> post(route())
 });
