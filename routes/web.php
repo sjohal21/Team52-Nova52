@@ -117,6 +117,8 @@ Route::middleware(['auth','admin'])->group(function() {
     ->name('admin.users.demote');
     // Admin Edit Product Page
     Route::get('/admin/products/editProductPage',[AdminProductController::class,'editProductPage']);
+    // Admin Add Product Page
+    Route::get('/admin/products/addproduct',[AdminProductController::class,'addProductPage']);
     // Admin orders page
     Route::get('/admin/orders',[AdminOrderController::class,'index'])->name('admin.order.index');
     // Admin order details page

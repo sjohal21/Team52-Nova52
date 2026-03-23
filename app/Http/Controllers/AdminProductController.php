@@ -11,4 +11,9 @@ class AdminProductController extends Controller {
         return view('admin.products.editProductPage');
     }
 
+    // Admin Add Product Page Route
+    public function addProductPage() {
+        return view('admin.products.addproduct');
+    }
+
 }
