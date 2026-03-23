@@ -41,8 +41,9 @@
 
             <!----------------- Main Edit Card ----------------->
             <div class="bg-base-300 rounded-3xl p-6 lg:p-8 shadow-sm">
-                 <form method="POST" action="{{ URL::to('/admin/products/addproduct') }}" enctype="multipart/form-data">
+                 <form method="POST" action="{{ URL::to('/admin/products/editProduct') }}" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="productID" value="{{ $product->id }}">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                         <!------- Left Side section ------->
@@ -52,7 +53,7 @@
                                 <!-- Name secction -->
                                 <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                     <label class="font-bold text-xl">Name:</label>
-                                    <input type="text" value="" placeholder="Enter the name" class="input input-bordered w-full bg-white" />
+                                    <input type="text" name="productName" value="{{ old('productName', $product->name) }}" placeholder="Enter the name" class="input input-bordered w-full bg-white" />
                                 </div>
 
                                 <!-- Category section -->
@@ -68,63 +69,33 @@
                                 <!-- Price section -->
                                 <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                     <label class="font-bold text-xl">Price:</label>
-                                    <input type="text" value="" placeholder="Enter the price " class="input input-bordered w-full bg-white" />
+                                    <input type="number" name="productPrice" value="{{ old('productPrice', $product->price) }}" placeholder="Enter the price " class="input input-bordered w-full bg-white" />
                                 </div>
 
-                                <!-- Tagline section -->
+                                <!-- Stock level section section -->
                                 <div class="grid grid-cols-[140px_1fr] items-center gap-4">
                                     <label class="font-bold text-xl">Tagline:</label>
-                                    <input type="text" value="" placeholder="Enter the tagline" class="input input-bordered w-full bg-white" />
+                                    <input type="number" name="stockQuantity" value="{{ old('stockQuantity', $product->stock_level) }}" placeholder="Enter the stock level" class="input input-bordered w-full bg-white" />
                                 </div>
 
                                 <!-- Key Features section -->
                                 <div class="grid grid-cols-[140px_1fr] gap-4 items-start">
                                     <label class="font-bold text-xl pt-2">Key feature:</label>
                                     <div class="space-y-3">
-                                        <input type="text" value="" placeholder="Enter feature 1" class="input input-bordered w-full bg-white" />
-                                        <input type="text" value="" placeholder="Enter feature 2" class="input input-bordered w-full bg-white" />
-                                        <input type="text" value="" placeholder="Enter feature 3" class="input input-bordered w-full bg-white" />
+                                        <input type="text" name="feature_1" value="{{ old('feature_1', $product->feature_1 ?? '') }}" placeholder="Enter feature 1" class="input input-bordered w-full bg-white" />
+                                        <input type="text" name="feature_2" value="{{ old('feature_2', $product->feature_2 ?? '') }}" placeholder="Enter feature 2" class="input input-bordered w-full bg-white" />
+                                        <input type="text" name="feature_3" value="{{ old('feature_3', $product->feature_3 ?? '') }}" placeholder="Enter feature 3" class="input input-bordered w-full bg-white" />
                                     </div>
-                                </div>
 
                                 <!-- Images section -->
-                                <div class="pt-4">
-                                    <!-- Image grid -->
-                                    <div class="grid grid-cols-2 gap-4 w-fit">
-                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-gray-200 shadow">
-                                            <img src="https://via.placeholder.com/150" alt="product image" class="w-full h-full object-cover">
-                                            <button type="button" class="absolute bottom-1 left-1/2 -translate-x-1/2 text-red-500 text-xs font-bold bg-white/80 px-2 py-1 rounded">
-                                                Remove
-                                            </button>
-                                        </div>
-
-                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-gray-200 shadow">
-                                            <img src="https://via.placeholder.com/150" alt="product image" class="w-full h-full object-cover">
-                                            <button type="button" class="absolute bottom-1 left-1/2 -translate-x-1/2 text-red-500 text-xs font-bold bg-white/80 px-2 py-1 rounded">
-                                                Remove
-                                            </button>
-                                        </div>
-
-                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-gray-200 shadow">
-                                            <img src="https://via.placeholder.com/150" alt="product image" class="w-full h-full object-cover">
-                                            <button type="button" class="absolute bottom-1 left-1/2 -translate-x-1/2 text-red-500 text-xs font-bold bg-white/80 px-2 py-1 rounded">
-                                                Remove
-                                            </button>
-                                        </div>
-
-                                        <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-gray-200 shadow">
-                                            <img src="https://via.placeholder.com/150" alt="product image" class="w-full h-full object-cover">
-                                            <button type="button" class="absolute bottom-1 left-1/2 -translate-x-1/2 text-red-500 text-xs font-bold bg-white/80 px-2 py-1 rounded">
-                                                Remove
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <!-- Upload button row -->
-                                    <div class="flex justify-end mt-6">
-                                        <button class="btn rounded-full bg-black text-white border-none hover:bg-gray-800 px-6">
-                                            Upload New Image
-                                        </button>
+                                 <div class="pt-6">
+                                    <div class="flex justify-end">
+                                        <input
+                                            type="file"
+                                            name="uploadedImage"
+                                            id="uploadedImage"
+                                            class="file-input file-input-bordered bg-white max-w-xs"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -137,21 +108,18 @@
                                 <!-- Description Section-->
                                 <div>
                                     <label class="block font-bold text-2xl mb-3">Product Description:</label>
-                                    <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none" placeholder="Enter product description"></textarea>
+                                    <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none" name="productDescription" placeholder="Enter product description">{{ old('productDescription', $product->description) }}</textarea>
                                 </div>
 
                                 <!-- Specification section -->
                                 <div>
                                     <label class="block font-bold text-2xl mb-3" placeholder="Enter product specification"></label>
-                                    <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none" placcholder="Enter Specification" ></textarea>
+                                    <textarea class="textarea textarea-bordered w-full h-40 bg-white resize-none" name="productSpecification" placcholder="Enter Specification" >{{ old('productSpecification', $product->specification ?? '') }}</textarea>
                                 </div>
                             </div>
 
                             <!-- Bottom Buttons -->
                             <div class="flex justify-between items-center pt-6">
-                                <button class="btn rounded-full bg-blue-500 text-white border-none hover:bg-blue-600 px-10">
-                                    Preview
-                                </button>
 
                                 <button class="btn rounded-full bg-black text-white border-none hover:bg-gray-800 px-10">
                                     Save Changes
