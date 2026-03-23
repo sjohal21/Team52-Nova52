@@ -61,7 +61,7 @@
                                 <select class="select select-bordered w-full bg-white">   
                                     <select name="categoryID" class="select select-bordered w-full bg-white">
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->id }}" {{ old('categoryID' , $product->category_id) == $category->id ? 'selected' : '' }}> {{ $category->name }}</option>
+                                            <option value="{{ $category->id }}" {{ old('categoryID') == $category->id ? 'selected' : '' }}> {{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </select>
