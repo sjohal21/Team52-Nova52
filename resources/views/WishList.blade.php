@@ -37,7 +37,7 @@
  </div>
 
         <div class="p-6 md:p-8 flex flex-col justify-between h-full">
-            div class="space-y-3">
+            <div class="space-y-3">
             <h2 class="text-2xl font-semibold text-base-content">
          {{ $item->product->name }}
       </h2>
@@ -89,8 +89,8 @@
  </p>
 <div class="mt-8">
 <a href="{{ URL::to('/products') }}"
-                      
-    class="btn btn-neutral rounded-full px-8">  
+
+    class="btn btn-neutral rounded-full px-8">
     Browse Products
     </a>
 </div>
