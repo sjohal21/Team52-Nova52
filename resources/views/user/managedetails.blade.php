@@ -40,6 +40,9 @@
                 <h2 class="font-bold p-5">Change password</h2>
                 <div class="card bg-base-300">
                     <div class="card-body">
+                        @isset($message)
+                            <p>{{$message}}</p>
+                        @endisset
                         <form action="{{URL::to('/user/modify/password')}}" method="post" class="block">
                             <p class="font-bold">New password</p>
                             <input type="password" id="password" name="password" class="bg-base-200 m-5 p-2">

@@ -20,9 +20,9 @@ class ForcedPasswordChange
 
         //check if its the users first time logging in or if they are alreadyu on the page, submitting their info or logging out
         if ($user && $user->must_change_password && !$request->routeIs('usermanagement')&& !$request->routeIs('usermanagement.changePassword') && !$request->routeIs('logout')) {
-            return redirect()->route('usermanagement');
+            return redirect()->route('usermanagement')->with(['message'=>"First login requires password change"]);
         }
-        
+
         return $next($request);
     }
 }

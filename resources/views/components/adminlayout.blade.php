@@ -23,6 +23,7 @@
         <a class="btn btn-ghost" href="{{URL::to('/admin/users')}}">Users</a>
         <a class="btn btn-ghost" href="{{URL::to('/admin/products')}}">Products</a>
         <a class="btn btn-ghost" href="{{URL::to('/admin/returns')}}">Returns</a>
+        <a class="btn btn-ghost" href="{{URL::to('/admin/contact')}}">Contact requests</a>
         <a class="btn btn-ghost" href="{{URL::to('/')}}">Customer view</a>
     </div>
     <div class="navbar-end">

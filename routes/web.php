@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminReturnsController;
@@ -190,9 +191,12 @@ Route::middleware(['auth','admin','forced.password.change'])->group(function() {
 
     // Admin order details page
     Route::get("/admin/orders/{orderID}",[AdminOrderController::class,'show'])->name('admin.order.showOrder');
-    
+
     // Admin view returns
     Route::get("/admin/returns",[AdminReturnsController::class,'index'])->name('admin.returns.index');
+
+    // View contact requests
+    Route::get("/admin/contact",[AdminContactController::class,'index'])->name('admin.contact.index');
 });
 
 //Product Routes
