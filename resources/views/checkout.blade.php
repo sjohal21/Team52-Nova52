@@ -41,20 +41,20 @@
                         <div class="divider"></div>
                         <div class="flex justify-between mb-10 font-bold text-lg">
                             <span>Subtotal:</span>
-                            <span>{{$subtotal}}</span>
+                            <span>£{{number_format($subtotal, 2)}}</span>
                         </div>
                         <div class="flex justify-between mb-10 font-bold text-lg">
                             <span>Delivery Fee</span>
-                            <span>{{$deliveryFee}}</span>
+                            <span>£{{number_format($deliveryFee, 2)}}</span>
                         </div>
                         <div class="flex justify-between mb-10 font-bold text-lg">
                             <span>VAT(20%)</span>
-                            <span>{{$vat}}</span>
+                            <span>£{{number_format($vat, 2)}}</span>
                         </div>
                         <div class="divider"></div>
                         <div class="flex justify-between font-bold text-lg">
                             <span>Total</span>
-                            <span>{{$total}}</span>
+                            <span>£{{number_format($total, 2)}}</span>
                         </div>
                     </div>
                 </div>

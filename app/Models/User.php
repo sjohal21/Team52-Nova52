@@ -25,6 +25,7 @@ class User extends Authenticatable
         'phone_number',
         'address',
         'role',
+        'must_change_password',
     ];
 
     /**
@@ -59,5 +60,10 @@ class User extends Authenticatable
     public function basket() //added function to relate user to basket to use in checkout controller
     {
         return $this->hasOne(Basket::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class);
     }
 }

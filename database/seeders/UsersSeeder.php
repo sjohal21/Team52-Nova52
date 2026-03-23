@@ -21,6 +21,7 @@ class UsersSeeder extends Seeder
             'phone_number' => '0123456789',
             'address' => null,
             'role' => 'Admin',
+            'must_change_password' => true,
         ]);
     }
 }

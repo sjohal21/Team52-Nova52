@@ -11,7 +11,7 @@
 </h1>
 
 <p class="text-sm md:text-base text-black dark:text-white">
-    Explore the latest tech across all of our catergories
+    Explore the latest tech across all of our categories
 </p>
 
 <!-- Search Bar-->
@@ -36,40 +36,47 @@
         @forelse ($products as $product)
         <div class="card bg-base-100 shadow-md rounded-2xl pb-4 relative hover:shadow-xl transition">
             <!--design for the product-->
-
+            <!-- Commented out until future development
             <button class="absolute right-3 top-3 text-lg opacity-80 hover:opacity-100">
                 [icon]
-</button>
+            </button>
+            -->
+         <!--Product Image-->
+            @if($product->photo_url)
 
- <!--Product Image-->
-<figure class="h-40 overflow-hidden rounded-t-2xl">
-    <img src="{{$product->photo_url}}"
-    alt="{{$product->name}}"
-    class="w-full h-full object-cover">
-</figure>
+            <figure class="h-75 overflow-hidden rounded-t-2xl">
+                <img src="{{Storage::url($product->photo_url)}}"
+                alt="{{$product->name}}"
+                class="w-full h-full object-cover">
+            </figure>
+            @else
+                <figure class="h-40 overflow-hidden rounded-t-2xl">
+                    <p>No image</p>
+                </figure>
+            @endif
 
-<!--Product Information -->
-<div class="card-body text-center px-4">
-    <h3 class="font-semibold text-sm">{{$product->name}}</h3>
 
-    <p class="text-xs text-base-content mb-3">
-        from £{{number_format($product->price,2)}}
-</p>
-<!--Product Details-->
-<a href="{{route('products.show', $product->id) }}"
-class="btn btn-neutral btn-xs rounded-full px-4">
-view product
-</a>
-</div>
-</div>
-@empty
-<!-- If no products match search -->
-<p class="text-center col-span-full text-sm md:text-base">
-    No products found.
-</p>
-@endforelse
+        <!--Product Information -->
+        <div class="card-body text-center px-4">
+            <h3 class="font-semibold text-sm">{{$product->name}}</h3>
 
-</div>
+            <p class="text-xs text-base-content mb-3">
+                from £{{number_format($product->price,2)}}
+            </p>
+            <!--Product Details-->
+            <a href="{{route('products.show', $product->id) }}"
+            class="btn btn-neutral btn-xs rounded-full px-4">
+            View Product
+            </a>
+        </div>
+    </div>
+    @empty
+    <!-- If no products match search -->
+    <p class="text-center col-span-full text-sm md:text-base">
+        No products found.
+    </p>
+    @endforelse
+    </div>
 </section>
 </x-layout>
 

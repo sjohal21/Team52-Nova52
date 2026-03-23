@@ -5,7 +5,7 @@ namespace App\Models;
  //  *********** Import Required Classes ***********
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\orderitems;
+use App\Models\Orderitems;
 use App\Models\User;
 
 class Order extends Model
@@ -24,6 +24,9 @@ class Order extends Model
         'Postcode',
         'Select_Country',
         'status',
+        'items_price',
+        'vat',
+        'shipping',
         'total_price',
     ];
 
@@ -33,7 +36,7 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
     // has many orderitems via order_id
-    public function orderitems(){
+    public function Orderitems(){
         return $this->hasMany(Orderitems::class);
     }
 }

@@ -3,7 +3,7 @@
         {{$product->name}}
     </x-slot:title>
 <!-- this shows the names for the products-->
- <section class="bg-base-200 py-10 text-center">
+<section class="bg-base-200 py-10 text-center">
     <h1 class="text-3xl md:text-4xl font-bold">
         {{$product->name}}
     </h1>
@@ -16,17 +16,15 @@
         <div>
             <div class="relative rounded-xl overflow-hidden shadow">
                 <!--this is for the heart-->
-                <button class="absolute top-3 right-3 text-xl opacity-80 hover:opacity-100">
-                    [icon]
-                </button>
-                <img src="{{$product->photo_url}}" alt="{{$product->name}}" class="w-full h-80 object-cover rounded-xl">
+                <img src="{{Storage::url($product->photo_url)}}" alt="{{$product->name}}" class="w-full h-80 object-cover rounded-xl">
             </div>
             <!--this is for the product image (underneath)-->
-            <div class="flex gap-3 mt-4">
+            <!-- Commented out due to not currently existing multi-image functionality -->
+            <!--<div class="flex gap-3 mt-4">
                 <img src="{{$product->photo_url}}" class="w-20 h-16 object-cover rounded-lg shadow">
                 <img src="{{$product->photo_url}}" class="w-20 h-16 object-cover rounded-lg shadow">
                 <img src="{{$product->photo_url}}" class="w-20 h-16 object-cover rounded-lg shadow">
-            </div>
+            </div> -->
         </div>
         <div class="space-y-6">
             <h2 class="text-2xl font-bold">{{$product->name}}</h2>
@@ -59,9 +57,16 @@
                 @csrf
             </form>
 
-                @if (session('error'))
-                    <p>{{session('error')}}</p>
-                @endif
+            <!-- Add to wishlist button -->
+            <form method="post" action="{{URL::to('/wishlist/add')}}" class="flex flex-row">
+                <input type="hidden" value="{{$product->id}}" name="product_id">
+                <input class="btn btn-neutral w-auto md-w-64 rounded-full text-white mt-12" type="submit" value="Add to wishlist">
+                @csrf
+            </form>
+
+            @if (session('error'))
+                <p>{{session('error')}}</p>
+            @endif
         </div>
     </div>
     <!--this is for the information on each product-->
@@ -75,6 +80,25 @@
             </p>
         </div>
     @endif
+    <div class="p-5">
+        <h2 class="font-bold text-center text-lg p-2">Reviews</h2>
+        @if($product->reviews)
+                @foreach($product->reviews as $review)
+                    <div class="card bg-base-300">
+                        <div class="card-body">
+                            <h3 class="font-bold">{{$review->user->name}}</h3>
+                            <p>{{$review->description}}</p>
+                        </div>
+                    </div>
+                @endforeach
+        @else
+            <div class="card bg-base-300">
+                <h3 class="font-bold text-lg text-center">No reviews for product!</h3>
+            </div>
+        @endif
+        <a class="btn btn-neutral w-auto md-w-64 rounded-full text-white mt-12" href="/review/{{$product->id}}/add">Add review</a>
+    </div>
+
 </section>
 </x-layout>
 

@@ -25,6 +25,7 @@ class LoginController extends Controller
         //gives user a new session ID to prevent hackers using an old one to access their account
     $request->session()->regenerate();
 
+<<<<<<< HEAD
     $user = Auth::user();
     if($user->role === 'Admin') {
     return redirect('/')->with('success','Welcome to Nova52 Administrator');
@@ -32,6 +33,15 @@ class LoginController extends Controller
     else {
     return redirect('/')->with('success','Welcome to Nova52');
     }
+=======
+     $user = Auth::user();
+     if($user->role === 'Admin') {
+     return redirect('/admin/dashboard')->with('success','Welcome to Nova52 Administrator');
+     }
+     else {
+     return redirect('/')->with('success','Welcome to Nova52');
+     }
+>>>>>>> main
 
       }
       return back()

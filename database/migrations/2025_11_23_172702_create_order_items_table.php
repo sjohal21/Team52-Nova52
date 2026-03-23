@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             // Foreign Keys
+            // $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('order_id')->references('id')->on('orders');
             $table->foreignId('product_id')->references('id')->on('products');
 
