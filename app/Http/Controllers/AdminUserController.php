@@ -31,7 +31,7 @@ class AdminUserController extends Controller
 
         $users = $query->orderBy('name')
         ->get();
-        
+
         return view('admin.users',[
             'users' => $users,
             'search' => $request->search ?? '',
@@ -48,7 +48,7 @@ class AdminUserController extends Controller
         $validated = $request->validate([
          'name' => 'required|string|max:255',
          'email' => 'required|email|unique:users,email',
-         'password' => 'required|min:8|confirmed', 
+         'password' => 'required|min:8|confirmed',
          'phone_number' =>'required|string|max:20',
          'address' => 'nullable|string|max:255',
          'role' => 'required|string|in:admin,customer'
@@ -82,7 +82,7 @@ class AdminUserController extends Controller
     $validated = $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:users,email' . $id,
-        'password' => 'required|min:8|confirmed', 
+        'password' => 'required|min:8|confirmed',
         'phone_number' =>'required|string|max:20',
         'address' => 'nullable|string|max:255',
         'role' => 'required|string|in:admin,customer'
@@ -116,7 +116,7 @@ class AdminUserController extends Controller
         ]);
 
         //if the user doesnt exist an error is thrown
-        $user = User::findOrFail('id',$request->user_id);
+        $user = User::findOrFail($request->user_id);
 
         //change customer to an admin
         if ($user->role !== 'Admin') {
