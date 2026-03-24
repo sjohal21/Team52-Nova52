@@ -52,7 +52,7 @@
                     @guest<a class="btn btn-ghost" href="{{URL::to('/login')}}">Log in</a>@endguest
                     @guest<a class="btn btn-ghost" href="{{URL::to('/register')}}">Register</a>@endguest
                         @auth
-                            @if(Auth::user()->role = "Admin")
+                            @if(Auth::user()->role == "Admin")
                             <a class="btn btn-ghost" href="{{URL::to('/admin/dashboard')}}">Admin</a>
                            @endif
                         @endauth
