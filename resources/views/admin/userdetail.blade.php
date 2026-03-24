@@ -41,7 +41,7 @@
                             <input type="hidden" name="user_id" value="{{$user->id}}">
                             <input type="submit" class="btn bg-red-400 text-white rounded-md" value="Demote">
                         </form>
-                    @elseif($user->role =="Customer")
+                    @elseif($user->role == "customer")
                         <form method="post" action="{{URL::to('/admin/users/promote')}}">
                             @csrf
                             <input type="hidden" name="user_id" value="{{$user->id}}">
